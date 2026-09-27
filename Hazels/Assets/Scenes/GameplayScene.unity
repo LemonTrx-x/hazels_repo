@@ -989,11 +989,7 @@ MonoBehaviour:
   mainCamera: {fileID: 330585543}
   gamepadSensitivity: 200
   mouseSensitivity: 1
-  hands:
-  - {fileID: 1474116560}
-  - {fileID: 1934855079}
-  - {fileID: 352415966}
-  - {fileID: 1590627974}
+  hand: {fileID: 1474116560}
   handObj: {fileID: 0}
   dropForce: 250
   objScale: 2
