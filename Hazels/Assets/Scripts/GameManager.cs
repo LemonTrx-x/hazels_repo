@@ -1,0 +1,24 @@
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance { get; private set; }
+
+    public ItemDataBase itemDataBase;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        //Initialize the DataBase
+        itemDataBase.InitializeDataBase();
+    }
+}
