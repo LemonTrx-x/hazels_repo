@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public Raycast raycast;
     private PlayerInput playerInput;
     private Vector2 inputCamera;
 
@@ -16,6 +17,12 @@ public class Player : MonoBehaviour
 
     float xRotation = 0f;
     bool isGamepad;
+
+    [Header("Hands")]
+    public Transform[] hands;
+    public GameObject handObj;
+    public float dropForce = 250f;
+    public float objScale = 2f;
 
     void Start()
     {
@@ -53,6 +60,35 @@ public class Player : MonoBehaviour
         {
             isGamepad = false;
             Debug.Log("Mouse&Keyboard in use");
+        }
+    }
+
+    public void PickUpObj()
+    {
+        raycast.hit.collider.GetComponent<Rigidbody>().useGravity = false;
+        raycast.hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+        raycast.hit.collider.GetComponent<Collider>().isTrigger = true;
+
+        raycast.hit.collider.transform.position = hands[0].transform.position;
+        raycast.hit.collider.transform.localScale /= objScale;
+        raycast.hit.collider.gameObject.transform.SetParent(hands[0].gameObject.transform);
+
+        handObj = raycast.hit.collider.gameObject;
+    }
+
+    public void DropObj(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.performed && handObj != null)
+        {
+            handObj.GetComponent<Rigidbody>().useGravity = true;
+            handObj.GetComponent<Rigidbody>().isKinematic = false;
+            handObj.GetComponent<Rigidbody>().AddForce(transform.forward * dropForce);
+            handObj.GetComponent<Collider>().isTrigger = false;
+
+            handObj.transform.localScale *= objScale;
+            handObj.transform.SetParent(null);
+
+            handObj = null;
         }
     }
 }
