@@ -34,7 +34,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PreviousHand",
+                    "name": "PreviousObj",
                     "type": "Button",
                     "id": "35614213-bd83-467c-93df-a6ce840d73c8",
                     "expectedControlType": "",
@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "NextHand",
+                    "name": "NextObj",
                     "type": "Button",
                     "id": "95529286-cc4f-451b-8b4a-5e7efda015e0",
                     "expectedControlType": "",
@@ -99,17 +99,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c56d0331-7076-49e3-8193-1864aba014d2",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Mouse&Keyboard",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8d6bd0ca-6dfe-4b8e-928b-2439c3c1ad1c",
                     "path": "<Gamepad>/dpad/down",
                     "interactions": "",
@@ -137,7 +126,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "PreviousHand",
+                    "action": "PreviousObj",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -148,7 +137,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Mouse&Keyboard",
-                    "action": "PreviousHand",
+                    "action": "PreviousObj",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -159,7 +148,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "NextHand",
+                    "action": "NextObj",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -170,7 +159,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Mouse&Keyboard",
-                    "action": "NextHand",
+                    "action": "NextObj",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
