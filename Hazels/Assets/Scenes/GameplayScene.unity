@@ -702,7 +702,19 @@ MonoBehaviour:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1486918755}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnControlsChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
@@ -725,7 +737,7 @@ MonoBehaviour:
     m_ActionId: 4b641009-b112-4ba2-b501-8d2237ad8dd5
     m_ActionName: 'Player/Take[/XInputControllerWindows/rightTrigger,/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -744,7 +756,7 @@ MonoBehaviour:
   cameraPlayer: {fileID: 330585546}
   mainCamera: {fileID: 330585543}
   gamepadSensitivity: 200
-  mouseSensitivity: 100
+  mouseSensitivity: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
