@@ -29,11 +29,6 @@ public class Raycast : MonoBehaviour
 
         if (Physics.Raycast(origin, direction, out hit, rayDistance, layerMask))
         {
-            if (callbackContext.performed && hit.collider.CompareTag("Ground"))
-            {
-                Debug.Log("Looking at Ground");
-            }
-
             if (callbackContext.performed && hit.collider.CompareTag("Obj"))
             {
                 player.PickUpObj();

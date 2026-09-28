@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         {
             handObj.GetComponent<Rigidbody>().useGravity = true;
             handObj.GetComponent<Rigidbody>().isKinematic = false;
-            handObj.GetComponent<Rigidbody>().AddForce(transform.forward * dropForce);
+            handObj.GetComponent<Rigidbody>().AddForce(hand.transform.forward * dropForce);
             handObj.GetComponent<Collider>().isTrigger = false;
 
             handObj.transform.localScale *= objScale;
