@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public ItemDataBase itemDataBase;
 
+    public bool inMenu;
+
     void Awake()
     {
         if (Instance == null)

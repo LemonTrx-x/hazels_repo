@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   itemDataBase: {fileID: 11400000, guid: adca0308a15059645932df533dd17684, type: 2}
+  inMenu: 0
 --- !u!1 &39429632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,6 +5283,8 @@ GameObject:
   - component: {fileID: 1486918751}
   - component: {fileID: 1486918750}
   - component: {fileID: 1486918755}
+  - component: {fileID: 1486918756}
+  - component: {fileID: 1486918757}
   - component: {fileID: 1486918754}
   m_Layer: 0
   m_Name: Player
@@ -5460,13 +5463,21 @@ MonoBehaviour:
     m_ActionId: e4b7afd8-e44a-4a24-af03-0e12ebccef0c
     m_ActionName: Player/Drop
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 35614213-bd83-467c-93df-a6ce840d73c8
-    m_ActionName: 'Player/PreviousHand[/XInputControllerWindows/leftShoulder,/Keyboard/q]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 95529286-cc4f-451b-8b4a-5e7efda015e0
-    m_ActionName: 'Player/NextHand[/XInputControllerWindows/rightShoulder,/Keyboard/e]'
+      m_Calls:
+      - m_Target: {fileID: 1486918756}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: HandleInventoryUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 14f54a61-73e0-4b86-b778-bbdbd5e54d29
+    m_ActionName: 'Player/Inventory[/Keyboard/tab,/XInputControllerWindows/buttonWest]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -5493,6 +5504,34 @@ MonoBehaviour:
   handObj: {fileID: 0}
   dropForce: 250
   objScale: 2
+--- !u!114 &1486918756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486918749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bb35ba4bf2d5340aa5f9feabb17c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  playerInventoryUI: {fileID: 264813759}
+--- !u!114 &1486918757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486918749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78c2849fe417ab47ab876f0efe95efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  slotsContainer: {fileID: 264813760}
+  hotBarSoltContainer: {fileID: 1915247550}
+  itemDev: {fileID: 11400000, guid: 003e699839afb6d478fccbfa175e9dbd, type: 2}
 --- !u!1 &1504876142
 GameObject:
   m_ObjectHideFlags: 0

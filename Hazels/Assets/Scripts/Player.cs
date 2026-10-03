@@ -30,7 +30,15 @@ public class Player : MonoBehaviour
         OnControlsChanged(playerInput);
     }
 
-    void LateUpdate()
+    void Update()
+    {
+        if (!GameManager.Instance.inMenu)
+        {
+            HandleCamera();
+        }
+    }
+
+    public void HandleCamera()
     {
         if (isGamepad)
         {
@@ -65,30 +73,36 @@ public class Player : MonoBehaviour
 
     public void PickUpObj()
     {
-        raycast.hit.collider.GetComponent<Rigidbody>().useGravity = false;
-        raycast.hit.collider.GetComponent<Rigidbody>().isKinematic = true;
-        raycast.hit.collider.GetComponent<Collider>().isTrigger = true;
+        if (!GameManager.Instance.inMenu)
+        {
+            raycast.hit.collider.GetComponent<Rigidbody>().useGravity = false;
+            raycast.hit.collider.GetComponent<Rigidbody>().isKinematic = true;
+            raycast.hit.collider.GetComponent<Collider>().isTrigger = true;
 
-        raycast.hit.collider.transform.position = hand.position;
-        raycast.hit.collider.transform.localScale /= objScale;
-        raycast.hit.collider.gameObject.transform.SetParent(hand);
+            raycast.hit.collider.transform.position = hand.position;
+            raycast.hit.collider.transform.localScale /= objScale;
+            raycast.hit.collider.gameObject.transform.SetParent(hand);
 
-        handObj = raycast.hit.collider.gameObject;
+            handObj = raycast.hit.collider.gameObject;
+        }
     }
 
     public void DropObj(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed && handObj != null)
+        if (!GameManager.Instance.inMenu)
         {
-            handObj.GetComponent<Rigidbody>().useGravity = true;
-            handObj.GetComponent<Rigidbody>().isKinematic = false;
-            handObj.GetComponent<Rigidbody>().AddForce(hand.transform.forward * dropForce);
-            handObj.GetComponent<Collider>().isTrigger = false;
+            if (callbackContext.performed && handObj != null)
+            {
+                handObj.GetComponent<Rigidbody>().useGravity = true;
+                handObj.GetComponent<Rigidbody>().isKinematic = false;
+                handObj.GetComponent<Rigidbody>().AddForce(hand.transform.forward * dropForce);
+                handObj.GetComponent<Collider>().isTrigger = false;
 
-            handObj.transform.localScale *= objScale;
-            handObj.transform.SetParent(null);
+                handObj.transform.localScale *= objScale;
+                handObj.transform.SetParent(null);
 
-            handObj = null;
+                handObj = null;
+            }
         }
     }
 }
