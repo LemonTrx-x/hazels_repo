@@ -73,6 +73,14 @@ public class Player : MonoBehaviour
 
     public void PickUpObj()
     {
+        InteractiveObj interactiveObj = raycast.hit.collider.gameObject.GetComponent<InteractiveObj>();
+
+        if (interactiveObj != null && !GameManager.Instance.inMenu)
+        {
+            interactiveObj.Interact();
+        }
+
+        /*
         if (!GameManager.Instance.inMenu)
         {
             raycast.hit.collider.GetComponent<Rigidbody>().useGravity = false;
@@ -85,6 +93,7 @@ public class Player : MonoBehaviour
 
             handObj = raycast.hit.collider.gameObject;
         }
+        */
     }
 
     public void DropObj(InputAction.CallbackContext callbackContext)

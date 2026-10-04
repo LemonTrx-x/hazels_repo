@@ -9,12 +9,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     [HideInInspector] public int stock;
 
     public Image icon;
-    private TextMeshProUGUI stockText;
-
-    void Start()
-    {
-        stockText = GetComponentInChildren<TextMeshProUGUI>();
-    }
+    public TextMeshProUGUI stockText;
 
     public void SetItem(ItemData itemData, int stock)
     {

@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; }
 
     public GameObject playerInventoryUI;
+    public Inventory playerInventory;
 
     void Awake()
     {
@@ -18,6 +19,8 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        playerInventory = GetComponent<Inventory>();
     }
 
     void Update()
