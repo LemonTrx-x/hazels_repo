@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 1
   itemName: Sphere
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  maxStock: 25
+  maxStock: 1

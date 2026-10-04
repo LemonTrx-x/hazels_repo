@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Obj
+  - Slot
   layers:
   - Default
   - TransparentFX

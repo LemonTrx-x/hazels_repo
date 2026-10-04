@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 1
   itemName: Cube
   icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  maxStock: 50
+  maxStock: 25
