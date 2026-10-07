@@ -6,7 +6,6 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     public Image ghostIcon;
-    public InventoryManager inventoryManager;
 
     void Awake()
     {
@@ -23,6 +22,6 @@ public class UIManager : MonoBehaviour
 
     public void CloseUI()
     {
-        inventoryManager.HandleInventoryUI();
+        InventoryManager.Instance.HandleInventoryUI();
     }
 }

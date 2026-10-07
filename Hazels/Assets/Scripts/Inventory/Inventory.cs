@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
-    public Transform slotsContainer;
+    public Transform hotBarSoltContainer;
 
     [Header("Extra")]
-    public Transform hotBarSoltContainer; //Only for the player
+    public Transform inventorySlotsContainer;
     public ItemData itemDev;
     public ItemData itemDev2;
 
@@ -14,11 +14,11 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        slots.AddRange(slotsContainer.GetComponentsInChildren<Slot>());
+        slots.AddRange(hotBarSoltContainer.GetComponentsInChildren<Slot>());
 
-        if (hotBarSoltContainer != null)
+        if (inventorySlotsContainer != null)
         {
-            slots.AddRange(hotBarSoltContainer.GetComponentsInChildren<Slot>());
+            slots.AddRange(inventorySlotsContainer.GetComponentsInChildren<Slot>());
         }
 
         Debug.Log("Inventory initialized with " + slots.Count + " slots.");

@@ -57,17 +57,6 @@
                 },
                 {
                     "name": "",
-                    "id": "bde2a6ea-4822-432d-89c9-3e9f79c0e61b",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Mouse&Keyboard",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8c0e38ad-bbc8-4841-8a4a-03219d928d9f",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",

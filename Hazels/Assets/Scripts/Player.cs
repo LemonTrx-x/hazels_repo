@@ -1,7 +1,5 @@
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 public class Player : MonoBehaviour
 {
@@ -54,7 +52,10 @@ public class Player : MonoBehaviour
 
         else
         {
-            inputCamera = playerInput.actions["Look"].ReadValue<Vector2>() * mouseSensitivity;
+            float inputX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+            inputCamera = new Vector2(inputX, inputY);
         }
 
         xRotation -= inputCamera.y;

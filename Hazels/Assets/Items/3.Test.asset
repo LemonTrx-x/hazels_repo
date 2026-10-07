@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72fa2cf93ea5bb4789309f7bfd25ec5, type: 3}
-  m_Name: 2.Sphere
+  m_Name: 3.Test
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  id: 2
-  itemName: Sphere
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  maxStock: 1
+  id: 3
+  itemName: 
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  maxStock: 5
