@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     public Image ghostIcon;
+    public InventoryManager inventoryManager;
 
     void Awake()
     {
@@ -18,5 +19,10 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void CloseUI()
+    {
+        inventoryManager.HandleInventoryUI();
     }
 }

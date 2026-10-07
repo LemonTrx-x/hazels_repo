@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -28,23 +27,20 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    public void HandleInventoryUI(InputAction.CallbackContext callbackContext)
+    public void HandleInventoryUI()
     {
-        if (callbackContext.performed)
+        playerInventoryUI.SetActive(!playerInventoryUI.activeSelf);
+
+        if (playerInventoryUI.activeSelf)
         {
-            playerInventoryUI.SetActive(!playerInventoryUI.activeSelf);
+            Cursor.lockState = CursorLockMode.None;
+            GameManager.Instance.inMenu = true;
+        }
 
-            if (playerInventoryUI.activeSelf)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                GameManager.Instance.inMenu = true;
-            }
-
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                GameManager.Instance.inMenu = false;
-            }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            GameManager.Instance.inMenu = false;
         }
     }
 }

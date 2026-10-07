@@ -31,7 +31,12 @@ public class Raycast : MonoBehaviour
         {
             if (callbackContext.performed && hit.collider.CompareTag("Obj"))
             {
-                player.PickUpObj();
+                InteractiveObj interactiveObj = hit.collider.gameObject.GetComponent<InteractiveObj>();
+
+                if (interactiveObj != null && !GameManager.Instance.inMenu)
+                {
+                    interactiveObj.Interact();
+                }
             }
         }
     }

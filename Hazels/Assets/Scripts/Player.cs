@@ -89,13 +89,6 @@ public class Player : MonoBehaviour
 
     public void PickUpObj()
     {
-        InteractiveObj interactiveObj = raycast.hit.collider.gameObject.GetComponent<InteractiveObj>();
-
-        if (interactiveObj != null && !GameManager.Instance.inMenu)
-        {
-            interactiveObj.Interact();
-        }
-
         /*
         if (!GameManager.Instance.inMenu)
         {
