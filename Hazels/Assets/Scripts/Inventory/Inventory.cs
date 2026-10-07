@@ -6,7 +6,6 @@ public class Inventory : MonoBehaviour
     public Transform hotBarSoltContainer;
 
     [Header("Extra")]
-    public Transform inventorySlotsContainer;
     public ItemData itemDev;
     public ItemData itemDev2;
 
@@ -15,11 +14,6 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         slots.AddRange(hotBarSoltContainer.GetComponentsInChildren<Slot>());
-
-        if (inventorySlotsContainer != null)
-        {
-            slots.AddRange(inventorySlotsContainer.GetComponentsInChildren<Slot>());
-        }
 
         Debug.Log("Inventory initialized with " + slots.Count + " slots.");
     }

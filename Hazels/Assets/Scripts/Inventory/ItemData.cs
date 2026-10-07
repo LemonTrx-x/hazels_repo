@@ -6,5 +6,6 @@ public class ItemData : ScriptableObject
     public int id = 0;
     public string itemName = "";
     public Sprite icon;
+    public GameObject prefab;
     public int maxStock = 1;
 }

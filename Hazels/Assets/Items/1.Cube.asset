@@ -15,4 +15,5 @@ MonoBehaviour:
   id: 1
   itemName: Cube
   icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 8227894604409955964, guid: 0db7cfb68fa6e0b42b1a3b625ac6ef53, type: 3}
   maxStock: 25

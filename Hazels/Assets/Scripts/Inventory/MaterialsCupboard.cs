@@ -1,8 +1,9 @@
 
 public class MaterialsCupboard : InteractiveObj
 {
+
     public override void Interact()
     {
-        InventoryManager.Instance.HandleInventoryUI();
+        InventoryManager.Instance.HandleCupBoardInventoryUI();
     }
 }
