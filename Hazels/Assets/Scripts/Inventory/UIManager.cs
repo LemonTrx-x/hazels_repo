@@ -22,6 +22,6 @@ public class UIManager : MonoBehaviour
 
     public void CloseUI()
     {
-        InventoryManager.Instance.HandleCupBoardInventoryUI();
+        InventoryManager.Instance.HandleInventoryUI();
     }
 }

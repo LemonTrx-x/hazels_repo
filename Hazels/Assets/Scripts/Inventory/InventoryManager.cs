@@ -4,7 +4,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }
 
-    public GameObject cupBoardInventoryUI;
+    public GameObject inventoryUI;
     public Inventory playerInventory;
 
     void Awake()
@@ -27,11 +27,11 @@ public class InventoryManager : MonoBehaviour
         
     }
 
-    public void HandleCupBoardInventoryUI()
+    public void HandleInventoryUI()
     {
-        cupBoardInventoryUI.SetActive(!cupBoardInventoryUI.activeSelf);
+        inventoryUI.SetActive(!inventoryUI.activeSelf);
 
-        if (cupBoardInventoryUI.activeSelf)
+        if (inventoryUI.activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
             GameManager.Instance.inMenu = true;
