@@ -5019,7 +5019,7 @@ GameObject:
   - component: {fileID: 1486918753}
   - component: {fileID: 1486918752}
   - component: {fileID: 1486918751}
-  - component: {fileID: 1486918750}
+  - component: {fileID: 1486918758}
   - component: {fileID: 1486918755}
   - component: {fileID: 1486918756}
   - component: {fileID: 1486918757}
@@ -5031,29 +5031,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1486918750
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486918749}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1486918751
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5216,6 +5193,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 14f54a61-73e0-4b86-b778-bbdbd5e54d29
     m_ActionName: 'Player/Inventory[/Keyboard/tab,/XInputControllerWindows/buttonWest]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1486918755}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 08a7dbbf-0bb3-467d-a1b1-a9a5f3004c3f
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -5236,8 +5229,10 @@ MonoBehaviour:
   raycast: {fileID: 330585548}
   cameraPlayer: {fileID: 330585546}
   mainCamera: {fileID: 330585543}
+  playerController: {fileID: 1486918758}
+  speed: 5
   gamepadSensitivity: 200
-  mouseSensitivity: 1
+  mouseSensitivity: 1.5
   hand: {fileID: 1474116560}
   handObj: {fileID: 0}
   dropForce: 250
@@ -5272,6 +5267,31 @@ MonoBehaviour:
   hotBarSoltContainer: {fileID: 1915247550}
   itemDev: {fileID: 11400000, guid: 003e699839afb6d478fccbfa175e9dbd, type: 2}
   itemDev2: {fileID: 11400000, guid: 518a7e4fba9d5864198dbaf2bf4bdfe8, type: 2}
+--- !u!143 &1486918758
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486918749}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1511479949
 GameObject:
   m_ObjectHideFlags: 0

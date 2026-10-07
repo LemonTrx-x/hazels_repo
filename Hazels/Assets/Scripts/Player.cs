@@ -1,5 +1,7 @@
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class Player : MonoBehaviour
     [Header("Camera")]
     public Transform cameraPlayer;
     public GameObject mainCamera;
+
+    [Header("Movement")]
+    public CharacterController playerController;
+    public float speed = 10;
 
     [Header("Sensitivities")]
     public float gamepadSensitivity = 200f;
@@ -35,6 +41,7 @@ public class Player : MonoBehaviour
         if (!GameManager.Instance.inMenu)
         {
             HandleCamera();
+            HandleMove();
         }
     }
 
@@ -54,6 +61,15 @@ public class Player : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         cameraPlayer.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.Rotate(Vector3.up * inputCamera.x);
+    }
+
+    public void HandleMove()
+    {
+        float x = playerInput.actions["Move"].ReadValue<Vector2>().x;
+        float y = playerInput.actions["Move"].ReadValue<Vector2>().y;
+
+        Vector3 move = transform.right * x + transform.forward * y;
+        playerController.Move(move * speed * Time.deltaTime);
     }
 
     public void OnControlsChanged(PlayerInput input)
