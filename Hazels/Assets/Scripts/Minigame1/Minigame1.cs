@@ -16,6 +16,18 @@ public class Minigame1 : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            EndMinigame();
+        }
+    }
+    public void StartMiniGame()
+    {
         initialCameraPos = cameraPlayer.transform.position;
         initialCameraRot = cameraPlayer.transform.rotation;
 
@@ -30,20 +42,16 @@ public class Minigame1 : MonoBehaviour
         GameManager.Instance.inMenu = true;
     }
 
-    void Update()
+    public void EndMinigame()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            cameraPlayer.transform.position = initialCameraPos;
-            cameraPlayer.transform.rotation = initialCameraRot;
+        cameraPlayer.transform.position = initialCameraPos;
+        cameraPlayer.transform.rotation = initialCameraRot;
 
-            Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
-            pointer.SetActive(true);
-            hotBar.SetActive(true);
+        pointer.SetActive(true);
+        hotBar.SetActive(true);
 
-            GameManager.Instance.inMenu = false;
-            this.GetComponent<Minigame1>().enabled = false;
-        }
+        GameManager.Instance.inMenu = false;
     }
 }
