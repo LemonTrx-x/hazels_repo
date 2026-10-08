@@ -15,5 +15,5 @@ MonoBehaviour:
   id: 3
   itemName: TestObj
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 5910760457172415526, guid: 34d90833f48644b4aaf6ba3e93c2d2d1, type: 3}
+  prefab: {fileID: 5363969168563268372, guid: 7a5a9c598df6eb54e93e6d125ce9c9f6, type: 3}
   maxStock: 5
