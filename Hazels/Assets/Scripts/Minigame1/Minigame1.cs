@@ -7,8 +7,10 @@ public class Minigame1 : MonoBehaviour
 
     Vector3 initialCameraPos;
     Quaternion initialCameraRot;
-    public Vector3 newCameraPos;
-    public Quaternion newCameraRot;
+    public GameObject newCameraParent;
+
+    public GameObject pointer;
+    public GameObject hotBar;
 
     public int progress = 0;
 
@@ -17,10 +19,15 @@ public class Minigame1 : MonoBehaviour
         initialCameraPos = cameraPlayer.transform.position;
         initialCameraRot = cameraPlayer.transform.rotation;
 
-        cameraPlayer.transform.position = newCameraPos;
-        cameraPlayer.transform.rotation = newCameraRot;
+        cameraPlayer.transform.position = newCameraParent.transform.position;
+        cameraPlayer.transform.rotation = newCameraParent.transform.rotation;
 
-        GameManager.Instance.inMinigame = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        pointer.SetActive(false);
+        hotBar.SetActive(false);
+
+        GameManager.Instance.inMenu = true;
     }
 
     void Update()
@@ -30,7 +37,12 @@ public class Minigame1 : MonoBehaviour
             cameraPlayer.transform.position = initialCameraPos;
             cameraPlayer.transform.rotation = initialCameraRot;
 
-            GameManager.Instance.inMinigame = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+            pointer.SetActive(true);
+            hotBar.SetActive(true);
+
+            GameManager.Instance.inMenu = false;
             this.GetComponent<Minigame1>().enabled = false;
         }
     }

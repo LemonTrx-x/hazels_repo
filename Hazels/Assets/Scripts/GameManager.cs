@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public ItemDataBase itemDataBase;
 
     public bool inMenu;
-    public bool inMinigame;
 
     void Awake()
     {
