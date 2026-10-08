@@ -539,6 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   itemDataBase: {fileID: 11400000, guid: adca0308a15059645932df533dd17684, type: 2}
   inMenu: 0
+  inMinigame: 0
 --- !u!1 &39429632
 GameObject:
   m_ObjectHideFlags: 0
@@ -9898,7 +9899,7 @@ MonoBehaviour:
   playerController: {fileID: 1486918758}
   speed: 5
   gamepadSensitivity: 200
-  mouseSensitivity: 250
+  mouseSensitivity: 300
   hand: {fileID: 1474116560}
   handObj: {fileID: 0}
   dropForce: 250

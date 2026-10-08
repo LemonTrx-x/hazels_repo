@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Minigame1 : MonoBehaviour 
 {
-    [Header("Caldron")]
     public GameObject cameraPlayer;
 
     Vector3 initialCameraPos;
@@ -26,6 +25,7 @@ public class Minigame1 : MonoBehaviour
             EndMinigame();
         }
     }
+
     public void StartMiniGame()
     {
         initialCameraPos = cameraPlayer.transform.position;
@@ -39,7 +39,7 @@ public class Minigame1 : MonoBehaviour
         pointer.SetActive(false);
         hotBar.SetActive(false);
 
-        GameManager.Instance.inMenu = true;
+        GameManager.Instance.inMinigame = true;
     }
 
     public void EndMinigame()
@@ -52,6 +52,6 @@ public class Minigame1 : MonoBehaviour
         pointer.SetActive(true);
         hotBar.SetActive(true);
 
-        GameManager.Instance.inMenu = false;
+        GameManager.Instance.inMinigame = false;
     }
 }

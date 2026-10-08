@@ -1,38 +1,57 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Stick : MonoBehaviour ,IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Stick : MonoBehaviour
 {
     public Transform stickParent;
     public bool dragActive;
 
     public Minigame1 minigame1;
 
+    private Camera mainCamera;
+    private float zCoord;
+    private Vector3 offset;
+
     void Start()
     {
-        
+        mainCamera = Camera.main;
     }
 
-    void Update()
+    void OnMouseDown()
     {
-        
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        dragActive = true;
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (dragActive == true)
+        if (GameManager.Instance.inMinigame)
         {
-            this.transform.position = new Vector3(eventData.pointerCurrentRaycast.worldPosition.x, this.transform.position.y, eventData.pointerCurrentRaycast.worldPosition.z);
+            dragActive = true;
+            //Distance from object to camera to maintain depth
+            zCoord = mainCamera.WorldToScreenPoint(gameObject.transform.position).z;
+            offset = gameObject.transform.position - GetMouseAsWorldPoint();
         }
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    private Vector3 GetMouseAsWorldPoint()
     {
-        dragActive = false;
+        //Takes the mouse position on screen and turns it in 3D world coordinates
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = zCoord;
+        return mainCamera.ScreenToWorldPoint(mousePos);
+    }
+
+    void OnMouseDrag()
+    {
+        if (GameManager.Instance.inMinigame)
+        {
+            if (dragActive)
+            {
+                Vector3 targetPosition = GetMouseAsWorldPoint() + offset;
+                this.transform.position = new Vector3(targetPosition.x, this.transform.position.y, targetPosition.z);
+            }
+        }
+    }
+
+    void OnMouseUp()
+    {
+        if (GameManager.Instance.inMinigame)
+        {
+            dragActive = false;
+        }
     }
 }

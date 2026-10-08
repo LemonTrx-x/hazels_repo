@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.inMenu)
+        if (!(GameManager.Instance.inMenu || GameManager.Instance.inMinigame))
         {
             HandleCamera();
             HandleMove();
