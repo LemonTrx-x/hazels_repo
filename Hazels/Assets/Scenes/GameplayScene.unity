@@ -11033,6 +11033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef3679fa6dec074aaa23625cf19407d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractMinigame
+  newParent: {fileID: 686170507}
 --- !u!1 &1676891224
 GameObject:
   m_ObjectHideFlags: 0
@@ -13590,8 +13591,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Minigames
   cameraPlayer: {fileID: 330585543}
-  newCameraParent: {fileID: 686170507}
+  newCameraParent: {fileID: 0}
   oldCameraParent: {fileID: 876918856}
+  camSpeed: 5
   pointer: {fileID: 310184847}
   hotBar: {fileID: 1915247549}
   progress: 0
