@@ -7,7 +7,6 @@ TagManager:
   - Ground
   - Obj
   - Slot
-  - Stick
   layers:
   - Default
   - TransparentFX

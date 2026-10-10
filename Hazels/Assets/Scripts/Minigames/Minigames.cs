@@ -1,17 +1,30 @@
 using UnityEngine;
 
-public class Minigame1 : MonoBehaviour 
+public class Minigames : MonoBehaviour 
 {
+    public static Minigames Instance { get; private set; }
+
     public GameObject cameraPlayer;
 
-    Vector3 initialCameraPos;
-    Quaternion initialCameraRot;
     public GameObject newCameraParent;
+    public GameObject oldCameraParent;
 
     public GameObject pointer;
     public GameObject hotBar;
 
     public int progress = 0;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -28,9 +41,6 @@ public class Minigame1 : MonoBehaviour
 
     public void StartMiniGame()
     {
-        initialCameraPos = cameraPlayer.transform.position;
-        initialCameraRot = cameraPlayer.transform.rotation;
-
         cameraPlayer.transform.position = newCameraParent.transform.position;
         cameraPlayer.transform.rotation = newCameraParent.transform.rotation;
 
@@ -44,14 +54,17 @@ public class Minigame1 : MonoBehaviour
 
     public void EndMinigame()
     {
-        cameraPlayer.transform.position = initialCameraPos;
-        cameraPlayer.transform.rotation = initialCameraRot;
+        if (GameManager.Instance.inMinigame)
+        {
+            cameraPlayer.transform.position = oldCameraParent.transform.position;
+            cameraPlayer.transform.rotation = oldCameraParent.transform.rotation;
 
-        Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
 
-        pointer.SetActive(true);
-        hotBar.SetActive(true);
+            pointer.SetActive(true);
+            hotBar.SetActive(true);
 
-        GameManager.Instance.inMinigame = false;
+            GameManager.Instance.inMinigame = false;
+        }
     }
 }
