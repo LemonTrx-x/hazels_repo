@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72fa2cf93ea5bb4789309f7bfd25ec5, type: 3}
-  m_Name: 3.Test
+  m_Name: 3.HealingP
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   id: 3
-  itemName: TestObj
+  itemName: Healing Potion
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   prefab: {fileID: 5363969168563268372, guid: 7a5a9c598df6eb54e93e6d125ce9c9f6, type: 3}
   maxStock: 5

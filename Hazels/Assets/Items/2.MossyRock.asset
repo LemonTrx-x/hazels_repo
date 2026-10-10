@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72fa2cf93ea5bb4789309f7bfd25ec5, type: 3}
-  m_Name: 1.Cube
+  m_Name: 2.MossyRock
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  id: 1
-  itemName: Cube
-  icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 8227894604409955964, guid: 0db7cfb68fa6e0b42b1a3b625ac6ef53, type: 3}
-  maxStock: 25
+  id: 2
+  itemName: Mossy Rock
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 5910760457172415526, guid: 34d90833f48644b4aaf6ba3e93c2d2d1, type: 3}
+  maxStock: 1

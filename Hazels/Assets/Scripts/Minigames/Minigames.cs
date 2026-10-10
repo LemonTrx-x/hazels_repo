@@ -66,10 +66,7 @@ public class Minigames : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            EndMinigame();
-        }
+        CheckProgress();
     }
 
     public void StartMiniGame()
@@ -100,6 +97,15 @@ public class Minigames : MonoBehaviour
             hotBar.SetActive(true);
 
             GameManager.Instance.inMinigame = false;
+        }
+    }
+
+    public void CheckProgress()
+    {
+        if (progress >= 10)
+        {
+            EndMinigame();
+            progress = 0;
         }
     }
 }
