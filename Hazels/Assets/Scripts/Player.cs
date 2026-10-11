@@ -22,11 +22,7 @@ public class Player : MonoBehaviour
     float xRotation = 0f;
     bool isGamepad;
 
-    [Header("Hands")]
-    public Transform hand;
-    public GameObject handObj;
     public float dropForce = 250f;
-    public float objScale = 2f;
 
     void Start()
     {
@@ -88,26 +84,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void PickUpObj()
-    {
-        /*
-        if (!GameManager.Instance.inMenu)
-        {
-            raycast.hit.collider.GetComponent<Rigidbody>().useGravity = false;
-            raycast.hit.collider.GetComponent<Rigidbody>().isKinematic = true;
-            raycast.hit.collider.GetComponent<Collider>().isTrigger = true;
-
-            raycast.hit.collider.transform.position = hand.position;
-            raycast.hit.collider.transform.localScale /= objScale;
-            raycast.hit.collider.gameObject.transform.SetParent(hand);
-
-            handObj = raycast.hit.collider.gameObject;
-        }
-        */
-    }
-
     public void DropObj(InputAction.CallbackContext callbackContext)
     {
+        /*
         if (!GameManager.Instance.inMenu)
         {
             if (callbackContext.performed && handObj != null)
@@ -123,5 +102,6 @@ public class Player : MonoBehaviour
                 handObj = null;
             }
         }
+        */
     }
 }

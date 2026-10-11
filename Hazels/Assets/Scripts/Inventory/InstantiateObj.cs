@@ -8,13 +8,15 @@ public class InstantiateObj : MonoBehaviour
 
     public void OnInstantiateObj()
     {
-        if (item != null)
+        if (item != null && item.shopStock > 0)
         {
             GameObject newItem;
 
             newItem = Instantiate(item.prefab, spawn.position, spawn.rotation);
 
             newItem.GetComponent<Rigidbody>().AddForce(spawn.forward * itemForce);
+
+            item.shopStock--;
         }
     }
 }

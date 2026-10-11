@@ -8,4 +8,5 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public GameObject prefab;
     public int maxStock = 1;
+    public int shopStock = 5;
 }

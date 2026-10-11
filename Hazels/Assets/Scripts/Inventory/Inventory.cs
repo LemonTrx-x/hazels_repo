@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     public ItemData itemDev;
     public ItemData itemDev2;
 
-    private List<Slot> slots = new List<Slot>();
+    [HideInInspector] public List<Slot> slots = new List<Slot>();
 
     void Start()
     {
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
     {
         int stockToSave = stock;
         
-        //1. Search the slots with the same item and not full (to complete the stack)
+        //Search the slots with the same item and not full (to complete the stack)
         for (int i = 0; i < slots.Count; i++)
         {
             if (slots[i].itemData == itemData && slots[i].stock < itemData.maxStock)
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        //2. Search empty slots
+        //Search empty slots
         if (stockToSave > 0)
         {
             for (int i = 0;i < slots.Count; i++)
@@ -76,7 +76,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        //3. We have things left
+        //We have things left
         return stockToSave;
     }
 }

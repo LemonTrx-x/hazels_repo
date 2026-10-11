@@ -2207,6 +2207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1311193575}
   - {fileID: 1474116560}
   m_Father: {fileID: 1486918753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3774,8 +3775,9 @@ GameObject:
   - component: {fileID: 482611724}
   - component: {fileID: 482611723}
   - component: {fileID: 482611722}
+  - component: {fileID: 482611725}
   m_Layer: 5
-  m_Name: Slot (16)
+  m_Name: LSlot
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3856,6 +3858,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482611720}
   m_CullTransparentMesh: 1
+--- !u!114 &482611725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482611720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c184ad21876bc14989d954e9dd7693a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShowHandObj
+  hand: {fileID: 1311193575}
+  handObj: {fileID: 0}
+  objScale: 2
 --- !u!1 &529528251
 GameObject:
   m_ObjectHideFlags: 0
@@ -8886,6 +8903,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310455050}
   m_CullTransparentMesh: 1
+--- !u!1 &1311193574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311193575}
+  m_Layer: 0
+  m_Name: LHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1311193575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311193574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.687, y: -0.24300003, z: 0.59299994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 330585546}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336040441
 GameObject:
   m_ObjectHideFlags: 0
@@ -9703,7 +9751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1474116560}
   m_Layer: 0
-  m_Name: Hand
+  m_Name: RHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9934,10 +9982,7 @@ MonoBehaviour:
   speed: 5
   gamepadSensitivity: 200
   mouseSensitivity: 300
-  hand: {fileID: 1474116560}
-  handObj: {fileID: 0}
   dropForce: 250
-  objScale: 2
 --- !u!114 &1486918756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9967,6 +10012,7 @@ MonoBehaviour:
   hotBarSoltContainer: {fileID: 1915247550}
   itemDev: {fileID: 11400000, guid: 003e699839afb6d478fccbfa175e9dbd, type: 2}
   itemDev2: {fileID: 11400000, guid: 518a7e4fba9d5864198dbaf2bf4bdfe8, type: 2}
+  slots: []
 --- !u!143 &1486918758
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12472,8 +12518,9 @@ GameObject:
   - component: {fileID: 1829905993}
   - component: {fileID: 1829905992}
   - component: {fileID: 1829905991}
+  - component: {fileID: 1829905994}
   m_Layer: 5
-  m_Name: Slot (17)
+  m_Name: RSlot
   m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12554,6 +12601,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829905989}
   m_CullTransparentMesh: 1
+--- !u!114 &1829905994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829905989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c184ad21876bc14989d954e9dd7693a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShowHandObj
+  hand: {fileID: 1474116560}
+  handObj: {fileID: 0}
+  objScale: 2
 --- !u!1 &1832246319
 GameObject:
   m_ObjectHideFlags: 0
