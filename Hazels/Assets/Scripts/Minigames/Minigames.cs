@@ -1,22 +1,30 @@
 using UnityEngine;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class Minigames : MonoBehaviour 
 {
     public static Minigames Instance { get; private set; }
-
-    public GameObject cameraPlayer;
-
-    public GameObject newCameraParent;
-    public GameObject oldCameraParent;
-    public float camSpeed = 5f;
 
     public GameObject pointer;
     public GameObject hotBar;
 
     public int progress = 0;
 
+    [Header("Camera")]
+    public GameObject cameraPlayer;
+    public GameObject newCameraParent;
+    public GameObject oldCameraParent;
+    public float camSpeed = 5f;
+
     private bool isMovingToNew = false;
     private bool isMovingToOld = false;
+
+    [Header("Chest")]
+    public GameObject chestUI;
+    public GameObject objSpawn;
+    public int spawnForce = 50;
+    [HideInInspector] public List<Slot> chestSlots = new List<Slot>();
 
     private void Awake()
     {
@@ -96,6 +104,7 @@ public class Minigames : MonoBehaviour
             pointer.SetActive(true);
             hotBar.SetActive(true);
 
+            CookMaterials();
             GameManager.Instance.inMinigame = false;
         }
     }
@@ -107,5 +116,34 @@ public class Minigames : MonoBehaviour
             EndMinigame();
             progress = 0;
         }
+    }
+
+    public void CookMaterials()
+    {
+        for (int i = 0; i < chestSlots.Count; i++)
+        {
+            if (chestSlots[i].itemData.isFinished == false)
+            {
+                if (chestSlots[i].itemData.nextStage != null)
+                {
+                    GameObject newStage;
+
+                    newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+                    newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+
+                    chestSlots[i].CleatItem();
+                }
+            }
+
+            else
+            {
+                CookPotions();
+            }
+        }
+    }
+
+    public void CookPotions()
+    {
+        Debug.Log("Now there should be a potion, but we are working on it ;).");
     }
 }

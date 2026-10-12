@@ -9,4 +9,6 @@ public class ItemData : ScriptableObject
     public GameObject prefab;
     public int maxStock = 1;
     public int shopStock = 5;
+    public bool isFinished;
+    public ItemData nextStage;
 }
