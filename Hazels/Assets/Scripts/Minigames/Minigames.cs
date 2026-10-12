@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +26,7 @@ public class Minigames : MonoBehaviour
     [HideInInspector] public List<Slot> chestSlots = new List<Slot>();
     public List<RecipeData> allRecipes;
     public int sameItems = 0;
+    private List<ItemData> itemsToCheck = new List<ItemData>();
 
     [Header("Minigames")]
     public int currentMinigame = 0;
@@ -156,14 +156,13 @@ public class Minigames : MonoBehaviour
     //Method for checking whether a given list matches this pattern (regardless of the order)
     public void CookPotions()
     {
-        List<ItemData> itemsToCheck = new List<ItemData>();
-        
+        itemsToCheck = new List<ItemData>();
+
         for (int i = 0; i < chestSlots.Count; i++)
         {
             if (chestSlots[i].itemData != null)
             {
                 itemsToCheck.Add(chestSlots[i].itemData);
-                chestSlots[i].ClearItem();
             }
         }
 
@@ -171,6 +170,13 @@ public class Minigames : MonoBehaviour
         {
             foreach (ItemData item in allRecipes[i].requiredMaterials)
             {
+                if (itemsToCheck.Count != allRecipes[i].requiredMaterials.Count + 1)
+                {
+                    Debug.Log(itemsToCheck.Count);
+                    Debug.Log(allRecipes[i].requiredMaterials.Count);
+                    continue;
+                }
+                
                 if (itemsToCheck.Contains(item))
                 {
                     sameItems++;
@@ -184,6 +190,22 @@ public class Minigames : MonoBehaviour
 
                 newPotion = Instantiate(allRecipes[i].potion, objSpawn.transform.position, objSpawn.transform.rotation);
                 newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+            }
+
+            foreach (ItemData item in itemsToCheck)
+            {
+                ClearChestSlot();
+            }
+        }
+    }
+
+    public void ClearChestSlot()
+    {
+        for (int i = 0; i < chestSlots.Count; i++)
+        {
+            if (itemsToCheck.Contains(chestSlots[i].itemData))
+            {
+                chestSlots[i].ClearItem();
             }
         }
     }
