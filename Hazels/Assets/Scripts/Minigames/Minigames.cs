@@ -136,11 +136,11 @@ public class Minigames : MonoBehaviour
                         chestSlots[i].CleatItem();
                     }
                 }
-            }
 
-            else
-            {
-                CookPotions();
+                else
+                {
+                    CookPotions();
+                }
             }
         }
     }
