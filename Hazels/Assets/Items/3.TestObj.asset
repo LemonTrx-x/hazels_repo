@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72fa2cf93ea5bb4789309f7bfd25ec5, type: 3}
-  m_Name: 5.CookedTestObj
+  m_Name: 3.TestObj
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  id: 5
-  itemName: Cooked TestObj
-  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 7548907542745009115, guid: 035522b7556f4374dab517ca770d2f06, type: 3}
+  id: 3
+  itemName: TestObj
+  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 8418939799086123959, guid: c8ec7f517b5d40b44a063a671e1f41bf, type: 3}
   maxStock: 10
   shopStock: 5
-  isFinished: 1
-  nextStage: {fileID: 0}
+  isFinished: 0
+  nextStage: {fileID: 11400000, guid: fed621762bb575a408a52eb2c68f7c42, type: 2}

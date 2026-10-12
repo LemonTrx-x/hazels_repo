@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72fa2cf93ea5bb4789309f7bfd25ec5, type: 3}
-  m_Name: 3.HealingP
+  m_Name: 4.CookedTestObj
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  id: 3
-  itemName: Healing Potion
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 5363969168563268372, guid: 7a5a9c598df6eb54e93e6d125ce9c9f6, type: 3}
-  maxStock: 1
-  shopStock: 1
-  isFinished: 0
+  id: 4
+  itemName: Cooked TestObj
+  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 7548907542745009115, guid: 035522b7556f4374dab517ca770d2f06, type: 3}
+  maxStock: 10
+  shopStock: 5
+  isFinished: 1
   nextStage: {fileID: 0}
