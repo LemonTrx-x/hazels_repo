@@ -11,4 +11,5 @@ public class ItemData : ScriptableObject
     public int shopStock = 5;
     public bool isFinished;
     public ItemData nextStage;
+    public int minigame;
 }

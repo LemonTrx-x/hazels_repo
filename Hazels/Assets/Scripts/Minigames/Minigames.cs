@@ -1,6 +1,6 @@
-using UnityEngine;
+using NUnit.Framework;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEngine;
 
 public class Minigames : MonoBehaviour 
 {
@@ -25,6 +25,11 @@ public class Minigames : MonoBehaviour
     public GameObject objSpawn;
     public int spawnForce = 50;
     [HideInInspector] public List<Slot> chestSlots = new List<Slot>();
+    public List<RecipeData> allRecipes;
+    public int sameItems = 0;
+
+    [Header("Minigames")]
+    public int currentMinigame = 0;
 
     private void Awake()
     {
@@ -124,29 +129,62 @@ public class Minigames : MonoBehaviour
         {
             if (chestSlots[i].itemData != null)
             {
-                if (chestSlots[i].itemData.isFinished == false)
+                if (chestSlots[i].itemData.minigame == currentMinigame)
                 {
-                    if (chestSlots[i].itemData.nextStage != null)
+                    if (chestSlots[i].itemData.isFinished == false)
                     {
-                        GameObject newStage;
+                        if (chestSlots[i].itemData.nextStage != null)
+                        {
+                            GameObject newStage;
 
-                        newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
-                        newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+                            newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+                            newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
 
-                        chestSlots[i].CleatItem();
+                            chestSlots[i].ClearItem();
+                        }
                     }
-                }
 
-                else
-                {
-                    CookPotions();
+                    else
+                    {
+                        CookPotions();
+                    }
                 }
             }
         }
     }
 
+    //Method for checking whether a given list matches this pattern (regardless of the order)
     public void CookPotions()
     {
-        Debug.Log("Now there should be a potion, but we are working on it ;).");
+        List<ItemData> itemsToCheck = new List<ItemData>();
+        
+        for (int i = 0; i < chestSlots.Count; i++)
+        {
+            if (chestSlots[i].itemData != null)
+            {
+                itemsToCheck.Add(chestSlots[i].itemData);
+                chestSlots[i].ClearItem();
+            }
+        }
+
+        for (int i = 0; i < allRecipes.Count; i++)
+        {
+            foreach (ItemData item in allRecipes[i].requiredMaterials)
+            {
+                if (itemsToCheck.Contains(item))
+                {
+                    sameItems++;
+                    itemsToCheck.Remove(item);
+                }
+            }
+
+            if (sameItems == allRecipes[i].requiredMaterials.Count)
+            {
+                GameObject newPotion;
+
+                newPotion = Instantiate(allRecipes[i].potion, objSpawn.transform.position, objSpawn.transform.rotation);
+                newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+            }
+        }
     }
 }

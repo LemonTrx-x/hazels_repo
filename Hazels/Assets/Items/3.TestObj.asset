@@ -20,3 +20,4 @@ MonoBehaviour:
   shopStock: 5
   isFinished: 0
   nextStage: {fileID: 11400000, guid: fed621762bb575a408a52eb2c68f7c42, type: 2}
+  minigame: 1

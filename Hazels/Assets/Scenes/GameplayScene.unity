@@ -11226,6 +11226,7 @@ MonoBehaviour:
   newParent: {fileID: 686170507}
   newChestUI: {fileID: 1473537512}
   newCookedObjSpawn: {fileID: 1282696267}
+  newCurrentMinigame: 1
 --- !u!1 &1676891224
 GameObject:
   m_ObjectHideFlags: 0
@@ -13807,8 +13808,12 @@ MonoBehaviour:
   camSpeed: 5
   chestUI: {fileID: 0}
   objSpawn: {fileID: 0}
-  spawnForce: 50
+  spawnForce: 200
   chestSlots: []
+  allRecipes:
+  - {fileID: 11400000, guid: a63c0dee9f97a7b4da907116fb77a565, type: 2}
+  sameItems: 0
+  currentMinigame: 0
 --- !u!1 &1953524996
 GameObject:
   m_ObjectHideFlags: 0

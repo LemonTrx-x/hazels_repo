@@ -20,7 +20,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         stockText.text = stock.ToString();
     }
 
-    public void CleatItem()
+    public void ClearItem()
     {
         itemData = null;
         stock = 0;
@@ -73,7 +73,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 if (slotDestiny.itemData == null)
                 {
                     slotDestiny.SetItem(itemData, stock);
-                    CleatItem();
+                    ClearItem();
                     return;
                 }
 
@@ -83,7 +83,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                     if (slotDestiny.stock + stock <= itemData.maxStock) //We could add all
                     {
                         slotDestiny.SetItem(itemData, slotDestiny.stock + stock);
-                        CleatItem();
+                        ClearItem();
                     }
 
                     else //If not, we add as much as possible

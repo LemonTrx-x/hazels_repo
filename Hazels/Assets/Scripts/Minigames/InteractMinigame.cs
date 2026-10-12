@@ -5,12 +5,14 @@ public class InteractMinigame : InteractiveObj
     public GameObject newParent;
     public GameObject newChestUI;
     public GameObject newCookedObjSpawn;
+    public int newCurrentMinigame;
 
     public override void Interact()
     {
         Minigames.Instance.newCameraParent = newParent;
         Minigames.Instance.chestUI = newChestUI;
         Minigames.Instance.objSpawn = newCookedObjSpawn;
+        Minigames.Instance.currentMinigame = newCurrentMinigame;
 
         if (Minigames.Instance.chestUI != null)
         {
