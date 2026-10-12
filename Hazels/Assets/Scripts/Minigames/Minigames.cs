@@ -122,16 +122,19 @@ public class Minigames : MonoBehaviour
     {
         for (int i = 0; i < chestSlots.Count; i++)
         {
-            if (chestSlots[i].itemData.isFinished == false)
+            if (chestSlots[i].itemData != null)
             {
-                if (chestSlots[i].itemData.nextStage != null)
+                if (chestSlots[i].itemData.isFinished == false)
                 {
-                    GameObject newStage;
+                    if (chestSlots[i].itemData.nextStage != null)
+                    {
+                        GameObject newStage;
 
-                    newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
-                    newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+                        newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+                        newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
 
-                    chestSlots[i].CleatItem();
+                        chestSlots[i].CleatItem();
+                    }
                 }
             }
 
