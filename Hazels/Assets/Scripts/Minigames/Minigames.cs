@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minigames : MonoBehaviour 
+public class Minigames : MonoBehaviour
 {
     public static Minigames Instance { get; private set; }
 
@@ -45,7 +45,7 @@ public class Minigames : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -85,7 +85,7 @@ public class Minigames : MonoBehaviour
     public void StartMiniGame()
     {
         oldCameraParent.transform.rotation = cameraPlayer.transform.rotation;
-        
+
         isMovingToNew = true;
         isMovingToOld = false;
 
@@ -158,25 +158,28 @@ public class Minigames : MonoBehaviour
     {
         itemsToCheck = new List<ItemData>();
 
+        //Add items in chest to itemsToCheck list
         for (int i = 0; i < chestSlots.Count; i++)
         {
             if (chestSlots[i].itemData != null)
             {
                 itemsToCheck.Add(chestSlots[i].itemData);
+                chestSlots[i].ClearItem();
             }
         }
 
+        //Check if items in itemsToCheck mathces with requiredMaterials in recipes
         for (int i = 0; i < allRecipes.Count; i++)
         {
             foreach (ItemData item in allRecipes[i].requiredMaterials)
             {
-                if (itemsToCheck.Count != allRecipes[i].requiredMaterials.Count + 1)
+                if (itemsToCheck.Count != allRecipes[i].requiredMaterials.Count)
                 {
                     Debug.Log(itemsToCheck.Count);
                     Debug.Log(allRecipes[i].requiredMaterials.Count);
                     continue;
                 }
-                
+
                 if (itemsToCheck.Contains(item))
                 {
                     sameItems++;
@@ -192,21 +195,34 @@ public class Minigames : MonoBehaviour
                 newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
             }
 
-            foreach (ItemData item in itemsToCheck)
+            //If we have not used items, add them again to chest
+            if (itemsToCheck.Count >= 0)
             {
-                ClearChestSlot();
+                foreach (ItemData item in itemsToCheck)
+                {
+                    if (itemsToCheck == null || itemsToCheck.Count == 0)
+                    {
+                        break;
+                    }
+
+                    AddItemToChest(itemsToCheck);
+                }
             }
         }
     }
 
-    public void ClearChestSlot()
+    public void AddItemToChest(List<ItemData> itemsToCheck)
     {
         for (int i = 0; i < chestSlots.Count; i++)
         {
-            if (itemsToCheck.Contains(chestSlots[i].itemData))
+            if (itemsToCheck == null || itemsToCheck.Count == 0)
             {
-                chestSlots[i].ClearItem();
+                break;
             }
+
+            chestSlots[i].itemData = itemsToCheck[i];
+
+            itemsToCheck.RemoveAt(i);
         }
     }
 }
