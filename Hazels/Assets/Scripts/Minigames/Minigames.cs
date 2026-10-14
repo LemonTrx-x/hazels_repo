@@ -193,6 +193,8 @@ public class Minigames : MonoBehaviour
 
                 newPotion = Instantiate(allRecipes[i].potion, objSpawn.transform.position, objSpawn.transform.rotation);
                 newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+
+                sameItems = 0;
             }
         }
 
