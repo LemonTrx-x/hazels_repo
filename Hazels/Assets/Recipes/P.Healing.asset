@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
   requiredMaterials:
   - {fileID: 11400000, guid: 003e699839afb6d478fccbfa175e9dbd, type: 2}
-  potion: {fileID: 5363969168563268372, guid: 7a5a9c598df6eb54e93e6d125ce9c9f6, type: 3}
+  potion: {fileID: 11400000, guid: fe51d6273905e914c806f6d0fc475e5f, type: 2}

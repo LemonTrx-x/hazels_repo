@@ -5,5 +5,5 @@ using UnityEngine;
 public class RecipeData : ScriptableObject
 {
     public List<ItemData> requiredMaterials;
-    public GameObject potion;
+    public ItemData potion;
 }

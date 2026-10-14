@@ -541,6 +541,7 @@ MonoBehaviour:
   itemDataBase: {fileID: 11400000, guid: adca0308a15059645932df533dd17684, type: 2}
   inMenu: 0
   inMinigame: 0
+  dayInGame: 0
 --- !u!1 &39429632
 GameObject:
   m_ObjectHideFlags: 0

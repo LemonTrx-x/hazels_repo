@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public bool inMenu;
     public bool inMinigame;
 
+    public int dayInGame = 0;
+
     void Awake()
     {
         if (Instance == null)
