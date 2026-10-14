@@ -24,4 +24,12 @@ public class GameManager : MonoBehaviour
         //Initialize the DataBase
         itemDataBase.InitializeDataBase();
     }
+
+    void Start()
+    {
+        for (int i = 0; i < itemDataBase.items.Count; i++)
+        {
+            itemDataBase.items[i].shopStock = 5;
+        }
+    }
 }

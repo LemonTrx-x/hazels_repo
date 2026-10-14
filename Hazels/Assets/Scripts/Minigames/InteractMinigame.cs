@@ -17,8 +17,19 @@ public class InteractMinigame : InteractiveObj
         if (Minigames.Instance.chestUI != null)
         {
             Minigames.Instance.chestSlots.AddRange(Minigames.Instance.chestUI.GetComponentsInChildren<Slot>());
-        }
 
-        Minigames.Instance.StartMiniGame();
+            for (int i = 0; i < Minigames.Instance.chestSlots.Count; i++)
+            {
+                if (Minigames.Instance.chestSlots[i].itemData != null)
+                {
+                    Minigames.Instance.StartMiniGame();
+                }
+
+                else
+                {
+                    Debug.Log("Put items in the chest to start the minigame.");
+                }
+            }
+        }
     }
 }
