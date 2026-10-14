@@ -6652,6 +6652,8 @@ GameObject:
   - component: {fileID: 965293387}
   - component: {fileID: 965293386}
   - component: {fileID: 965293385}
+  - component: {fileID: 965293389}
+  - component: {fileID: 965293388}
   - component: {fileID: 965293384}
   m_Layer: 0
   m_Name: Costumer
@@ -6755,6 +6757,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965293388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965293383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fd330b60bbeec4ab581162b4760cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TakeOrder
+--- !u!114 &965293389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965293383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2053025f2a3a3df4d8d396f1703fbcf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Costumer
+  potionsDataBase: {fileID: 11400000, guid: f219b077a7d44e540bc76a86e730eb87, type: 2}
+  potions: []
+  endPosition: {fileID: 0}
+  speed: 5
+  maxPotions: 1
+  costumersLeft: 1
 --- !u!1 &970654402
 GameObject:
   m_ObjectHideFlags: 0
@@ -13813,6 +13845,7 @@ MonoBehaviour:
   chestSlots: []
   allRecipes:
   - {fileID: 11400000, guid: a63c0dee9f97a7b4da907116fb77a565, type: 2}
+  - {fileID: 11400000, guid: b57d135d1df855343939ece13794e3b0, type: 2}
   sameItems: 0
   currentMinigame: 0
 --- !u!1 &1953524996

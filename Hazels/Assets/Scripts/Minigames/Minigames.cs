@@ -171,37 +171,40 @@ public class Minigames : MonoBehaviour
         //Check if items in itemsToCheck mathces with requiredMaterials in recipes
         for (int i = 0; i < allRecipes.Count; i++)
         {
-            foreach (ItemData item in allRecipes[i].requiredMaterials)
+            if (itemsToCheck.Count != allRecipes[i].requiredMaterials.Count)
             {
-                if (itemsToCheck.Count != allRecipes[i].requiredMaterials.Count)
-                {
-                    Debug.Log(itemsToCheck.Count);
-                    Debug.Log(allRecipes[i].requiredMaterials.Count);
-                    continue;
-                }
-
-                if (itemsToCheck.Contains(item))
-                {
-                    sameItems++;
-                    itemsToCheck.Remove(item);
-                }
+                Debug.Log(itemsToCheck.Count);
+                Debug.Log(allRecipes[i].requiredMaterials.Count);
+                AddItemToShop(itemsToCheck);
             }
 
-            if (sameItems == allRecipes[i].requiredMaterials.Count)
+            else
             {
-                GameObject newPotion;
+                foreach (ItemData item in allRecipes[i].requiredMaterials)
+                {
+                    if (itemsToCheck.Contains(item))
+                    {
+                        sameItems++;
+                        itemsToCheck.Remove(item);
+                    }
+                }
 
-                newPotion = Instantiate(allRecipes[i].potion.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
-                newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+                if (sameItems == allRecipes[i].requiredMaterials.Count)
+                {
+                    GameObject newPotion;
 
-                sameItems = 0;
+                    newPotion = Instantiate(allRecipes[i].potion.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+                    newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+
+                    sameItems = 0;
+                }
+
+                //If we have not used items, add them again to chest
+                if (itemsToCheck.Count > 0)
+                {
+                    AddItemToShop(itemsToCheck);
+                }
             }
-        }
-
-        //If we have not used items, add them again to chest
-        if (itemsToCheck.Count > 0)
-        {
-            AddItemToShop(itemsToCheck);
         }
     }
 
@@ -210,7 +213,7 @@ public class Minigames : MonoBehaviour
         for (int i = 0; i < itemsToCheck.Count; i++)
         {
             itemsToCheck[i].shopStock++;
-            itemsToCheck.Remove(itemsToCheck[i]);
+            itemsToCheck.RemoveAt(i);
         }
     }
 }
