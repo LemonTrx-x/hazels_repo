@@ -156,7 +156,7 @@ public class Minigames : MonoBehaviour
     //Method for checking whether a given list matches this pattern (regardless of the order)
     public void CookPotions()
     {
-        itemsToCheck = new List<ItemData>();
+        itemsToCheck.Clear();
 
         //Add items in chest to itemsToCheck list
         for (int i = 0; i < chestSlots.Count; i++)
@@ -194,35 +194,21 @@ public class Minigames : MonoBehaviour
                 newPotion = Instantiate(allRecipes[i].potion, objSpawn.transform.position, objSpawn.transform.rotation);
                 newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
             }
+        }
 
-            //If we have not used items, add them again to chest
-            if (itemsToCheck.Count >= 0)
-            {
-                foreach (ItemData item in itemsToCheck)
-                {
-                    if (itemsToCheck == null || itemsToCheck.Count == 0)
-                    {
-                        break;
-                    }
-
-                    AddItemToChest(itemsToCheck);
-                }
-            }
+        //If we have not used items, add them again to chest
+        if (itemsToCheck.Count > 0)
+        {
+            AddItemToShop(itemsToCheck);
         }
     }
 
-    public void AddItemToChest(List<ItemData> itemsToCheck)
+    public void AddItemToShop(List<ItemData> itemsToCheck)
     {
-        for (int i = 0; i < chestSlots.Count; i++)
+        for (int i = 0; i < itemsToCheck.Count; i++)
         {
-            if (itemsToCheck == null || itemsToCheck.Count == 0)
-            {
-                break;
-            }
-
-            chestSlots[i].itemData = itemsToCheck[i];
-
-            itemsToCheck.RemoveAt(i);
+            itemsToCheck[i].shopStock++;
+            itemsToCheck.Remove(itemsToCheck[i]);
         }
     }
 }
