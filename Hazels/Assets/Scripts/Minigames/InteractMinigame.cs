@@ -3,20 +3,20 @@ using UnityEngine;
 public class InteractMinigame : InteractiveObj
 {
     public GameObject newParent;
-    public GameObject newChestUI;
+    public GameObject chestUI;
     public GameObject newCookedObjSpawn;
     public int newCurrentMinigame;
 
     public override void Interact()
     {
         Minigames.Instance.newCameraParent = newParent;
-        Minigames.Instance.chestUI = newChestUI;
         Minigames.Instance.objSpawn = newCookedObjSpawn;
         Minigames.Instance.currentMinigame = newCurrentMinigame;
 
-        if (Minigames.Instance.chestUI != null)
+        if (chestUI != null)
         {
-            Minigames.Instance.chestSlots.AddRange(Minigames.Instance.chestUI.GetComponentsInChildren<Slot>());
+            //Add the chestUI slots to chestSlots
+            Minigames.Instance.chestSlots.AddRange(chestUI.GetComponentsInChildren<Slot>());
 
             for (int i = 0; i < Minigames.Instance.chestSlots.Count; i++)
             {

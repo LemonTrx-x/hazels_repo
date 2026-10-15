@@ -4,18 +4,29 @@ public class InstantiateCostumer : MonoBehaviour
 {
     public Transform spawn;
     public GameObject costumerObj;
-    public Costumer costumer;
     public int itemForce = 250;
+
+    public int costumersLeft = 1;
+
+    public GameObject hotBarPlayer;
+    public GameObject endPos;
+
+    void Start()
+    {
+        OnInstantiateCostumer();
+    }
 
     public void OnInstantiateCostumer()
     {
-        if (costumerObj != null && costumer.costumersLeft > 0)
+        if (costumerObj != null && costumersLeft > 0)
         {
-            GameObject newItem;
+            GameObject newCostumer;
 
-            newItem = Instantiate(costumerObj, spawn.position, spawn.rotation);
+            newCostumer = Instantiate(costumerObj, spawn.position, spawn.rotation);
+            newCostumer.GetComponent<Costumer>().hotBarSlots.AddRange(hotBarPlayer.GetComponentsInChildren<Slot>());
+            newCostumer.GetComponent<Costumer>().endPosition = endPos;
 
-            costumer.costumersLeft--;
+            costumersLeft--;
         }
     }
 }

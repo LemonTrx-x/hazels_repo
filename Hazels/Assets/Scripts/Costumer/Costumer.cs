@@ -12,8 +12,10 @@ public class Costumer : MonoBehaviour
 
     public GameObject endPosition;
     public int speed = 5;
-    
-    public int costumersLeft = 1;
+
+    [Header("Player")]
+    [HideInInspector] public List<Slot> hotBarSlots = new List<Slot>();
+    [HideInInspector] public List<ItemData> potionsToCheck = new List<ItemData>();
     
     void Start()
     {
@@ -63,6 +65,35 @@ public class Costumer : MonoBehaviour
 
     public void CheckOrder()
     {
+        for (int i = 0; i < hotBarSlots.Count; i++)
+        {
+            if (hotBarSlots[i].itemData != null)
+            {
+                potionsToCheck.Add(hotBarSlots[i].itemData);
+                hotBarSlots[i].ClearItem();
+            }
+        }
 
+        foreach (ItemData item in costumerOrder)
+        {
+            if (potionsToCheck.Contains(item))
+            {
+                potionsToCheck.Remove(item);
+            }
+        }
+
+        if (costumerOrder.Count <= 0)
+        {
+            Debug.Log("Thanks for the potions :>!");
+            this.transform.position = Vector3.Lerp(this.transform.position, endPosition.transform.position, speed * Time.deltaTime);
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("EndPosition"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

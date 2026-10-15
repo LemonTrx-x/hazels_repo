@@ -20,7 +20,6 @@ public class Minigames : MonoBehaviour
     private bool isMovingToOld = false;
 
     [Header("Chest")]
-    public GameObject chestUI;
     public GameObject objSpawn;
     public int spawnForce = 50;
     [HideInInspector] public List<Slot> chestSlots = new List<Slot>();
