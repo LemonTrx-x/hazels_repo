@@ -167,52 +167,55 @@ public class Minigames : MonoBehaviour
             }
         }
 
-        //Check if items in itemsToCheck mathces with requiredMaterials in recipes
+        bool recipeFound = false;
+
+        //Check all the recipes
         for (int i = 0; i < allRecipes.Count; i++)
         {
-            if (itemsToCheck.Count != allRecipes[i].requiredMaterials.Count)
-            {
-                Debug.Log(itemsToCheck.Count);
-                Debug.Log(allRecipes[i].requiredMaterials.Count);
-                AddItemToShop(itemsToCheck);
-            }
+            //Temporal copy to evaluate this recipe without destroying the original
+            List<ItemData> tempItemsToCheck = new List<ItemData>(itemsToCheck);
 
-            else
+            //Verufy if the quantity of ingridients matches
+            if (tempItemsToCheck.Count == allRecipes[i].requiredMaterials.Count)
             {
+                int matches = 0;
+
                 foreach (ItemData item in allRecipes[i].requiredMaterials)
                 {
-                    if (itemsToCheck.Contains(item))
+                    if (tempItemsToCheck.Contains(item))
                     {
-                        sameItems++;
-                        itemsToCheck.Remove(item);
+                        matches++;
+                        tempItemsToCheck.Remove(item); //Remove from temporal copy
                     }
                 }
 
-                if (sameItems == allRecipes[i].requiredMaterials.Count)
+                //If all ingredients match the recipe
+                if (matches == allRecipes[i].requiredMaterials.Count)
                 {
-                    GameObject newPotion;
-
-                    newPotion = Instantiate(allRecipes[i].potion.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+                    //Create potion
+                    GameObject newPotion = Instantiate(allRecipes[i].potion.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
                     newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
 
-                    sameItems = 0;
-                }
-
-                //If we have not used items, add them again to chest
-                if (itemsToCheck.Count > 0)
-                {
-                    AddItemToShop(itemsToCheck);
+                    recipeFound = true;
+                    break; //End search because we found the correct recipe
                 }
             }
+        }
+
+        //If no recipe matches, items go to store
+        if (!recipeFound && itemsToCheck.Count > 0)
+        {
+            AddItemToShop(itemsToCheck);
         }
     }
 
     public void AddItemToShop(List<ItemData> itemsToCheck)
     {
-        for (int i = 0; i < itemsToCheck.Count; i++)
+        foreach (ItemData item in itemsToCheck)
         {
-            itemsToCheck[i].shopStock++;
-            itemsToCheck.RemoveAt(i);
+            item.shopStock++;
         }
+
+        itemsToCheck.Clear();
     }
 }
