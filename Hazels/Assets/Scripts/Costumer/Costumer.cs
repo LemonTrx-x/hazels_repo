@@ -10,6 +10,8 @@ public class Costumer : MonoBehaviour
     [HideInInspector] public List<ItemData> potions = new List<ItemData>();
     public int maxPotions = 1;
     [HideInInspector] public string potionsNames = "";
+    public int orderCoins = 100;
+    public int orderScore = 100;
 
     public GameObject endPosition;
     public int speed = 2;
@@ -85,6 +87,9 @@ public class Costumer : MonoBehaviour
         if (potionsToCheck.Count == 0)
         {
             finished = true;
+            GameManager.Instance.score += orderScore;
+            GameManager.Instance.coins += orderCoins;
+            Debug.Log("Thanks for the potions :>!");
         }
     }
 
@@ -92,7 +97,6 @@ public class Costumer : MonoBehaviour
     {
         if (finished == true)
         {
-            Debug.Log("Thanks for the potions :>!");
             this.transform.position = Vector3.Lerp(this.transform.position, endPosition.transform.position, speed * Time.deltaTime);
         }
     }

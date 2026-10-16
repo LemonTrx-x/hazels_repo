@@ -8,8 +8,6 @@ public class Minigames : MonoBehaviour
     public GameObject pointer;
     public GameObject hotBar;
 
-    public int progress = 0;
-
     [Header("Camera")]
     public GameObject cameraPlayer;
     public GameObject newCameraParent;
@@ -28,9 +26,10 @@ public class Minigames : MonoBehaviour
     private List<ItemData> itemsToCheck = new List<ItemData>();
 
     [Header("Minigames")]
+    public int progress = 0;
     public int currentMinigame = 0;
 
-    private void Awake()
+    void Awake()
     {
         if (Instance == null)
         {

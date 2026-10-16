@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class GameManager : MonoBehaviour
     public bool inMinigame;
 
     public int dayInGame = 0;
+
+    [Header("Player Score & Money")]
+    public int score = 0;
+    public TextMeshProUGUI scoreText;
+    public int coins = 500;
+    public TextMeshProUGUI coinsText;
 
     void Awake()
     {
@@ -33,5 +40,14 @@ public class GameManager : MonoBehaviour
         {
             itemDataBase.items[i].shopStock = 5;
         }
+
+        score = 0;
+        coins = 500;
+    }
+
+    void Update()
+    {
+        scoreText.text = "SCORE: " + score.ToString();
+        coinsText.text = "COINS: " + coins.ToString();
     }
 }
