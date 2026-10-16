@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Minigame1 : MonoBehaviour
 {
+    private int progressAmount;
+    
     [Header("Stick")]
     public Transform stickParent;
     public bool dragActive;
@@ -19,6 +21,7 @@ public class Minigame1 : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        progressAmount = GetComponentInParent<InteractMinigame>().newProgressAmount;
     }
 
     void OnMouseDown()
@@ -70,7 +73,7 @@ public class Minigame1 : MonoBehaviour
                 //Increment the integer each time the degreesNeeded is reached
                 if (accumulatedAngle >= degreesNeeded)
                 {
-                    Minigames.Instance.progress++;
+                    Minigames.Instance.progress += progressAmount;
                     accumulatedAngle -= degreesNeeded;
                     Debug.Log("Total progress: " + Minigames.Instance.progress);
                 }

@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Minigames : MonoBehaviour
 {
@@ -26,7 +27,10 @@ public class Minigames : MonoBehaviour
     private List<ItemData> itemsToCheck = new List<ItemData>();
 
     [Header("Minigames")]
+    public GameObject progressSliderObj;
+    [HideInInspector] public Slider progressSlider;
     public int progress = 0;
+    public int maxProgress;
     public int currentMinigame = 0;
 
     void Awake()
@@ -43,7 +47,11 @@ public class Minigames : MonoBehaviour
 
     void Start()
     {
-
+        progressSliderObj.SetActive(false);
+        progressSlider = progressSliderObj.GetComponent<Slider>();
+        
+        progressSlider.value = 0;
+        progressSlider.maxValue = 10;
     }
 
     void Update()
@@ -91,6 +99,7 @@ public class Minigames : MonoBehaviour
 
         pointer.SetActive(false);
         hotBar.SetActive(false);
+        progressSliderObj.SetActive(true);
 
         GameManager.Instance.inMinigame = true;
     }
@@ -106,6 +115,7 @@ public class Minigames : MonoBehaviour
 
             pointer.SetActive(true);
             hotBar.SetActive(true);
+            progressSliderObj.SetActive(false);
 
             CookMaterials();
             GameManager.Instance.inMinigame = false;
@@ -114,7 +124,9 @@ public class Minigames : MonoBehaviour
 
     public void CheckProgress()
     {
-        if (progress >= 10)
+        progressSlider.value = progress;
+
+        if (progress >= maxProgress)
         {
             EndMinigame();
             progress = 0;

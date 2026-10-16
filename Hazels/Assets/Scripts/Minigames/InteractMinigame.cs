@@ -6,12 +6,16 @@ public class InteractMinigame : InteractiveObj
     public GameObject chestUI;
     public GameObject newCookedObjSpawn;
     public int newCurrentMinigame;
+    public int newProgressAmount;
+    public int newMaxProgress;
 
     public override void Interact()
     {
         Minigames.Instance.newCameraParent = newParent;
         Minigames.Instance.objSpawn = newCookedObjSpawn;
         Minigames.Instance.currentMinigame = newCurrentMinigame;
+        Minigames.Instance.maxProgress = newMaxProgress;
+        Minigames.Instance.progressSlider.maxValue = newMaxProgress;
 
         if (chestUI != null)
         {
