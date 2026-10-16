@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72fa2cf93ea5bb4789309f7bfd25ec5, type: 3}
-  m_Name: 102.Strenght
+  m_Name: 102.StrenghtP
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   id: 102
   itemName: Strenght Potion

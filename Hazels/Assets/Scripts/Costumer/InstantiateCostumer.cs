@@ -3,7 +3,8 @@ using UnityEngine;
 public class InstantiateCostumer : MonoBehaviour
 {
     public Transform spawn;
-    public GameObject costumerObj;
+    public GameObject costumer = null;
+    public GameObject costumerPrefab;
     public int itemForce = 250;
 
     public int costumersLeft = 1;
@@ -11,20 +12,25 @@ public class InstantiateCostumer : MonoBehaviour
     public GameObject hotBarPlayer;
     public GameObject endPos;
 
-    void Start()
+    void Update()
     {
-        OnInstantiateCostumer();
+        if (costumer == null && costumersLeft > 0)
+        {
+            OnInstantiateCostumer();
+        }
     }
 
     public void OnInstantiateCostumer()
     {
-        if (costumerObj != null && costumersLeft > 0)
+        if (costumerPrefab != null && costumersLeft > 0)
         {
             GameObject newCostumer;
 
-            newCostumer = Instantiate(costumerObj, spawn.position, spawn.rotation);
+            newCostumer = Instantiate(costumerPrefab, spawn.position, spawn.rotation);
             newCostumer.GetComponent<Costumer>().hotBarSlots.AddRange(hotBarPlayer.GetComponentsInChildren<Slot>());
             newCostumer.GetComponent<Costumer>().endPosition = endPos;
+
+            costumer = newCostumer;
 
             costumersLeft--;
         }

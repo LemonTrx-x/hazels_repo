@@ -4,14 +4,16 @@ using System.Collections.Generic;
 public class Costumer : MonoBehaviour
 {
     [Header("Costumer")]
-    private List<ItemData> costumerOrder = new List<ItemData>();
+    [HideInInspector] public List<ItemData> costumerOrder = new List<ItemData>();
 
     public ItemDataBase potionsDataBase;
     [HideInInspector] public List<ItemData> potions = new List<ItemData>();
     public int maxPotions = 1;
+    [HideInInspector] public string potionsNames = "";
 
     public GameObject endPosition;
-    public int speed = 5;
+    public int speed = 2;
+    public bool finished = false;
 
     [Header("Player")]
     [HideInInspector] public List<Slot> hotBarSlots = new List<Slot>();
@@ -27,7 +29,7 @@ public class Costumer : MonoBehaviour
 
     void Update()
     {
-        
+        MoveToEnd();
     }
 
     public void GenerateOrder()
@@ -47,8 +49,6 @@ public class Costumer : MonoBehaviour
             ItemData randomPotion = potions[Random.Range(0, potions.Count)];
             costumerOrder.Add(randomPotion);
         }
-
-        string potionsNames = "";
 
         for (int i = 0; i < costumerOrder.Count; i++)
         {
@@ -82,7 +82,15 @@ public class Costumer : MonoBehaviour
             }
         }
 
-        if (costumerOrder.Count <= 0)
+        if (potionsToCheck.Count == 0)
+        {
+            finished = true;
+        }
+    }
+
+    public void MoveToEnd()
+    {
+        if (finished == true)
         {
             Debug.Log("Thanks for the potions :>!");
             this.transform.position = Vector3.Lerp(this.transform.position, endPosition.transform.position, speed * Time.deltaTime);
@@ -93,6 +101,7 @@ public class Costumer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("EndPosition"))
         {
+            finished = false;
             Destroy(gameObject);
         }
     }

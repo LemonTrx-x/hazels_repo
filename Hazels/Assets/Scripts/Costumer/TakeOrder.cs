@@ -1,3 +1,4 @@
+using UnityEngine;
 
 public class TakeOrder : InteractiveObj
 {
@@ -6,6 +7,18 @@ public class TakeOrder : InteractiveObj
     public override void Interact()
     {
         costumer = GetComponent<Costumer>();
-        costumer.GenerateOrder();
+
+        if (costumer.costumerOrder.Count == 0)
+        {
+            costumer.GenerateOrder();
+        }
+
+        for (int i = 0; i < costumer.hotBarSlots.Count; i++)
+        {
+            if (costumer.hotBarSlots[i].itemData != null)
+            {
+                costumer.CheckOrder();
+            }
+        }
     }
 }

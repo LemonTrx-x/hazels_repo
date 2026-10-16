@@ -6762,9 +6762,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InstantiateCostumer
   spawn: {fileID: 1306485715}
-  costumerObj: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
+  costumer: {fileID: 0}
+  costumerPrefab: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
   itemForce: 250
-  costumersLeft: 1
+  costumersLeft: 2
   hotBarPlayer: {fileID: 1915247549}
   endPos: {fileID: 1649565495}
 --- !u!1 &1001486022
@@ -11113,7 +11114,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
