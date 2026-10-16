@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
 {
+    public GameObject optionsPanel;
+    
     public void Play()
     {
         SceneManager.LoadScene("SCN_Gameplay");
@@ -10,7 +12,7 @@ public class BtnManager : MonoBehaviour
 
     public void Options()
     {
-        Debug.Log("Options");
+        optionsPanel.SetActive(!optionsPanel.activeSelf);
     }
 
     public void Exit()
