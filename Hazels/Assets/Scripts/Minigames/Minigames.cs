@@ -170,7 +170,6 @@ public class Minigames : MonoBehaviour
         //Check if items in itemsToCheck mathces with requiredMaterials in recipes
         for (int i = 0; i < allRecipes.Count; i++)
         {
-            //!!!!!!!!BUG: removes item if the first recipe it checks does not have it
             if (itemsToCheck.Count != allRecipes[i].requiredMaterials.Count)
             {
                 Debug.Log(itemsToCheck.Count);
