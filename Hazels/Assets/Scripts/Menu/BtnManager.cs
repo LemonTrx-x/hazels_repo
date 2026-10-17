@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class BtnManager : MonoBehaviour
 {
     public GameObject optionsPanel;
-    
+    public GameObject bookPanel;
+
     public void Play()
     {
         SceneManager.LoadScene("SCN_Gameplay");
@@ -12,7 +13,33 @@ public class BtnManager : MonoBehaviour
 
     public void Options()
     {
-        optionsPanel.SetActive(!optionsPanel.activeSelf);
+        if (optionsPanel != null)
+        {
+            optionsPanel.SetActive(!optionsPanel.activeSelf);
+        }
+    }
+
+    public void Book()
+    {
+        if (bookPanel != null)
+        {
+            if (!GameManager.Instance.inMinigame)
+            {
+                bookPanel.SetActive(!bookPanel.activeSelf);
+
+                if (bookPanel.activeSelf)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    GameManager.Instance.inMenu = true;
+                }
+
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    GameManager.Instance.inMenu = false;
+                }
+            }
+        }
     }
 
     public void Exit()
