@@ -24,7 +24,7 @@ public class Book : MonoBehaviour
             newPotionEntry.SetActive(true);
 
             newPotionEntry.GetComponent<EntryTemplate>().objId.text = potionsDataBase.items[i].id.ToString();
-            newPotionEntry.GetComponent<EntryTemplate>().objName.text = potionsDataBase.items[i].name;
+            newPotionEntry.GetComponent<EntryTemplate>().objName.text = potionsDataBase.items[i].itemName;
             newPotionEntry.GetComponent<EntryTemplate>().objSprite.sprite = potionsDataBase.items[i].icon;
         }
     }

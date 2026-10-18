@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int coins = 500;
     public TextMeshProUGUI coinsText;
+
+    [Header("Pause")]
+    public GameObject pauseMenu;
+    public GameObject pauseIcon;
+    public bool isGamePaused = false;
 
     void Awake()
     {
@@ -49,5 +55,43 @@ public class GameManager : MonoBehaviour
     {
         scoreText.text = "SCORE: " + score.ToString();
         coinsText.text = "COINS: " + coins.ToString();
+    }
+
+    public void OnPause(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.performed)
+        {
+            if (isGamePaused)
+            {
+                Resume();
+            }
+
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    public void Resume()
+    {
+        HandlePauseUI();
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
+        isGamePaused = false;
+    }
+
+    public void Pause()
+    {
+        HandlePauseUI();
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+        isGamePaused = true;
+    }
+
+    public void HandlePauseUI()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        pauseIcon.SetActive(!pauseIcon.activeSelf);
     }
 }

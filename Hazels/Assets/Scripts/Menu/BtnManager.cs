@@ -23,7 +23,7 @@ public class BtnManager : MonoBehaviour
     {
         if (bookPanel != null)
         {
-            if (!GameManager.Instance.inMinigame)
+            if (!(GameManager.Instance.inMinigame || GameManager.Instance.isGamePaused))
             {
                 bookPanel.SetActive(!bookPanel.activeSelf);
 
