@@ -1,100 +1,31 @@
 using UnityEngine;
-using TMPro;
-using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class Book : MonoBehaviour
 {
-    /*
-    public Transform entryContainer;
-    public Transform entryTemplate;
+    public Transform potionsEntryParent;
+    public GameObject potionsEntryTemplate;
 
-    public List<Transform> bookEntryTransformList;
-
-    public TextMeshProUGUI potionID;
-    public TextMeshProUGUI potionName;
-    public Sprite potionSprite; 
+    public ItemDataBase potionsDataBase;
 
     void Awake()
     {
-        entryContainer = transform.Find("BookPanel");
-        entryContainer = entryContainer.Find("RecipeTemplateBtn");
-
-        entryTemplate.gameObject.SetActive(false);
+        potionsEntryTemplate.gameObject.SetActive(false);
 
         StartBook();
     }
 
     public void StartBook()
     {
-        Debug.Log("BOOK");
-
-        string jsonString = PlayerPrefs.GetString("recipeTable");
-        Recipes recipes = JsonUtility.FromJson<Recipes>(jsonString);
-
-        if (recipes == null || recipes.recipeEntryList == null)
+        for (int i = 0; i < potionsDataBase.items.Count; ++i)
         {
-            recipes = new Recipes { recipeEntryList = new List<RecipeEntry>() };
-        }
+            GameObject newPotionEntry;
 
-        for (int i = 0; i < recipes.recipeEntryList.Count; i++)
-        {
-            for (int j = i + 1; j < recipes.recipeEntryList.Count; j++)
-            {
-                if (recipes.recipeEntryList[j].id > recipes.recipeEntryList[i].id)
-                {
-                    RecipeEntry tmp = recipes.recipeEntryList[i];
-                    recipes.recipeEntryList[i] = recipes.recipeEntryList[j];
-                    recipes.recipeEntryList[j] = tmp;
-                }
-            }
-        }
+            newPotionEntry = Instantiate(potionsEntryTemplate, potionsEntryParent);
+            newPotionEntry.SetActive(true);
 
-        bookEntryTransformList = new List<Transform>();
-        foreach (RecipeEntry highscoreEntry in recipes.recipeEntryList)
-        {
-            CreateRecipeEntryTransform(highscoreEntry, entryContainer, bookEntryTransformList);
+            newPotionEntry.GetComponent<EntryTemplate>().objId.text = potionsDataBase.items[i].id.ToString();
+            newPotionEntry.GetComponent<EntryTemplate>().objName.text = potionsDataBase.items[i].name;
+            newPotionEntry.GetComponent<EntryTemplate>().objSprite.sprite = potionsDataBase.items[i].icon;
         }
     }
-
-    private void CreateRecipeEntryTransform(RecipeEntry recipeEntry, Transform container, List<Transform> transformList)
-    {
-        if (transformList.Count <= 9)
-        {
-            float templateHeight = 60f;
-            Transform entryTransform = Instantiate(entryTemplate, container);
-            RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
-            entryRectTransform.anchoredPosition = new Vector2(0, -templateHeight * transformList.Count);
-            entryTransform.gameObject.SetActive(true);
-
-            int rank = transformList.Count + 1;
-
-            entryTransform.Find("PosText").GetComponent<TextMeshProUGUI>().text = potionID;
-
-            int score = recipeEntry.id;
-            entryTransform.Find("ScoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
-
-            string name = recipeEntry.name;
-            entryTransform.Find("NameText").GetComponent<TextMeshProUGUI>().text = name;
-
-            entryTransform.Find("Background").gameObject.SetActive(rank % 2 == 1);
-
-            transformList.Add(entryTransform);
-        }
-    }
-
-    private class Recipes
-    {
-        public List<RecipeEntry> recipeEntryList = new List<RecipeEntry>();
-    }
-
-    [System.Serializable]
-    private class RecipeEntry
-    {
-        public int id;
-        public string name;
-    }
-    */
-
-    //Still needs work. A lot.
 }
