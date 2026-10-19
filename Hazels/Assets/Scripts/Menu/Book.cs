@@ -23,9 +23,12 @@ public class Book : MonoBehaviour
             newPotionEntry = Instantiate(potionsEntryTemplate, potionsEntryParent);
             newPotionEntry.SetActive(true);
 
-            newPotionEntry.GetComponent<EntryTemplate>().objId.text = potionsDataBase.items[i].id.ToString();
-            newPotionEntry.GetComponent<EntryTemplate>().objName.text = potionsDataBase.items[i].itemName;
-            newPotionEntry.GetComponent<EntryTemplate>().objSprite.sprite = potionsDataBase.items[i].icon;
+            EntryTemplate entryScript = newPotionEntry.GetComponent<EntryTemplate>();
+
+            entryScript.objId.text = potionsDataBase.items[i].id.ToString();
+            entryScript.objName.text = potionsDataBase.items[i].itemName;
+            entryScript.objSprite.sprite = potionsDataBase.items[i].icon;
+            entryScript.itemData = potionsDataBase.items[i];
         }
     }
 }

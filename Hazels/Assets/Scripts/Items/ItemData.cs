@@ -12,4 +12,6 @@ public class ItemData : ScriptableObject
     public bool isFinished;
     public ItemData nextStage;
     public int minigame;
+    public string info;
+    public string frase;
 }

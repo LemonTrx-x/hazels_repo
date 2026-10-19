@@ -95,8 +95,6 @@ public class Minigames : MonoBehaviour
         isMovingToNew = true;
         isMovingToOld = false;
 
-        Cursor.lockState = CursorLockMode.None;
-
         pointer.SetActive(false);
         hotBar.SetActive(false);
         progressSliderObj.SetActive(true);
@@ -110,8 +108,6 @@ public class Minigames : MonoBehaviour
         {
             isMovingToNew = false;
             isMovingToOld = true;
-
-            Cursor.lockState = CursorLockMode.Locked;
 
             pointer.SetActive(true);
             hotBar.SetActive(true);

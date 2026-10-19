@@ -33,13 +33,11 @@ public class InventoryManager : MonoBehaviour
 
         if (inventoryUI.activeSelf)
         {
-            Cursor.lockState = CursorLockMode.None;
             GameManager.Instance.inMenu = true;
         }
 
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
             GameManager.Instance.inMenu = false;
         }
     }

@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
         //Initialize the DataBase
         itemDataBase.InitializeDataBase();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Start()
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        HandleCursor();
+        
         scoreText.text = "SCORE: " + score.ToString();
         coinsText.text = "COINS: " + coins.ToString();
     }
@@ -76,7 +80,6 @@ public class GameManager : MonoBehaviour
     public void Resume()
     {
         HandlePauseUI();
-        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
         isGamePaused = false;
     }
@@ -84,7 +87,6 @@ public class GameManager : MonoBehaviour
     public void Pause()
     {
         HandlePauseUI();
-        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
         isGamePaused = true;
     }
@@ -93,5 +95,18 @@ public class GameManager : MonoBehaviour
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
         pauseIcon.SetActive(!pauseIcon.activeSelf);
+    }
+
+    public void HandleCursor()
+    {
+        if (isGamePaused || inMenu || inMinigame)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BtnManager : MonoBehaviour
 {
     public GameObject optionsPanel;
     public GameObject bookPanel;
+
+    public GameObject bookInfo;
 
     public void Play()
     {
@@ -29,14 +32,34 @@ public class BtnManager : MonoBehaviour
 
                 if (bookPanel.activeSelf)
                 {
-                    Cursor.lockState = CursorLockMode.None;
                     GameManager.Instance.inMenu = true;
                 }
 
                 else
                 {
-                    Cursor.lockState = CursorLockMode.Locked;
                     GameManager.Instance.inMenu = false;
+                }
+            }
+        }
+    }
+
+    public void BookInfo(Button clickedBtn)
+    {
+        if (bookInfo != null)
+        {
+            if (!(GameManager.Instance.inMinigame || GameManager.Instance.isGamePaused))
+            {
+                bookInfo.SetActive(!bookInfo.activeSelf);
+
+                if (bookInfo.activeSelf)
+                {
+                    EntryTemplate btnInfo = clickedBtn.GetComponent<EntryTemplate>();
+                    BookInfo bookInfoScript = bookInfo.GetComponent<BookInfo>();
+
+                    bookInfoScript.objName.text = btnInfo.itemData.itemName;
+                    bookInfoScript.objSprite.sprite = btnInfo.itemData.icon;
+                    bookInfoScript.objInfo.text = btnInfo.itemData.info;
+                    bookInfoScript.objFrase.text = btnInfo.itemData.frase;
                 }
             }
         }
