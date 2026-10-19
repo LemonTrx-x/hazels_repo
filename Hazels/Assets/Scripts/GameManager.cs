@@ -18,10 +18,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int coins = 500;
     public TextMeshProUGUI coinsText;
+    public PlayerInput input;
 
     [Header("Pause")]
     public GameObject pauseMenu;
     public GameObject pauseIcon;
+    public GameObject virtualMouseUI;
     public bool isGamePaused = false;
 
     void Awake()
@@ -101,11 +103,23 @@ public class GameManager : MonoBehaviour
     {
         if (isGamePaused || inMenu || inMinigame)
         {
-            Cursor.lockState = CursorLockMode.None;
+            if (input.currentControlScheme == "Gamepad")
+            {
+                virtualMouseUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            else
+            {
+                virtualMouseUI.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+            }
+
         }
 
         else
         {
+            virtualMouseUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
