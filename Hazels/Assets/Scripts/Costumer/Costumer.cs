@@ -54,7 +54,7 @@ public class Costumer : MonoBehaviour
 
         for (int i = 0; i < costumerOrder.Count; i++)
         {
-            potionsNames += costumerOrder[i].name;
+            potionsNames += costumerOrder[i].itemName;
 
             if (i < costumerOrder.Count - 1)
             {
