@@ -21,3 +21,5 @@ MonoBehaviour:
   isFinished: 1
   nextStage: {fileID: 0}
   minigame: 1
+  info: A common rock found in caves.
+  frase: '*Raises an eyebrow*'

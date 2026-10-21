@@ -21,3 +21,5 @@ MonoBehaviour:
   isFinished: 1
   nextStage: {fileID: 0}
   minigame: 1
+  info: A plant found in abundance in the surrounding area.
+  frase: Grass touched

@@ -4,10 +4,14 @@ using UnityEngine.UI;
 
 public class BtnManager : MonoBehaviour
 {
+    [Header("Options")]
     public GameObject optionsPanel;
-    public GameObject bookPanel;
 
+    [Header("Book")]
+    public GameObject bookPanel;
     public GameObject bookInfo;
+    public GameObject potionsScroll;
+    public GameObject itemsScroll;
 
     public void Play()
     {
@@ -63,6 +67,18 @@ public class BtnManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PotionsBookBtn()
+    {
+        potionsScroll.SetActive(true);
+        itemsScroll.SetActive(false);
+    }
+
+    public void ItemsBookBtn()
+    {
+        potionsScroll.SetActive(false);
+        itemsScroll.SetActive(true);
     }
 
     public void Exit()
