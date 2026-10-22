@@ -15,7 +15,7 @@ public class BtnManager : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("SCN_Gameplay");
+        SceneManager.LoadScene(1);
     }
 
     public void Options()
