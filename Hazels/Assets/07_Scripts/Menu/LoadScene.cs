@@ -5,12 +5,19 @@ using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
+    public GameObject loadingPanel;
     public Image bar;
 
     AsyncOperation operation;
 
+    void Start()
+    {
+        loadingPanel.SetActive(false);
+    }
+    
     public void OnLoadScene(int scene)
     {
+        loadingPanel.SetActive(true);
         StartCoroutine(Loading(scene));
     }
 
