@@ -117,8 +117,10 @@ MonoBehaviour:
   speed: 2
   finished: 0
   costumerLines:
-  - Holi buenas
-  - Jijijaja
+  - Hi!
+  - Here's my order.
+  finishedLines:
+  - Thanks for the potions!
   hotBarSlots: []
   potionsToCheck: []
 --- !u!114 &5999293292902320427
@@ -133,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fd330b60bbeec4ab581162b4760cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TakeOrder
+  dialogueParent: {fileID: 0}
+  dialogueScript: {fileID: 0}
 --- !u!136 &1078949512230069475
 CapsuleCollider:
   m_ObjectHideFlags: 0

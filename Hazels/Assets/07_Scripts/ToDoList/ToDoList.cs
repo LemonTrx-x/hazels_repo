@@ -153,17 +153,18 @@ public class ToDoList : MonoBehaviour
 
     private IEnumerator FinishOrderState()
     {
+        toDoListText.text = "Wait for the next costumer.";
+        yield return new WaitForSeconds(1f);
+
         //Return to TakeOrder to wait for next costumer, if there are any left
         if (instCostumer.costumersLeft > 0)
         {
             ChangeState(PlayerState.TakeOrder);
-            yield break;
         }
 
         else
         {
             ChangeState(PlayerState.EndDay);
-            yield break;
         }
     }
 

@@ -16946,7 +16946,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 794014242}
   dialogueText: {fileID: 1022604294}
   lines: []
-  textSpeed: 0.125
+  textSpeed: 0.0125
 --- !u!1 &1558976004
 GameObject:
   m_ObjectHideFlags: 0

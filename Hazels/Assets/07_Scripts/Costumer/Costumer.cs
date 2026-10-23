@@ -19,6 +19,7 @@ public class Costumer : MonoBehaviour
 
     [Header("Costumer Lines")]
     public string[] costumerLines;
+    public string[] finishedLines;
 
     [Header("Player")]
     [HideInInspector] public List<Slot> hotBarSlots = new List<Slot>();

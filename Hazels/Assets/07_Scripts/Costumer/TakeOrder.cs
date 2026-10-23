@@ -23,13 +23,6 @@ public class TakeOrder : InteractiveObj
         if (costumer.costumerOrder.Count == 0)
         {
             costumer.GenerateOrder();
-            dialogueScript.dialoguePanel.SetActive(true);
-        }
-
-        if (costumer.costumerLines.Length > 0)
-        {
-            dialogueScript.lines = costumer.costumerLines;
-            dialogueScript.StartDialogue();
         }
 
         for (int i = 0; i < costumer.hotBarSlots.Count; i++)
@@ -37,6 +30,26 @@ public class TakeOrder : InteractiveObj
             if (costumer.hotBarSlots[i].itemData != null)
             {
                 costumer.CheckOrder();
+            }
+        }
+
+        if (!costumer.finished)
+        {
+            if (costumer.costumerLines.Length > 0)
+            {
+                dialogueScript.lines = costumer.costumerLines;
+                dialogueScript.dialoguePanel.SetActive(true);
+                dialogueScript.StartDialogue();
+            }
+        }
+
+        else
+        {
+            if (costumer.finishedLines.Length > 0)
+            {
+                dialogueScript.lines = costumer.finishedLines;
+                dialogueScript.dialoguePanel.SetActive(true);
+                dialogueScript.StartDialogue();
             }
         }
     }
