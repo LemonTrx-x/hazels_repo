@@ -13,11 +13,6 @@ public class BtnManager : MonoBehaviour
     public GameObject potionsScroll;
     public GameObject itemsScroll;
 
-    public void Play()
-    {
-        SceneManager.LoadScene(1);
-    }
-
     public void Options()
     {
         if (optionsPanel != null)

@@ -5,13 +5,26 @@ using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
+    public GameObject loadingPanel;
     public Image bar;
 
     AsyncOperation operation;
 
-    public void OnLoadScene(int scene)
+    void Start()
     {
-        StartCoroutine(Loading(scene));
+        if (loadingPanel != null)
+        {
+            loadingPanel.SetActive(false);
+        }
+    }
+    
+    public void OnLoadScene(int newScene)
+    {
+        if (loadingPanel != null && bar != null)
+        {
+            loadingPanel.SetActive(true);
+            StartCoroutine(Loading(newScene));
+        }
     }
 
     IEnumerator Loading(int scene)
