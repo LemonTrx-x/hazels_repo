@@ -45,9 +45,16 @@ public class TakeOrder : InteractiveObj
 
         else
         {
-            if (costumer.finishedLines.Length > 0)
+            if (costumer.goodFinish == true && costumer.goodLines.Length > 0)
             {
-                dialogueScript.lines = costumer.finishedLines;
+                dialogueScript.lines = costumer.goodLines;
+                dialogueScript.dialoguePanel.SetActive(true);
+                dialogueScript.StartDialogue();
+            }
+
+            else if (costumer.badFinish == true && costumer.badLines.Length > 0)
+            {
+                dialogueScript.lines = costumer.badLines;
                 dialogueScript.dialoguePanel.SetActive(true);
                 dialogueScript.StartDialogue();
             }

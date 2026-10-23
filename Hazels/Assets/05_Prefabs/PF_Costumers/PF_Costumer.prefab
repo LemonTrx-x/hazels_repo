@@ -116,11 +116,15 @@ MonoBehaviour:
   endPosition: {fileID: 0}
   speed: 2
   finished: 0
+  goodFinish: 0
+  badFinish: 0
   costumerLines:
   - Hi!
   - Here's my order.
-  finishedLines:
+  goodLines:
   - Thanks for the potions!
+  badLines:
+  - That wasn't my order...
   hotBarSlots: []
   potionsToCheck: []
 --- !u!114 &5999293292902320427

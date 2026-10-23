@@ -16,10 +16,13 @@ public class Costumer : MonoBehaviour
     public GameObject endPosition;
     public int speed = 2;
     public bool finished = false;
+    public bool goodFinish = false;
+    public bool badFinish = false;
 
     [Header("Costumer Lines")]
     public string[] costumerLines;
-    public string[] finishedLines;
+    public string[] goodLines;
+    public string[] badLines;
 
     [Header("Player")]
     [HideInInspector] public List<Slot> hotBarSlots = new List<Slot>();
@@ -91,9 +94,17 @@ public class Costumer : MonoBehaviour
         if (potionsToCheck.Count == 0)
         {
             finished = true;
+            goodFinish = true;
             GameManager.Instance.score += orderScore;
             GameManager.Instance.coins += orderCoins;
-            Debug.Log("Thanks for the potions :>!");
+        }
+
+        else
+        {
+            finished = true;
+            badFinish = true;
+            GameManager.Instance.score += orderScore/2;
+            GameManager.Instance.coins += orderCoins/2;
         }
     }
 
