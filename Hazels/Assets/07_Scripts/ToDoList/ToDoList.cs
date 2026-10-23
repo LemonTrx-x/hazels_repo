@@ -11,6 +11,7 @@ public class ToDoList : MonoBehaviour
         StartDay,
         TakeOrder,
         InOrder,
+        FinishOrder,
         EndDay
     }
 
@@ -18,7 +19,7 @@ public class ToDoList : MonoBehaviour
     public TextMeshProUGUI toDoListText;
     public InstantiateCostumer instCostumer;
     public Costumer costumer;
-    private PlayerState currentStateType;
+    public PlayerState currentStateType;
 
     private Coroutine currentCoroutine;
     private bool isChangingState = false; //Lock to avoid loops in the same frame
@@ -93,6 +94,9 @@ public class ToDoList : MonoBehaviour
             case PlayerState.InOrder:
                 yield return StartCoroutine(InOrderState());
                 break;
+            case PlayerState.FinishOrder:
+                yield return StartCoroutine(FinishOrderState());
+                break;
             case PlayerState.EndDay:
                 yield return StartCoroutine(EndDayState());
                 break;
@@ -114,10 +118,19 @@ public class ToDoList : MonoBehaviour
         while (true)
         {
             //Make sure costumer exists, has an order and hasn't finished yet
-            if (costumer != null && costumer.costumerOrder != null && costumer.costumerOrder.Count > 0 && !costumer.finished)
+            if (costumer != null)
             {
-                ChangeState(PlayerState.InOrder);
-                yield break;
+                if (costumer.costumerOrder != null)
+                {
+                    if (costumer.costumerOrder.Count > 0)
+                    {
+                        if (!costumer.finished)
+                        {
+                            ChangeState(PlayerState.InOrder);
+                            yield break;
+                        }
+                    }
+                }
             }
 
             yield return null;
@@ -135,25 +148,22 @@ public class ToDoList : MonoBehaviour
             yield return null;
         }
 
-        //Wait until old costumer dissapears from InstantiateCostumer
-        //(It avoids reading the old costumer)
-        while (instCostumer != null && instCostumer.costumer != null)
-        {
-            yield return null;
-        }
+        ChangeState(PlayerState.FinishOrder);
+    }
 
-        //Clean the reference for the next costumers
-        costumer = null;
-
+    private IEnumerator FinishOrderState()
+    {
         //Return to TakeOrder to wait for next costumer, if there are any left
         if (instCostumer.costumersLeft > 0)
         {
             ChangeState(PlayerState.TakeOrder);
+            yield break;
         }
 
         else
         {
             ChangeState(PlayerState.EndDay);
+            yield break;
         }
     }
 

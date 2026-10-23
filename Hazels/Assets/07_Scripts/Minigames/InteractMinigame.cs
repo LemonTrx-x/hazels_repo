@@ -28,11 +28,6 @@ public class InteractMinigame : InteractiveObj
                 {
                     Minigames.Instance.StartMiniGame();
                 }
-
-                else
-                {
-                    Debug.Log("Put items in the chest to start the minigame.");
-                }
             }
         }
     }
