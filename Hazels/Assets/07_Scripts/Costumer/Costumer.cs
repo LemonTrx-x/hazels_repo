@@ -17,6 +17,9 @@ public class Costumer : MonoBehaviour
     public int speed = 2;
     public bool finished = false;
 
+    [Header("Costumer Lines")]
+    public string[] costumerLines;
+
     [Header("Player")]
     [HideInInspector] public List<Slot> hotBarSlots = new List<Slot>();
     [HideInInspector] public List<ItemData> potionsToCheck = new List<ItemData>();

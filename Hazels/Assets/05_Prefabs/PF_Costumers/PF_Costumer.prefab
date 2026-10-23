@@ -111,9 +111,14 @@ MonoBehaviour:
   potions: []
   maxPotions: 1
   potionsNames: 
+  orderCoins: 100
+  orderScore: 100
   endPosition: {fileID: 0}
   speed: 2
   finished: 0
+  costumerLines:
+  - Holi buenas
+  - Jijijaja
   hotBarSlots: []
   potionsToCheck: []
 --- !u!114 &5999293292902320427

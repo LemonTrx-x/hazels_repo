@@ -4,16 +4,12 @@ using System.Collections;
 
 public class DialogueScript : MonoBehaviour
 {
+    public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
     public string[] lines;
     public float textSpeed = 0.25f;
 
     int index;
-
-    void Start()
-    {
-        dialogueText.text = string.Empty;
-    }
 
     void Update()
     {
@@ -35,7 +31,10 @@ public class DialogueScript : MonoBehaviour
     public void StartDialogue()
     {
         index = 0;
+        dialogueText.text = string.Empty;
 
+        dialoguePanel.SetActive(true);
+        GameManager.Instance.inMenu = true;
         StartCoroutine(WriteLine());
     }
 
@@ -60,7 +59,8 @@ public class DialogueScript : MonoBehaviour
 
         else
         {
-            gameObject.SetActive(false);
+            dialoguePanel.SetActive(false);
+            GameManager.Instance.inMenu = false;
         }
     }
 }
