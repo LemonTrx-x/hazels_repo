@@ -108,7 +108,6 @@ public class ToDoList : MonoBehaviour
 
     private IEnumerator TakeOrderState()
     {
-        toDoListText.text = "";
         toDoListText.text = "Take the costumer's order.";
         yield return null;
 
@@ -127,7 +126,6 @@ public class ToDoList : MonoBehaviour
 
     private IEnumerator InOrderState()
     {
-        toDoListText.text = "";
         toDoListText.text = "Make " + costumer.potionsNames;
         yield return null;
 

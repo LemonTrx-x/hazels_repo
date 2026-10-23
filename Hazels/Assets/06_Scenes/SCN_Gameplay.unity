@@ -11258,7 +11258,7 @@ MonoBehaviour:
   costumer: {fileID: 0}
   costumerPrefab: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
   itemForce: 250
-  costumersLeft: 2
+  costumersLeft: 5
   hotBarPlayer: {fileID: 1915247549}
   endPos: {fileID: 1649565495}
 --- !u!1 &999543371
