@@ -12,13 +12,19 @@ public class LoadScene : MonoBehaviour
 
     void Start()
     {
-        loadingPanel.SetActive(false);
+        if (loadingPanel != null)
+        {
+            loadingPanel.SetActive(false);
+        }
     }
     
-    public void OnLoadScene(int scene)
+    public void OnLoadScene(int newScene)
     {
-        loadingPanel.SetActive(true);
-        StartCoroutine(Loading(scene));
+        if (loadingPanel != null && bar != null)
+        {
+            loadingPanel.SetActive(true);
+            StartCoroutine(Loading(newScene));
+        }
     }
 
     IEnumerator Loading(int scene)
