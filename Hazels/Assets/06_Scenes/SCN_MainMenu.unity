@@ -1101,7 +1101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &650875974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1464,17 +1464,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_PointAction: {fileID: -9103322798119108036, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
   m_MoveAction: {fileID: 0}
-  m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
-  m_MiddleClickAction: {fileID: 2086005613742135297, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
-  m_RightClickAction: {fileID: -5331964391706081107, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
-  m_ScrollWheelAction: {fileID: -7095072636597713544, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6035247070896875544, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 8594211114971283575, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
+  m_SubmitAction: {fileID: 5249242033990863445, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_CancelAction: {fileID: -4213113849681856617, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_LeftClickAction: {fileID: -4095850533801849404, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_MiddleClickAction: {fileID: 2086005613742135297, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_RightClickAction: {fileID: -5331964391706081107, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_ScrollWheelAction: {fileID: -7095072636597713544, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6035247070896875544, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 8594211114971283575, guid: 8a6be69f6f26a264da143dc739fdd377, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
   m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_sendNavigationEvents: 0
   m_DragThreshold: 10
 --- !u!4 &674920054
 Transform:

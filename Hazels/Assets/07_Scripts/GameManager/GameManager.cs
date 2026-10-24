@@ -106,13 +106,15 @@ public class GameManager : MonoBehaviour
             if (input.currentControlScheme == "Gamepad")
             {
                 virtualMouseUI.SetActive(true);
-                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = false;
             }
 
             else
             {
                 virtualMouseUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
 
         }
