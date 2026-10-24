@@ -496,6 +496,17 @@
                 },
                 {
                     "name": "",
+                    "id": "421dce7e-05c5-407e-8bd0-743bb247578d",
+                    "path": "<VirtualMouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollWheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d36d984b-2c4e-48af-a4e1-6cd95b773576",
                     "path": "<Mouse>/middleButton",
                     "interactions": "",

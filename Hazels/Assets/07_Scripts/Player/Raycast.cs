@@ -33,7 +33,10 @@ public class Raycast : MonoBehaviour
             {
                 InteractiveObj interactiveObj = hit.collider.gameObject.GetComponent<InteractiveObj>();
 
-                if (interactiveObj != null && !(GameManager.Instance.inMenu || GameManager.Instance.isGamePaused))
+                if (interactiveObj != null && 
+                    !(GameManager.Instance.inMenu 
+                    || GameManager.Instance.isGamePaused 
+                    || GameManager.Instance.inDialogue))
                 {
                     interactiveObj.Interact();
                 }

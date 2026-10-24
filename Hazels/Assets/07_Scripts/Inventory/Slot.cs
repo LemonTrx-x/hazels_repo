@@ -48,7 +48,15 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             return;
         }
 
-        UIManager.Instance.ghostIcon.transform.position = Input.mousePosition;
+        if (GameManager.Instance.input.currentControlScheme == "Gamepad")
+        {
+            UIManager.Instance.ghostIcon.transform.position = InventoryManager.Instance.virtualMouse.transform.position;
+        }
+
+        else
+        {
+            UIManager.Instance.ghostIcon.transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)

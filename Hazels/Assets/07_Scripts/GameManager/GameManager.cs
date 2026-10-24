@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public bool inMenu;
     public bool inMinigame;
+    public bool inDialogue;
 
     public int dayInGame = 0;
 

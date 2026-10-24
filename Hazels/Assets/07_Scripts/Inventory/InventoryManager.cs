@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject inventoryUI;
     public Inventory playerInventory;
+    public GameObject virtualMouse;
 
     void Awake()
     {

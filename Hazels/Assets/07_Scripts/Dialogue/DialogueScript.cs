@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class DialogueScript : MonoBehaviour
 {
@@ -13,7 +14,12 @@ public class DialogueScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+    }
+
+    public void NextDialogue(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.performed)
         {
             if (dialogueText.text == lines[index])
             {
@@ -34,7 +40,7 @@ public class DialogueScript : MonoBehaviour
         dialogueText.text = string.Empty;
 
         dialoguePanel.SetActive(true);
-        GameManager.Instance.inMenu = true;
+        GameManager.Instance.inDialogue = true;
         StartCoroutine(WriteLine());
     }
 
@@ -60,7 +66,7 @@ public class DialogueScript : MonoBehaviour
         else
         {
             dialoguePanel.SetActive(false);
-            GameManager.Instance.inMenu = false;
+            GameManager.Instance.inDialogue = false;
         }
     }
 }

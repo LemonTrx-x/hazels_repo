@@ -32,7 +32,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!(GameManager.Instance.inMenu || GameManager.Instance.inMinigame || GameManager.Instance.isGamePaused))
+        if (!(GameManager.Instance.inMenu 
+            || GameManager.Instance.inMinigame 
+            || GameManager.Instance.isGamePaused 
+            || GameManager.Instance.inDialogue))
         {
             HandleCamera();
             HandleMove();
