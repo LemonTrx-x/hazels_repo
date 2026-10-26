@@ -23,3 +23,4 @@ MonoBehaviour:
   minigame: 0
   info: Helps to heal all types of damage.
   frase: Tummy hurts :,(
+  recipe: {fileID: 11400000, guid: a63c0dee9f97a7b4da907116fb77a565, type: 2}

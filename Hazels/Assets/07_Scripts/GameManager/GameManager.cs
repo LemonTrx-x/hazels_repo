@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Pause")]
     public GameObject pauseMenu;
-    public GameObject pauseIcon;
     public GameObject virtualMouseUI;
     public bool isGamePaused = false;
 
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        HandleCursor();
+        HandleCursors();
         
         scoreText.text = "SCORE: " + score.ToString();
         coinsText.text = "COINS: " + coins.ToString();
@@ -97,10 +97,9 @@ public class GameManager : MonoBehaviour
     public void HandlePauseUI()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
-        pauseIcon.SetActive(!pauseIcon.activeSelf);
     }
 
-    public void HandleCursor()
+    public void HandleCursors()
     {
         if (isGamePaused || inMenu || inMinigame)
         {
@@ -114,6 +113,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 virtualMouseUI.SetActive(false);
+                ResetVirtualMouse();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
@@ -123,7 +123,13 @@ public class GameManager : MonoBehaviour
         else
         {
             virtualMouseUI.SetActive(false);
+            ResetVirtualMouse();
             Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+
+    public void ResetVirtualMouse()
+    {
+        virtualMouseUI.GetComponent<VirtualMouseInput>().cursorTransform.position = new Vector2(960, 540);
     }
 }

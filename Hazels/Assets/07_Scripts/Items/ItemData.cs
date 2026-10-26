@@ -14,4 +14,5 @@ public class ItemData : ScriptableObject
     public int minigame;
     public string info;
     public string frase;
+    public RecipeData recipe;
 }
