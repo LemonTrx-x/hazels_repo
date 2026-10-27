@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool inMenu;
     public bool inMinigame;
     public bool inDialogue;
+    public bool inPC;
 
     public int dayInGame = 0;
 

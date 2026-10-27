@@ -56,6 +56,12 @@ public class Minigames : MonoBehaviour
 
     void Update()
     {
+        MoveCamera();
+        CheckProgress();
+    }
+
+    public void MoveCamera()
+    {
         //Moving camera to new position
         if (isMovingToNew)
         {
@@ -84,8 +90,6 @@ public class Minigames : MonoBehaviour
                 isMovingToOld = false;
             }
         }
-
-        CheckProgress();
     }
 
     public void StartMiniGame()
@@ -97,9 +101,12 @@ public class Minigames : MonoBehaviour
 
         pointer.SetActive(false);
         hotBar.SetActive(false);
-        progressSliderObj.SetActive(true);
 
-        GameManager.Instance.inMinigame = true;
+        if (!GameManager.Instance.inPC)
+        {
+            progressSliderObj.SetActive(true);
+            GameManager.Instance.inMinigame = true;
+        }
     }
 
     public void EndMinigame()

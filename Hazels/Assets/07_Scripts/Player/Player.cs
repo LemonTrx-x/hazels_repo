@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
         if (!(GameManager.Instance.inMenu 
             || GameManager.Instance.inMinigame 
             || GameManager.Instance.isGamePaused 
-            || GameManager.Instance.inDialogue))
+            || GameManager.Instance.inDialogue
+            || GameManager.Instance.inPC))
         {
             HandleCamera();
             HandleMove();
