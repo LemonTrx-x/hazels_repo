@@ -21,7 +21,7 @@ public class ItemDataBase : ScriptableObject
                 continue;
             }
 
-            if (itemDictionary.ContainsKey(item.id.ToString()))
+            if (!itemDictionary.ContainsKey(item.id.ToString()))
             {
                 itemDictionary.Add(item.id.ToString(), item);
             }

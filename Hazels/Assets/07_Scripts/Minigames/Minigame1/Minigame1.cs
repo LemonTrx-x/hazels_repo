@@ -18,8 +18,6 @@ public class Minigame1 : MonoBehaviour
     private float accumulatedAngle = 0f; //Keep track of the degrees completed
     private float previousMouseAngle; //Previous frame angle
 
-    float xRotation = 0f;
-
     void Start()
     {
         mainCamera = Camera.main;

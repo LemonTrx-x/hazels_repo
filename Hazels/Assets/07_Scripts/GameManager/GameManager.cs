@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
         itemDataBase.InitializeDataBase();
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        Time.timeScale = 1;
     }
 
     void Start()
