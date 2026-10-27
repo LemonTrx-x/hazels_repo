@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class BtnManager : MonoBehaviour
 {
@@ -24,12 +24,12 @@ public class BtnManager : MonoBehaviour
 
     [Header("Resolutions")]
     public TMP_Dropdown resDropdown;
-    Resolution[] resolutions;
+    List<Resolution> resolutions;
 
     void Start()
     {
         Screen.fullScreen = PlayerPrefs.GetInt("FullScreen", 1) == 1;
-        
+
         if (Screen.fullScreen)
         {
             toggle.isOn = true;
@@ -71,18 +71,34 @@ public class BtnManager : MonoBehaviour
 
     public void LookRes()
     {
-        resolutions = Screen.resolutions;
+        //For each width x height, it only takes the entry with the highest refreshRate value
+        Dictionary<Vector2Int, Resolution> best = new Dictionary<Vector2Int, Resolution>();
+
+        foreach (Resolution r in Screen.resolutions)
+        {
+            Vector2Int size = new Vector2Int(r.width, r.height);
+
+            if (!best.TryGetValue(size, out Resolution existing) || r.refreshRateRatio.value > existing.refreshRateRatio.value)
+            {
+                best[size] = r;
+            }
+        }
+
+        resolutions = new List<Resolution>(best.Values);
+
         resDropdown.ClearOptions();
         List<string> options = new List<string>();
         int currentRes = 0;
 
-        for (int i = 0; i < resolutions.Length; i++)
+        for (int i = 0; i < resolutions.Count; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
+            int hz = Mathf.RoundToInt((float)resolutions[i].refreshRateRatio.value);
+
+            string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + hz + " Hz";
             options.Add(option);
 
-            if (Screen.fullScreen 
-                && resolutions[i].width == Screen.currentResolution.width 
+            if (Screen.fullScreen
+                && resolutions[i].width == Screen.currentResolution.width
                 && resolutions[i].height == Screen.currentResolution.height)
             {
                 currentRes = i;
@@ -99,9 +115,13 @@ public class BtnManager : MonoBehaviour
     public void ChangeRes(int resIndex)
     {
         PlayerPrefs.SetInt("numResolution", resDropdown.value);
-        
+        PlayerPrefs.Save();
+
         Resolution res = resolutions[resIndex];
-        Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        FullScreenMode mode = Screen.fullScreen ? FullScreenMode.FullScreenWindow: FullScreenMode.Windowed;
+
+        //Also applies the refreshRate of the resolution
+        Screen.SetResolution(res.width, res.height, mode, res.refreshRateRatio);
     }
 
     public void Book()

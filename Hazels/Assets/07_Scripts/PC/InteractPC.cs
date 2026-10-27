@@ -11,5 +11,8 @@ public class InteractPC : InteractiveObj
         Minigames.Instance.newCameraParent = newParent;
         Minigames.Instance.currentMinigame = newCurrentMinigame;
         Minigames.Instance.StartMiniGame();
+
+        OpenUI pcUI = GetComponentInChildren<OpenUI>();
+        pcUI.Interact();
     }
 }
