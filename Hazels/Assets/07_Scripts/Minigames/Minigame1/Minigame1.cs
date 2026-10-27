@@ -18,10 +18,17 @@ public class Minigame1 : MonoBehaviour
     private float accumulatedAngle = 0f; //Keep track of the degrees completed
     private float previousMouseAngle; //Previous frame angle
 
+    float xRotation = 0f;
+
     void Start()
     {
         mainCamera = Camera.main;
         progressAmount = GetComponentInParent<InteractMinigame>().newProgressAmount;
+    }
+
+    void Update()
+    {
+        ControllerMove();
     }
 
     void OnMouseDown()
@@ -109,5 +116,44 @@ public class Minigame1 : MonoBehaviour
         }
         worldPoint = Vector3.zero;
         return false;
+    }
+
+    public void ControllerMove()
+    {
+        if (GameManager.Instance.inMinigame && stickParent != null)
+        {
+            if (GameManager.Instance.input.currentControlScheme == "Gamepad")
+            {
+                float x = GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x;
+                float y = GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().y;
+
+                Vector3 dir = new Vector3(x, 0f, y); //Convert the stick direction (x, y) to a new direction XZ
+                Quaternion targetRotation = Quaternion.LookRotation(dir, Vector3.up);
+
+                float currentAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+
+                //Calculate the angle difference between this frame and the previous one
+                float deltaAngle = Mathf.DeltaAngle(previousMouseAngle, currentAngle);
+
+                //Sum the absolute displacement
+                accumulatedAngle += Mathf.Abs(deltaAngle);
+                previousMouseAngle = currentAngle;
+
+                //Increment the integer each time the degreesNeeded is reached
+                if (accumulatedAngle >= degreesNeeded)
+                {
+                    Minigames.Instance.progress += progressAmount;
+                    accumulatedAngle -= degreesNeeded;
+                    Debug.Log("Total progress: " + Minigames.Instance.progress);
+                }
+
+                stickParent.rotation = Quaternion.Slerp(stickParent.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
+
+            else
+            {
+                Debug.Log("Not Gamepad");
+            }
+        }
     }
 }

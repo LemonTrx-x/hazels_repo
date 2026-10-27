@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void HandleCursors()
     {
-        if (isGamePaused || inMenu || inMinigame)
+        if (isGamePaused || inMenu)
         {
             if (input.currentControlScheme == "Gamepad")
             {
@@ -118,6 +118,14 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
             }
 
+        }
+
+        else if (inMinigame)
+        {
+            virtualMouseUI.SetActive(false);
+            ResetVirtualMouse();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         else

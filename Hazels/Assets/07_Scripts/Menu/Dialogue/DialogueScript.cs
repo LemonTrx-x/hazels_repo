@@ -19,7 +19,7 @@ public class DialogueScript : MonoBehaviour
 
     public void NextDialogue(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed)
+        if (callbackContext.performed && GameManager.Instance.inDialogue)
         {
             if (dialogueText.text == lines[index])
             {
