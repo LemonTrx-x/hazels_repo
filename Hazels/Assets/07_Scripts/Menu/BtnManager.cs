@@ -28,16 +28,16 @@ public class BtnManager : MonoBehaviour
 
     void Start()
     {
+        Screen.fullScreen = PlayerPrefs.GetInt("FullScreen", 1) == 1;
+        
         if (Screen.fullScreen)
         {
             toggle.isOn = true;
-            Debug.Log("Full Screen On");
         }
 
         else
         {
             toggle.isOn = false;
-            Debug.Log("Full Screen Off");
         }
 
         LookRes();
@@ -63,6 +63,9 @@ public class BtnManager : MonoBehaviour
     public void OnFullScreen(bool fullScreen)
     {
         Screen.fullScreen = fullScreen;
+        PlayerPrefs.SetInt("FullScreen", fullScreen ? 1 : 0);
+        PlayerPrefs.Save();
+
         Debug.Log("Full Screen " + fullScreen);
     }
 
