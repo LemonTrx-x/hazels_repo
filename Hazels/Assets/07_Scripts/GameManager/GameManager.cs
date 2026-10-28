@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public ItemDataBase itemDataBase;
 
+    [Header("Booleans")]
     public bool inMenu;
     public bool inMinigame;
     public bool inDialogue;

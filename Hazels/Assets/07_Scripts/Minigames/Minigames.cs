@@ -6,8 +6,12 @@ public class Minigames : MonoBehaviour
 {
     public static Minigames Instance { get; private set; }
 
+    [Header("Player UI")]
     public GameObject pointer;
     public GameObject hotBar;
+    public GameObject scoreText;
+    public GameObject coinsText;
+    public GameObject toDoListObj;
 
     [Header("Camera")]
     public GameObject cameraPlayer;
@@ -91,6 +95,26 @@ public class Minigames : MonoBehaviour
             }
         }
     }
+    public void HandlePlayerUI()
+    {
+        if (GameManager.Instance.inMinigame)
+        {
+            pointer.SetActive(false);
+            hotBar.SetActive(false);
+            scoreText.SetActive(false);
+            coinsText.SetActive(false);
+            toDoListObj.SetActive(false);
+        }
+        
+        else
+        {
+            pointer.SetActive(true);
+            hotBar.SetActive(true);
+            scoreText.SetActive(true);
+            coinsText.SetActive(true);
+            toDoListObj.SetActive(true);
+        }
+    }
 
     public void StartMiniGame()
     {
@@ -99,13 +123,12 @@ public class Minigames : MonoBehaviour
         isMovingToNew = true;
         isMovingToOld = false;
 
-        pointer.SetActive(false);
-        hotBar.SetActive(false);
-
         if (!GameManager.Instance.inPC)
         {
             progressSliderObj.SetActive(true);
             GameManager.Instance.inMinigame = true;
+
+            HandlePlayerUI();
         }
     }
 
@@ -116,23 +139,26 @@ public class Minigames : MonoBehaviour
             isMovingToNew = false;
             isMovingToOld = true;
 
-            pointer.SetActive(true);
-            hotBar.SetActive(true);
             progressSliderObj.SetActive(false);
 
             CookMaterials();
             GameManager.Instance.inMinigame = false;
+
+            HandlePlayerUI();
         }
     }
 
     public void CheckProgress()
     {
-        progressSlider.value = progress;
-
-        if (progress >= maxProgress)
+        if (GameManager.Instance.inMinigame)
         {
-            EndMinigame();
-            progress = 0;
+            progressSlider.value = progress;
+
+            if (progress >= maxProgress)
+            {
+                EndMinigame();
+                progress = 0;
+            }
         }
     }
 
