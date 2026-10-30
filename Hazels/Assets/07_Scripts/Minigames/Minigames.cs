@@ -11,7 +11,8 @@ public class Minigames : MonoBehaviour
     public GameObject hotBar;
     public GameObject scoreText;
     public GameObject coinsText;
-    public GameObject toDoListObj;
+    public GameObject toDoListObj1;
+    public GameObject toDoListObj2;
 
     [Header("Camera")]
     public GameObject cameraPlayer;
@@ -103,7 +104,8 @@ public class Minigames : MonoBehaviour
             hotBar.SetActive(false);
             scoreText.SetActive(false);
             coinsText.SetActive(false);
-            toDoListObj.SetActive(false);
+            toDoListObj1.SetActive(false);
+            toDoListObj2.SetActive(false);
         }
         
         else
@@ -112,7 +114,8 @@ public class Minigames : MonoBehaviour
             hotBar.SetActive(true);
             scoreText.SetActive(true);
             coinsText.SetActive(true);
-            toDoListObj.SetActive(true);
+            toDoListObj1.SetActive(true);
+            toDoListObj2.SetActive(true);
         }
     }
 
