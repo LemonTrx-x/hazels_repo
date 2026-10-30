@@ -23,6 +23,15 @@ public class TakeOrder : InteractiveObj
         if (costumer.costumerOrder.Count == 0)
         {
             costumer.GenerateOrder();
+
+            if (costumer.costumerLines.Length > 0)
+            {
+                dialogueScript.lines = costumer.costumerLines;
+                dialogueScript.dialoguePanel.SetActive(true);
+                dialogueScript.StartDialogue();
+            }
+
+            return;
         }
 
         for (int i = 0; i < costumer.hotBarSlots.Count; i++)

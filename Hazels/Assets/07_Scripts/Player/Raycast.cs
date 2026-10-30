@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Raycast : MonoBehaviour
 {
@@ -11,11 +12,6 @@ public class Raycast : MonoBehaviour
     public RaycastHit hit;
 
     private Color rayColor = Color.red;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

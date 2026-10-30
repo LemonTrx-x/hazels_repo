@@ -103,8 +103,8 @@ public class Costumer : MonoBehaviour
         {
             finished = true;
             badFinish = true;
-            GameManager.Instance.score += orderScore/2;
-            GameManager.Instance.coins += orderCoins/2;
+            GameManager.Instance.score += orderScore/4;
+            GameManager.Instance.coins += orderCoins/4;
         }
     }
 

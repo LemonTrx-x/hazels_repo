@@ -3,6 +3,7 @@ using UnityEngine;
 public class Minigame1 : MonoBehaviour
 {
     private int progressAmount;
+    public InteractMinigame interactMinigame;
     
     [Header("Stick")]
     public Transform stickParent;
@@ -21,7 +22,7 @@ public class Minigame1 : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        progressAmount = GetComponentInParent<InteractMinigame>().newProgressAmount;
+        progressAmount = interactMinigame.newProgressAmount;
     }
 
     void Update()

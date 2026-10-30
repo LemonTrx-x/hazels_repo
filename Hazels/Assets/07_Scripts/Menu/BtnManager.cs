@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BtnManager : MonoBehaviour
@@ -185,6 +186,7 @@ public class BtnManager : MonoBehaviour
     public void PotionsBookBtn()
     {
         potionsScroll.SetActive(true);
+        bookInfo.SetActive(false);
         materialsPanel.SetActive(true);
         itemsScroll.SetActive(false);
     }
@@ -192,13 +194,15 @@ public class BtnManager : MonoBehaviour
     public void ItemsBookBtn()
     {
         potionsScroll.SetActive(false);
+        bookInfo.SetActive(false);
         materialsPanel.SetActive(false);
         itemsScroll.SetActive(true);
     }
-
+    
     public void Exit()
     {
         Debug.Log("You closed the game");
+        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 }
