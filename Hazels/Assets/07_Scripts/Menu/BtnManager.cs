@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BtnManager : MonoBehaviour
@@ -202,7 +201,11 @@ public class BtnManager : MonoBehaviour
     public void Exit()
     {
         Debug.Log("You closed the game");
+
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        
         Application.Quit();
     }
 }
