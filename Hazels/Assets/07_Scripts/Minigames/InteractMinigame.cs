@@ -22,11 +22,20 @@ public class InteractMinigame : InteractiveObj
             //Add the chestUI slots to chestSlots
             Minigames.Instance.chestSlots.AddRange(chestUI.GetComponentsInChildren<Slot>());
 
-            for (int i = 0; i < Minigames.Instance.chestSlots.Count; i++)
+            //Checks if all the items can be cooked in the minigame
+            foreach (Slot slot in Minigames.Instance.chestSlots)
             {
-                if (Minigames.Instance.chestSlots[i].itemData != null)
+                if (slot.itemData != null)
                 {
-                    Minigames.Instance.StartMiniGame();
+                    if (slot.itemData.minigame != Minigames.Instance.currentMinigame)
+                    {
+                        return;
+                    }
+
+                    else
+                    {
+                        Minigames.Instance.StartMiniGame();
+                    }
                 }
             }
         }

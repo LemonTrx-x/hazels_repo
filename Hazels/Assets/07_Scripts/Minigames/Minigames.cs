@@ -1,11 +1,14 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Minigames : MonoBehaviour
 {
     public static Minigames Instance { get; private set; }
 
+    [Header("Player")]
+    public GameObject player;
+    
     [Header("Player UI")]
     public GameObject pointer;
     public GameObject hotBar;
@@ -98,7 +101,7 @@ public class Minigames : MonoBehaviour
     }
     public void HandlePlayerUI()
     {
-        if (GameManager.Instance.inMinigame)
+        if (GameManager.Instance.inMinigame || GameManager.Instance.inPC)
         {
             pointer.SetActive(false);
             hotBar.SetActive(false);
@@ -119,6 +122,38 @@ public class Minigames : MonoBehaviour
         }
     }
 
+    public void HandlePlayerInMinigame()
+    {
+        if (GameManager.Instance.inMinigame)
+        {
+            player.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        }
+
+        else
+        {
+            player.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        }
+
+        List<ShowHandObj> handList = new List<ShowHandObj>();
+        handList.AddRange(hotBar.GetComponentsInChildren<ShowHandObj>());
+
+        for (int i = 0; i < handList.Count; i++)
+        {
+            if (handList[i].handObj != null)
+            {
+                if (GameManager.Instance.inMinigame)
+                {
+                    handList[i].handObj.GetComponent<MeshRenderer>().enabled = false;
+                }
+
+                else
+                {
+                    handList[i].handObj.GetComponent<MeshRenderer>().enabled = true;
+                }
+            }
+        }
+    }
+
     public void StartMiniGame()
     {
         oldCameraParent.transform.rotation = cameraPlayer.transform.rotation;
@@ -129,10 +164,11 @@ public class Minigames : MonoBehaviour
         if (!GameManager.Instance.inPC)
         {
             progressSliderObj.SetActive(true);
-            GameManager.Instance.inMinigame = true;
-
-            HandlePlayerUI();
+            GameManager.Instance.inMinigame = true; 
         }
+
+        HandlePlayerUI();
+        HandlePlayerInMinigame();
     }
 
     public void EndMinigame()
@@ -148,6 +184,7 @@ public class Minigames : MonoBehaviour
             GameManager.Instance.inMinigame = false;
 
             HandlePlayerUI();
+            HandlePlayerInMinigame();
         }
     }
 

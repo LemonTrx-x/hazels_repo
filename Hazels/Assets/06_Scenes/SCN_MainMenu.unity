@@ -475,8 +475,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 650875974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 760, y: 663}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2042,7 +2042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &650875974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6466,8 +6466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20b933a076269e43860a3109b32a701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BtnManager
-  canvasRectTransform: {fileID: 505196068}
-  virtualMouseUI: {fileID: 650875973}
   optionsPanel: {fileID: 202570690}
   settignsScroll: {fileID: 0}
   bookPanel: {fileID: 0}
