@@ -15,4 +15,5 @@ public class ItemData : ScriptableObject
     public string info;
     public string frase;
     public RecipeData recipe;
+    public int price = 5;
 }

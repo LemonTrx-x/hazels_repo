@@ -24,3 +24,4 @@ MonoBehaviour:
   info: A plant found in abundance in the surrounding area.
   frase: Grass touched
   recipe: {fileID: 0}
+  price: 5

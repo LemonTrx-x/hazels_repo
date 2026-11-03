@@ -164,7 +164,7 @@ public class Minigames : MonoBehaviour
         if (!GameManager.Instance.inPC)
         {
             progressSliderObj.SetActive(true);
-            GameManager.Instance.inMinigame = true; 
+            GameManager.Instance.inMinigame = true;
         }
 
         HandlePlayerUI();
@@ -206,28 +206,26 @@ public class Minigames : MonoBehaviour
     {
         for (int i = 0; i < chestSlots.Count; i++)
         {
-            if (chestSlots[i].itemData != null)
+            if (chestSlots[i].itemData == null) return;
+
+            if (chestSlots[i].itemData.minigame != currentMinigame) return;
+
+            if (chestSlots[i].itemData.isFinished == false)
             {
-                if (chestSlots[i].itemData.minigame == currentMinigame)
+                if (chestSlots[i].itemData.nextStage != null)
                 {
-                    if (chestSlots[i].itemData.isFinished == false)
-                    {
-                        if (chestSlots[i].itemData.nextStage != null)
-                        {
-                            GameObject newStage;
+                    GameObject newStage;
 
-                            newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
-                            newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+                    newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+                    newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
 
-                            chestSlots[i].ClearItem();
-                        }
-                    }
-
-                    else
-                    {
-                        CookPotions();
-                    }
+                    chestSlots[i].ClearItem();
                 }
+            }
+
+            else
+            {
+                CookPotions();
             }
         }
     }

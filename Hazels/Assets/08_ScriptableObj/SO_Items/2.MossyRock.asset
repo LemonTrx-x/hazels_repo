@@ -23,3 +23,5 @@ MonoBehaviour:
   minigame: 1
   info: A common rock found in caves.
   frase: '*Raises an eyebrow*'
+  recipe: {fileID: 0}
+  price: 10
