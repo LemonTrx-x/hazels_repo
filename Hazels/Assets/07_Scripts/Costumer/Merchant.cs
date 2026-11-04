@@ -9,6 +9,9 @@ public class Merchant : MonoBehaviour
     public bool goToMid = false;
     public bool finished = false;
 
+    public int price = 20;
+    public ItemDataBase itemDataBase;
+
     void Start()
     {
         goToMid = true;
@@ -18,6 +21,11 @@ public class Merchant : MonoBehaviour
     {
         MoveToMid();
         MoveToEnd();
+    }
+
+    public void OfferItems()
+    {
+
     }
 
     public void MoveToMid()
