@@ -13,8 +13,10 @@ public class Costumer : MonoBehaviour
     public int orderCoins = 100;
     public int orderScore = 100;
 
+    public GameObject midPosition;
     public GameObject endPosition;
     public int speed = 2;
+    public bool goToMid = false;
     public bool finished = false;
     public bool goodFinish = false;
     public bool badFinish = false;
@@ -30,6 +32,8 @@ public class Costumer : MonoBehaviour
     
     void Start()
     {
+        goToMid = true;
+
         for (int i = 0; i < potionsDataBase.items.Count; i++)
         {
             potions.Add(potionsDataBase.items[i]);
@@ -38,6 +42,7 @@ public class Costumer : MonoBehaviour
 
     void Update()
     {
+        MoveToMid();
         MoveToEnd();
     }
 
@@ -108,6 +113,21 @@ public class Costumer : MonoBehaviour
         }
     }
 
+    public void MoveToMid()
+    {
+        float distance = Vector3.Distance(this.transform.position, midPosition.transform.position);
+
+        if (distance <= 0.01)
+        {
+            goToMid = false;
+        }
+        
+        if (goToMid == true)
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, midPosition.transform.position, speed * Time.deltaTime);
+        }
+    }
+    
     public void MoveToEnd()
     {
         if (finished == true)

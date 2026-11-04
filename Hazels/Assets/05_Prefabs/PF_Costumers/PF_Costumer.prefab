@@ -55,8 +55,10 @@ MonoBehaviour:
   potionsNames: 
   orderCoins: 100
   orderScore: 100
+  midPosition: {fileID: 0}
   endPosition: {fileID: 0}
   speed: 2
+  goToMid: 0
   finished: 0
   goodFinish: 0
   badFinish: 0
@@ -131,7 +133,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &8804223014686046347
 GameObject:
@@ -143,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5946430360027537599}
   - component: {fileID: 5993045193755242402}
+  - component: {fileID: 4977176451781804832}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -158,13 +161,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8804223014686046347}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6261140621933946115}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5993045193755242402
 SpriteRenderer:
   serializedVersion: 2
@@ -216,7 +219,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: aad3502fed1784d46b190f5dfcbfefab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 19.2, y: 10.8}
@@ -224,3 +227,16 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &4977176451781804832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804223014686046347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef738c22ef1c4ad40adc0182c87e6a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookPlayer
+  obj: {fileID: 0}
