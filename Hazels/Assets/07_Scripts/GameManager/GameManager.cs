@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public int coins = 500;
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI dayText;
     public PlayerInput input;
 
     [Header("Pause")]
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
         
         scoreText.text = "SCORE: " + score.ToString();
         coinsText.text = "COINS: " + coins.ToString();
+        dayText.text = "DAY: " + dayInGame.ToString();
     }
 
     public void OnPause(InputAction.CallbackContext callbackContext)
