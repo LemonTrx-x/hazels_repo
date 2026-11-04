@@ -7,7 +7,7 @@ public class ShowHandObj : MonoBehaviour
     [Header("Hands")]
     public Transform hand;
     public GameObject handObj;
-    public float objScale = 2f;
+    public float objScale = 1f;
 
     void Start()
     {
