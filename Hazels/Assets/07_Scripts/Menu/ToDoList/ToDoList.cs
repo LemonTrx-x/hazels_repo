@@ -27,8 +27,10 @@ public class ToDoList : MonoBehaviour
     public GameObject pos2;
     public GameObject pos3;
     public GameObject pos4;
+    public GameObject pos5;
 
     public bool inOrder;
+    public bool goPC;
 
     public bool bookRead;
     public bool materialsTaken;
@@ -54,6 +56,11 @@ public class ToDoList : MonoBehaviour
 
     void Start()
     {
+        inOrder = false;
+        goPC = false;
+        bookRead = false;
+        materialsTaken = false;
+
         initialPosition = stepGuide.transform.position;
         stepGuide.SetActive(false);
 
@@ -193,11 +200,6 @@ public class ToDoList : MonoBehaviour
         toDoListText.text = "Wait for the next costumer.";
         yield return new WaitForSeconds(1f);
 
-        if (stepGuide != null)
-        {
-            stepGuide.SetActive(false);
-        }
-
         //Return to TakeOrder to wait for next costumer, if there are any left
         if (instCostumer.costumersLeft > 0)
         {
@@ -213,6 +215,10 @@ public class ToDoList : MonoBehaviour
     private IEnumerator EndDayState()
     {
         toDoListText.text = "Day finished! Go to the PC to buy new materials for tomorrow.";
+
+        inOrder = false;
+        goPC = true;
+
         yield return null;
     }
 
@@ -254,6 +260,15 @@ public class ToDoList : MonoBehaviour
                 {
                     stepGuide.transform.position = pos4.transform.position;
                     stepGuide.transform.rotation = pos4.transform.rotation;
+                }
+            }
+
+            if (goPC == true)
+            {
+                if (pos5 != null)
+                {
+                    stepGuide.transform.position = pos5.transform.position;
+                    stepGuide.transform.rotation = pos5.transform.rotation;
                 }
             }
         }

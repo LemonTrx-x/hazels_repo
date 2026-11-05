@@ -574,6 +574,37 @@ MonoBehaviour:
   pauseMenu: {fileID: 1388670310}
   virtualMouseUI: {fileID: 1099354792}
   isGamePaused: 0
+--- !u!1 &22625856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22625857}
+  m_Layer: 0
+  m_Name: StepGuidePos5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22625857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22625856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.37, y: 2.14, z: 5.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &27384028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,8 +2019,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.014018575, y: 0.016052851, z: 0.006962258}
-  m_Center: {x: 0.005080348, y: -1.5140615e-10, z: 0.000010115561}
+  m_Size: {x: 0.014018575, y: 0.016052851, z: 0.010733916}
+  m_Center: {x: 0.0050803474, y: -8.182513e-11, z: 0.0018959455}
 --- !u!54 &129180331
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17043,8 +17074,8 @@ MonoBehaviour:
   costumer: {fileID: 0}
   costumerPrefab: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
   merchantPrefab: {fileID: 1597416547028590447, guid: dd1dcc031b632f445b6fc5dd3c60ce31, type: 3}
-  specialChance: 10
-  costumersLeft: 3
+  specialChance: 0
+  costumersLeft: 1
   hotBarPlayer: {fileID: 1915247549}
   midPos: {fileID: 465450519}
   endPos: {fileID: 1649565495}
@@ -24592,7 +24623,9 @@ MonoBehaviour:
   pos2: {fileID: 1570468946}
   pos3: {fileID: 128048116}
   pos4: {fileID: 1236525671}
+  pos5: {fileID: 22625856}
   inOrder: 0
+  goPC: 0
   bookRead: 0
   materialsTaken: 0
   amplitude: 0.1
@@ -25286,8 +25319,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.76467276, y: 0.88821954, z: 2.0589712}
-  m_Center: {x: -0.11766362, y: 0.4029974, z: 0.00000011920929}
+  m_Size: {x: 0.76467276, y: 0.9515995, z: 2.0589712}
+  m_Center: {x: -0.11766362, y: 0.43468738, z: 0.00000011920929}
 --- !u!1 &1467359819
 GameObject:
   m_ObjectHideFlags: 0
@@ -37476,6 +37509,7 @@ SceneRoots:
   - {fileID: 1570468947}
   - {fileID: 128048117}
   - {fileID: 1236525672}
+  - {fileID: 22625857}
   - {fileID: 1061175338}
   - {fileID: 1878961947}
   - {fileID: 105227591}
