@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
 {
@@ -32,12 +33,18 @@ public class BtnManager : MonoBehaviour
 
         if (Screen.fullScreen)
         {
-            toggle.isOn = true;
+            if (toggle != null)
+            {
+                toggle.isOn = true;
+            }
         }
 
         else
         {
-            toggle.isOn = false;
+            if (toggle != null)
+            {
+                toggle.isOn = false;
+            }
         }
 
         LookRes();
@@ -86,7 +93,11 @@ public class BtnManager : MonoBehaviour
 
         resolutions = new List<Resolution>(best.Values);
 
-        resDropdown.ClearOptions();
+        if (resDropdown != null)
+        {
+            resDropdown.ClearOptions();
+        }
+
         List<string> options = new List<string>();
         int currentRes = 0;
 
@@ -105,11 +116,14 @@ public class BtnManager : MonoBehaviour
             }
         }
 
-        resDropdown.AddOptions(options);
-        resDropdown.value = currentRes;
-        resDropdown.RefreshShownValue();
+        if (resDropdown != null)
+        {
+            resDropdown.AddOptions(options);
+            resDropdown.value = currentRes;
+            resDropdown.RefreshShownValue();
 
-        resDropdown.value = PlayerPrefs.GetInt("numResolution", 0);
+            resDropdown.value = PlayerPrefs.GetInt("numResolution", 0);
+        }
     }
 
     public void ChangeRes(int resIndex)
@@ -131,6 +145,7 @@ public class BtnManager : MonoBehaviour
             if (!(GameManager.Instance.inMinigame || GameManager.Instance.isGamePaused))
             {
                 bookPanel.SetActive(!bookPanel.activeSelf);
+                ToDoList.Instance.bookRead = true;
 
                 if (bookPanel.activeSelf)
                 {
@@ -196,6 +211,12 @@ public class BtnManager : MonoBehaviour
         bookInfo.SetActive(false);
         materialsPanel.SetActive(false);
         itemsScroll.SetActive(true);
+    }
+
+    //For the prototype
+    public void EndDay()
+    {
+        SceneManager.LoadScene(2);
     }
     
     public void Exit()

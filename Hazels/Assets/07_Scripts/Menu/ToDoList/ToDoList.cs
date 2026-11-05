@@ -25,6 +25,15 @@ public class ToDoList : MonoBehaviour
     public GameObject stepGuide;
     public GameObject pos1;
     public GameObject pos2;
+    public GameObject pos3;
+    public GameObject pos4;
+
+    public bool inOrder;
+
+    public bool bookRead;
+    public bool materialsTaken;
+    
+    [Header("Step Guide Levitate")]
     public float amplitude = 0.1f;
     public float speed = 1f;
     private Vector3 initialPosition;
@@ -63,6 +72,7 @@ public class ToDoList : MonoBehaviour
             costumer = null;
         }
 
+        MoveStepGuide();
         LevitateObj();
     }
 
@@ -119,20 +129,24 @@ public class ToDoList : MonoBehaviour
     private IEnumerator StartDayState()
     {
         toDoListText.text = "Day started!";
+
         yield return new WaitForSeconds(2f);
+
         ChangeState(PlayerState.TakeOrder);
     }
 
     private IEnumerator TakeOrderState()
     {
         toDoListText.text = "Take the costumer's order.";
+        inOrder = false;
+        bookRead = false;
+        materialsTaken = false;
+
         yield return null;
 
-        if (stepGuide != null && pos1 != null)
+        if (stepGuide != null)
         {
             stepGuide.SetActive(true);
-            stepGuide.transform.position = pos1.transform.position;
-            stepGuide.transform.rotation = pos1.transform.rotation;
         }
 
         while (true)
@@ -160,13 +174,10 @@ public class ToDoList : MonoBehaviour
     private IEnumerator InOrderState()
     {
         toDoListText.text = "Make " + costumer.potionsNames;
+
         yield return null;
 
-        if (stepGuide != null && pos2 != null)
-        {
-            stepGuide.transform.position = pos2.transform.position;
-            stepGuide.transform.rotation = pos2.transform.rotation;
-        }
+        inOrder = true;
 
         //Wait until current costumer finishes order
         while (costumer != null && !costumer.finished)
@@ -209,5 +220,42 @@ public class ToDoList : MonoBehaviour
     {
         float newY = initialPosition.y + Mathf.Sin(Time.time * speed) * amplitude;
         stepGuide.transform.position = new Vector3(stepGuide.transform.position.x, newY, stepGuide.transform.position.z);
+    }
+
+    void MoveStepGuide()
+    {
+        if (stepGuide != null)
+        {
+            //Talk to customer
+            if (pos1 != null)
+            {
+                stepGuide.transform.position = pos1.transform.position;
+                stepGuide.transform.rotation = pos1.transform.rotation;
+            }
+
+            if (inOrder == true)
+            {
+                //Read book
+                if (pos2 != null)
+                {
+                    stepGuide.transform.position = pos2.transform.position;
+                    stepGuide.transform.rotation = pos2.transform.rotation;
+                }
+
+                //Take materials
+                if (bookRead == true && pos3 != null)
+                {
+                    stepGuide.transform.position = pos3.transform.position;
+                    stepGuide.transform.rotation = pos3.transform.rotation;
+                }
+
+                //Make potions
+                if (materialsTaken == true && pos4 != null)
+                {
+                    stepGuide.transform.position = pos4.transform.position;
+                    stepGuide.transform.rotation = pos4.transform.rotation;
+                }
+            }
+        }
     }
 }

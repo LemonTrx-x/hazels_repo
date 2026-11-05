@@ -46,6 +46,11 @@ public class VolumeSettings : MonoBehaviour
 
     private void LoadVolume()
     {
+        if (masterSlider == null || 
+            musicSlider == null || 
+            sfxSlider == null) 
+            return;
+        
         masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");

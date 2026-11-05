@@ -31,6 +31,7 @@ public class InstantiateObj : MonoBehaviour
             newItem.GetComponent<Rigidbody>().AddForce(spawn.forward * itemForce);
 
             item.shopStock--;
+            ToDoList.Instance.materialsTaken = true;
         }
     }
 }
