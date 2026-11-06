@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TakeOrder : InteractiveObj
 {
-    private Costumer costumer;
+    private Customer customer;
     public GameObject dialogueParent;
     public DialogueScript dialogueScript;
 
@@ -18,15 +18,15 @@ public class TakeOrder : InteractiveObj
     
     public override void Interact()
     {
-        costumer = GetComponent<Costumer>();
+        customer = GetComponent<Customer>();
 
-        if (costumer.costumerOrder.Count == 0)
+        if (customer.customerOrder.Count == 0)
         {
-            costumer.GenerateOrder();
+            customer.GenerateOrder();
 
-            if (costumer.costumerLines.Length > 0)
+            if (customer.customerLines.Length > 0)
             {
-                dialogueScript.lines = costumer.costumerLines;
+                dialogueScript.lines = customer.customerLines;
                 dialogueScript.dialoguePanel.SetActive(true);
                 dialogueScript.StartDialogue();
             }
@@ -34,19 +34,19 @@ public class TakeOrder : InteractiveObj
             return;
         }
 
-        for (int i = 0; i < costumer.hotBarSlots.Count; i++)
+        for (int i = 0; i < customer.hotBarSlots.Count; i++)
         {
-            if (costumer.hotBarSlots[i].itemData != null)
+            if (customer.hotBarSlots[i].itemData != null)
             {
-                costumer.CheckOrder();
+                customer.CheckOrder();
             }
         }
 
-        if (!costumer.finished)
+        if (!customer.finished)
         {
-            if (costumer.costumerLines.Length > 0)
+            if (customer.customerLines.Length > 0)
             {
-                dialogueScript.lines = costumer.costumerLines;
+                dialogueScript.lines = customer.customerLines;
                 dialogueScript.dialoguePanel.SetActive(true);
                 dialogueScript.StartDialogue();
             }
@@ -54,16 +54,16 @@ public class TakeOrder : InteractiveObj
 
         else
         {
-            if (costumer.goodFinish == true && costumer.goodLines.Length > 0)
+            if (customer.goodFinish == true && customer.goodLines.Length > 0)
             {
-                dialogueScript.lines = costumer.goodLines;
+                dialogueScript.lines = customer.goodLines;
                 dialogueScript.dialoguePanel.SetActive(true);
                 dialogueScript.StartDialogue();
             }
 
-            else if (costumer.badFinish == true && costumer.badLines.Length > 0)
+            else if (customer.badFinish == true && customer.badLines.Length > 0)
             {
-                dialogueScript.lines = costumer.badLines;
+                dialogueScript.lines = customer.badLines;
                 dialogueScript.dialoguePanel.SetActive(true);
                 dialogueScript.StartDialogue();
             }

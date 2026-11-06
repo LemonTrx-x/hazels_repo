@@ -5,14 +5,14 @@ public class Tutorial : MonoBehaviour
 {
     public enum TutorialState
     {
-        Start,
-        Client,
-        BookMenu,
-        Materials,
-        Minigame,
-        EndOrder,
-        PC,
-        RandomEvents
+        Start, // gameLoop = 0
+        Client, // gameLoop = 1
+        BookMenu, // gameLoop = 2
+        Materials, // gameLoop = 3
+        Minigame, // gameLoop = 4
+        EndOrder, // gameLoop = 5
+        PC, // gameLoop = 6
+        RandomEvents // gameLoop = 7
     }
 
     public GameObject dialogueParent;
@@ -48,6 +48,52 @@ public class Tutorial : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CheckGameLoop()
+    {
+        //Moved
+        if (GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x > 0)
+        {
+            GameManager.Instance.gameLoop++; // 1   
+        }
+
+        // Client finished
+        /*
+        if ()
+        {
+            GameManager.Instance.gameLoop++; // 2
+        }
+        */
+
+        // Book opened
+        if (ToDoList.Instance.bookRead)
+        {
+            GameManager.Instance.gameLoop++; // 3
+        }
+
+        // Cupboard opened
+        /*
+        if ()
+        {
+            GameManager.Instance.gameLoop++; // 4
+        }
+        */
+
+        //Potion made
+        /*
+        if ()
+        {
+            GameManager.Instance.gameLoop++; // 5
+        }
+        */
+
+        //Customer has potion (no customers left)
+        if (ToDoList.Instance.instCustomer.customersLeft <= 0)
+        {
+            GameManager.Instance.gameLoop++; // 6
+        }
+
     }
 
     public void ChangeState(TutorialState newState)

@@ -17,8 +17,8 @@ public class ToDoList : MonoBehaviour
 
     [Header("Config")]
     public TextMeshProUGUI toDoListText;
-    public InstantiateCostumer instCostumer;
-    public Costumer costumer;
+    public InstantiateCustomer instCustomer;
+    public Customer customer;
     public PlayerState currentStateType;
 
     [Header("Step Guide")]
@@ -60,6 +60,7 @@ public class ToDoList : MonoBehaviour
         goPC = false;
         bookRead = false;
         materialsTaken = false;
+        GameManager.Instance.gameLoop = 0;
 
         initialPosition = stepGuide.transform.position;
         stepGuide.SetActive(false);
@@ -69,14 +70,14 @@ public class ToDoList : MonoBehaviour
 
     void Update()
     {
-        if (instCostumer != null && instCostumer.costumer != null)
+        if (instCustomer != null && instCustomer.costumer != null)
         {
-            costumer = instCostumer.costumer.GetComponent<Costumer>();
+            customer = instCustomer.costumer.GetComponent<Customer>();
         }
 
         else
         {
-            costumer = null;
+            customer = null;
         }
 
         MoveStepGuide();
@@ -148,6 +149,7 @@ public class ToDoList : MonoBehaviour
         inOrder = false;
         bookRead = false;
         materialsTaken = false;
+        GameManager.Instance.gameLoop = 0;
 
         yield return null;
 
@@ -159,13 +161,13 @@ public class ToDoList : MonoBehaviour
         while (true)
         {
             //Make sure costumer exists, has an order and hasn't finished yet
-            if (costumer != null)
+            if (customer != null)
             {
-                if (costumer.costumerOrder != null)
+                if (customer.customerOrder != null)
                 {
-                    if (costumer.costumerOrder.Count > 0)
+                    if (customer.customerOrder.Count > 0)
                     {
-                        if (!costumer.finished)
+                        if (!customer.finished)
                         {
                             ChangeState(PlayerState.InOrder);
                             yield break;
@@ -180,14 +182,14 @@ public class ToDoList : MonoBehaviour
 
     private IEnumerator InOrderState()
     {
-        toDoListText.text = "Make " + costumer.potionsNames;
+        toDoListText.text = "Make " + customer.potionsNames;
 
         yield return null;
 
         inOrder = true;
 
         //Wait until current costumer finishes order
-        while (costumer != null && !costumer.finished)
+        while (customer != null && !customer.finished)
         {
             yield return null;
         }
@@ -201,7 +203,7 @@ public class ToDoList : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         //Return to TakeOrder to wait for next costumer, if there are any left
-        if (instCostumer.costumersLeft > 0)
+        if (instCustomer.customersLeft > 0)
         {
             ChangeState(PlayerState.TakeOrder);
         }

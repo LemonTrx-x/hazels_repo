@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Costumer : MonoBehaviour
+public class Customer : MonoBehaviour
 {
     [Header("Costumer")]
-    [HideInInspector] public List<ItemData> costumerOrder = new List<ItemData>();
+    [HideInInspector] public List<ItemData> customerOrder = new List<ItemData>();
 
     public ItemDataBase potionsDataBase;
     [HideInInspector] public List<ItemData> potions = new List<ItemData>();
@@ -22,7 +22,7 @@ public class Costumer : MonoBehaviour
     public bool badFinish = false;
 
     [Header("Costumer Lines")]
-    public string[] costumerLines;
+    public string[] customerLines;
     public string[] goodLines;
     public string[] badLines;
 
@@ -48,7 +48,7 @@ public class Costumer : MonoBehaviour
 
     public void GenerateOrder()
     {
-        costumerOrder.Clear();
+        customerOrder.Clear();
 
         if (potions == null || potions.Count == 0 || maxPotions <= 0)
         {
@@ -61,14 +61,14 @@ public class Costumer : MonoBehaviour
         for (int i = 0; i < amountToOrder; i++)
         {
             ItemData randomPotion = potions[Random.Range(0, potions.Count)];
-            costumerOrder.Add(randomPotion);
+            customerOrder.Add(randomPotion);
         }
 
-        for (int i = 0; i < costumerOrder.Count; i++)
+        for (int i = 0; i < customerOrder.Count; i++)
         {
-            potionsNames += costumerOrder[i].itemName;
+            potionsNames += customerOrder[i].itemName;
 
-            if (i < costumerOrder.Count - 1)
+            if (i < customerOrder.Count - 1)
             {
                 potionsNames += ", ";
             }
@@ -88,7 +88,7 @@ public class Costumer : MonoBehaviour
             }
         }
 
-        foreach (ItemData item in costumerOrder)
+        foreach (ItemData item in customerOrder)
         {
             if (potionsToCheck.Contains(item))
             {

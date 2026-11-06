@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class InstantiateCostumer : MonoBehaviour
+public class InstantiateCustomer : MonoBehaviour
 {
     public Transform spawn;
     public GameObject costumer = null;
-    public GameObject costumerPrefab;
+    public GameObject customerPrefab;
     public GameObject merchantPrefab;
     public float specialChance = 20f;
     float chance;
 
-    public int costumersLeft = 1;
+    public int customersLeft = 1;
 
     public GameObject hotBarPlayer;
     public GameObject midPos;
@@ -17,10 +17,10 @@ public class InstantiateCostumer : MonoBehaviour
 
     void Update()
     {
-        if (costumer == null && costumersLeft > 0)
+        if (costumer == null && customersLeft > 0)
         {
             chance = Random.value;
-            GameObject prefabToUse = chance <= (specialChance / 100) ? merchantPrefab : costumerPrefab;
+            GameObject prefabToUse = chance <= (specialChance / 100) ? merchantPrefab : customerPrefab;
             
             OnInstantiateCostumer(prefabToUse);
         }
@@ -40,12 +40,12 @@ public class InstantiateCostumer : MonoBehaviour
 
         else
         {
-            newCostumer.GetComponent<Costumer>().hotBarSlots.AddRange(hotBarPlayer.GetComponentsInChildren<Slot>());
-            newCostumer.GetComponent<Costumer>().midPosition = midPos;
-            newCostumer.GetComponent<Costumer>().endPosition = endPos;
+            newCostumer.GetComponent<Customer>().hotBarSlots.AddRange(hotBarPlayer.GetComponentsInChildren<Slot>());
+            newCostumer.GetComponent<Customer>().midPosition = midPos;
+            newCostumer.GetComponent<Customer>().endPosition = endPos;
         }
 
         costumer = newCostumer;
-        costumersLeft--;
+        customersLeft--;
     }
 }
