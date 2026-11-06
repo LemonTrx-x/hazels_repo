@@ -94,6 +94,13 @@ public class Tutorial : MonoBehaviour
             GameManager.Instance.gameLoop++; // 6
         }
 
+        //PC open
+        /*
+        if ()
+        {
+            GameManager.Instance.gameLoop++; // 7
+        }
+        */
     }
 
     public void ChangeState(TutorialState newState)
