@@ -70,9 +70,9 @@ public class ToDoList : MonoBehaviour
 
     void Update()
     {
-        if (instCustomer != null && instCustomer.costumer != null)
+        if (instCustomer != null && instCustomer.customer != null)
         {
-            customer = instCustomer.costumer.GetComponent<Customer>();
+            customer = instCustomer.customer.GetComponent<Customer>();
         }
 
         else

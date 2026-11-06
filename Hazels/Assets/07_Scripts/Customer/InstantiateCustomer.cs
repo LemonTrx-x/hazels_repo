@@ -3,7 +3,7 @@ using UnityEngine;
 public class InstantiateCustomer : MonoBehaviour
 {
     public Transform spawn;
-    public GameObject costumer = null;
+    public GameObject customer = null;
     public GameObject customerPrefab;
     public GameObject merchantPrefab;
     public float specialChance = 20f;
@@ -17,35 +17,35 @@ public class InstantiateCustomer : MonoBehaviour
 
     void Update()
     {
-        if (costumer == null && customersLeft > 0)
+        if (customer == null && customersLeft > 0)
         {
             chance = Random.value;
             GameObject prefabToUse = chance <= (specialChance / 100) ? merchantPrefab : customerPrefab;
-            
-            OnInstantiateCostumer(prefabToUse);
+
+            OnInstantiateCustomer(prefabToUse);
         }
     }
 
-    public void OnInstantiateCostumer(GameObject prefab)
+    public void OnInstantiateCustomer(GameObject prefab)
     {
-        GameObject newCostumer;
+        GameObject newCustomer;
 
-        newCostumer = Instantiate(prefab, spawn.position, spawn.rotation);
+        newCustomer = Instantiate(prefab, spawn.position, spawn.rotation);
 
         if (chance <= (specialChance / 100))
         {
-            newCostumer.GetComponent<Merchant>().midPosition = midPos;
-            newCostumer.GetComponent<Merchant>().endPosition = endPos;
+            newCustomer.GetComponent<Merchant>().midPosition = midPos;
+            newCustomer.GetComponent<Merchant>().endPosition = endPos;
         }
 
         else
         {
-            newCostumer.GetComponent<Customer>().hotBarSlots.AddRange(hotBarPlayer.GetComponentsInChildren<Slot>());
-            newCostumer.GetComponent<Customer>().midPosition = midPos;
-            newCostumer.GetComponent<Customer>().endPosition = endPos;
+            newCustomer.GetComponent<Customer>().hotBarSlots.AddRange(hotBarPlayer.GetComponentsInChildren<Slot>());
+            newCustomer.GetComponent<Customer>().midPosition = midPos;
+            newCustomer.GetComponent<Customer>().endPosition = endPos;
         }
 
-        costumer = newCostumer;
+        customer = newCustomer;
         customersLeft--;
     }
 }
