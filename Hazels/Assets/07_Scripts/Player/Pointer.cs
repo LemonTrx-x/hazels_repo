@@ -9,12 +9,18 @@ public class Pointer : MonoBehaviour
     public Sprite gamepadSpr;
     public Sprite keyboardSpr;
 
-    public GameObject outline;
+    private GameObject objOutline;
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Obj"))
         {
+            if (other.GetComponent<Outline>() != null)
+            {
+                objOutline = other.GetComponent<Outline>().outline;
+            }
+
             if (GameManager.Instance.input.currentControlScheme == "Gamepad")
             {
                 pointer.GetComponent<Image>().sprite = gamepadSpr;
@@ -25,9 +31,9 @@ public class Pointer : MonoBehaviour
                 pointer.GetComponent<Image>().sprite = keyboardSpr;
             }
 
-            if (outline != null)
+            if (objOutline != null)
             {
-                outline.gameObject.SetActive(true);
+                objOutline.SetActive(true);
             }
         }
     }
@@ -53,6 +59,11 @@ public class Pointer : MonoBehaviour
         if (other.CompareTag("Obj"))
         {
             pointer.GetComponent<Image>().sprite = originalSpr;
+
+            if (objOutline != null)
+            {
+                objOutline.SetActive(false);
+            }
         }
     }
 }
