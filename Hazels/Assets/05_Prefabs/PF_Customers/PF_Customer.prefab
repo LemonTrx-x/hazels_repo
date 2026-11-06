@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1078949512230069475}
   - component: {fileID: -799704290777051993}
   m_Layer: 0
-  m_Name: PF_Costumer
+  m_Name: PF_Customer
   m_TagString: Obj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2053025f2a3a3df4d8d396f1703fbcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Costumer
-  costumerOrder: []
+  customerOrder: []
   potionsDataBase: {fileID: 11400000, guid: f219b077a7d44e540bc76a86e730eb87, type: 2}
   potions: []
   maxPotions: 1
@@ -62,9 +62,9 @@ MonoBehaviour:
   finished: 0
   goodFinish: 0
   badFinish: 0
-  costumerLines:
+  customerLines:
   - Hi!
-  - Here's my order.
+  - Here is my order!
   goodLines:
   - Thanks for the potions!
   badLines:

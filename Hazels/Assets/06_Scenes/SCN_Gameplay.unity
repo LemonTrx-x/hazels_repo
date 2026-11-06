@@ -597,6 +597,7 @@ MonoBehaviour:
   inDialogue: 0
   inPC: 0
   dayInGame: 0
+  gameLoop: 0
   score: 0
   scoreText: {fileID: 1908584306}
   coins: 500
@@ -10037,7 +10038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 465450520}
   m_Layer: 0
-  m_Name: MidPosCostumer
+  m_Name: MidPosCustomer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20269,10 +20270,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InstantiateCostumer
   spawn: {fileID: 1306485715}
   costumer: {fileID: 0}
-  costumerPrefab: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
+  customerPrefab: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
   merchantPrefab: {fileID: 1597416547028590447, guid: dd1dcc031b632f445b6fc5dd3c60ce31, type: 3}
   specialChance: 0
-  costumersLeft: 1
+  customersLeft: 1
   hotBarPlayer: {fileID: 1915247549}
   midPos: {fileID: 465450519}
   endPos: {fileID: 1649565495}
@@ -28960,8 +28961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToDoList
   toDoListText: {fileID: 143352898}
-  instCostumer: {fileID: 973448600}
-  costumer: {fileID: 0}
+  instCustomer: {fileID: 973448600}
+  customer: {fileID: 0}
   currentStateType: 0
   stepGuide: {fileID: 1627664304}
   pos1: {fileID: 332408248}
@@ -32857,7 +32858,7 @@ GameObject:
   - component: {fileID: 1649565499}
   - component: {fileID: 1649565500}
   m_Layer: 0
-  m_Name: EndPosCostumer
+  m_Name: EndPosCustomer
   m_TagString: EndPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39028,7 +39029,7 @@ MonoBehaviour:
   coinsText: {fileID: 232640965}
   toDoListObj1: {fileID: 999543371}
   toDoListObj2: {fileID: 1245632637}
-  dayText: {fileID: 0}
+  dayText: {fileID: 411397968}
   cameraPlayer: {fileID: 330585543}
   newCameraParent: {fileID: 0}
   oldCameraParent: {fileID: 876918856}
