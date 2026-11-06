@@ -4951,8 +4951,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8643,8 +8643,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21065,8 +21065,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -31367,22 +31367,39 @@ MonoBehaviour:
   startLines:
   - Hello, dear Hazel!
   - This is a test for the Tutotial State Machine.
-  - Do not panic, sweetheart.
-  - Kind regards- The Developers.
+  - Do not panic, sweetheart. I will explain the basic controlls for you.
+  - Move with WASD the Left Stick.
+  - And look with MOUSE or Right Stick.
   clientLines:
-  - 'Now you are in Client '
+  - Great!
+  - Now go to speak with the costumer.
+  - Interact with E or the South Btn.
   bookMenuLines:
-  - Now you are in BookMenu
+  - Okay, now, open the recipes book by interacting with it.
+  - (Use E or South Btn.)
   materialsLines:
-  - Now you are in Materials
+  - Right, right. So much information.
+  - Look for the recipe of the potion our dear client asked for.
+  - Afterwards, go to the cupboard and interact with it.
   minigameLines:
-  - Now you are in Minigame
+  - Mmhm... Okay.
+  - Now, select the item you want to used based on the recipe you just saw.
+  - Firstly, take it, and put it in the barrel, near the cauldron.
+  - Secondly, use the CURSOR [MAINTAIN] or Left Stick to move the spoon.
   endOrderLines:
-  - Now you are in EndOrder
+  - Yippe! Potion made! *cheerfull sounds*
+  - Now, take that MERAVELOUS potion and give it to the customer.
   pcLines:
-  - Now you are in PC
+  - Uff... What a busy day, wasn't it?
+  - For last, you will need to interact with your PC.
   randomEventsLines:
-  - Now you are in RandomEvents
+  - Okay, in here you will order the materials needed for the next day.
+  - Take into account you will encounter many things.
+  - 'Such as:'
+  - A Merchant.
+  - Price Variations.
+  - And many more to come!
+  - Finish your day and go to sleep, sweety. You've earned it.
 --- !u!1 &1543726410
 GameObject:
   m_ObjectHideFlags: 0
@@ -38174,8 +38191,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
