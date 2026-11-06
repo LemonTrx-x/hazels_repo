@@ -4,9 +4,12 @@ using UnityEngine.UI;
 public class Pointer : MonoBehaviour
 {
     public GameObject pointer;
+
     public Sprite originalSpr;
     public Sprite gamepadSpr;
     public Sprite keyboardSpr;
+
+    public GameObject outline;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +23,11 @@ public class Pointer : MonoBehaviour
             else
             {
                 pointer.GetComponent<Image>().sprite = keyboardSpr;
+            }
+
+            if (outline != null)
+            {
+                outline.gameObject.SetActive(true);
             }
         }
     }

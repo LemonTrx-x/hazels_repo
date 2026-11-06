@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PCNewItem : MonoBehaviour
 {
     [Header("Item Info")]
     public ItemData itemData;
-    public TextMeshProUGUI textName;
+    public Image imageSprite;
     public TextMeshProUGUI textPrice;
     public int amount;
 
@@ -13,7 +14,7 @@ public class PCNewItem : MonoBehaviour
     {
         if (itemData != null)
         {
-            textName.text = itemData.itemName;
+            imageSprite.sprite = itemData.icon;
             textPrice.text = itemData.price.ToString();
         }
     }

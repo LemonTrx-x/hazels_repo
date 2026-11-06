@@ -9,6 +9,7 @@ public class PC : MonoBehaviour
     public Transform orderParent;
     public GameObject orderTemplate;
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI scoreText;
     [HideInInspector] public List<PCReturnItem> returnList = new List<PCReturnItem>();
 
     void Start()
@@ -22,6 +23,11 @@ public class PC : MonoBehaviour
         {
             coinsText.text = "COINS: " + GameManager.Instance.coins.ToString();
         }
+
+        if (scoreText != null)
+        {
+            scoreText.text = "SCORE: " + GameManager.Instance.score.ToString();
+        }
     }
 
     void Update()
@@ -29,6 +35,11 @@ public class PC : MonoBehaviour
         if (coinsText != null)
         {
             coinsText.text = "COINS: " + GameManager.Instance.coins.ToString();
+        }
+
+        if (scoreText != null)
+        {
+            scoreText.text = "SCORE: " + GameManager.Instance.score.ToString();
         }
     }
 
