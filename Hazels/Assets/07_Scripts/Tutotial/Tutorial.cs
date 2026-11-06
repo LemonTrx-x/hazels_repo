@@ -41,6 +41,8 @@ public class Tutorial : MonoBehaviour
         {
             dialogueScript = dialogueParent.GetComponent<DialogueScript>();
         }
+
+        ChangeState(TutorialState.Start);
     }
 
     void Update()

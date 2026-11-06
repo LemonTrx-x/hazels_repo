@@ -31318,6 +31318,71 @@ MonoBehaviour:
   dialogueText: {fileID: 1022604294}
   lines: []
   textSpeed: 0.0125
+--- !u!1 &1543516291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543516293}
+  - component: {fileID: 1543516294}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1543516293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543516291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1543516294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543516291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8b9b8972307094fb6fc82a1338dde1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
+  dialogueParent: {fileID: 1540056739}
+  currentStateType: 0
+  startLines:
+  - Hello, dear Hazel!
+  - This is a test for the Tutotial State Machine.
+  - Do not panic, sweetheart.
+  - Kind regards- The Developers.
+  clientLines:
+  - 'Now you are in Client '
+  bookMenuLines:
+  - Now you are in BookMenu
+  materialsLines:
+  - Now you are in Materials
+  minigameLines:
+  - Now you are in Minigame
+  endOrderLines:
+  - Now you are in EndOrder
+  pcLines:
+  - Now you are in PC
+  randomEventsLines:
+  - Now you are in RandomEvents
 --- !u!1 &1543726410
 GameObject:
   m_ObjectHideFlags: 0
@@ -42938,6 +43003,7 @@ SceneRoots:
   - {fileID: 396881230}
   - {fileID: 21063105}
   - {fileID: 1950000145}
+  - {fileID: 1543516293}
   - {fileID: 2109686357}
   - {fileID: 368583242}
   - {fileID: 1937456710}
