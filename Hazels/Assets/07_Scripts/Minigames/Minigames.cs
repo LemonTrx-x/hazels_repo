@@ -16,6 +16,7 @@ public class Minigames : MonoBehaviour
     public GameObject coinsText;
     public GameObject toDoListObj1;
     public GameObject toDoListObj2;
+    public GameObject dayText;
 
     [Header("Camera")]
     public GameObject cameraPlayer;
@@ -109,6 +110,7 @@ public class Minigames : MonoBehaviour
             coinsText.SetActive(false);
             toDoListObj1.SetActive(false);
             toDoListObj2.SetActive(false);
+            dayText.SetActive(false);
         }
         
         else
@@ -119,6 +121,7 @@ public class Minigames : MonoBehaviour
             coinsText.SetActive(true);
             toDoListObj1.SetActive(true);
             toDoListObj2.SetActive(true);
+            dayText.SetActive(true);
         }
     }
 

@@ -15,7 +15,7 @@ public class PCNewItem : MonoBehaviour
         if (itemData != null)
         {
             imageSprite.sprite = itemData.icon;
-            textPrice.text = itemData.price.ToString();
+            textPrice.text = itemData.price.ToString() + " Coins";
         }
     }
 }
