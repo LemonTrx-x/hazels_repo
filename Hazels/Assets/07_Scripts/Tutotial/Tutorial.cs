@@ -15,15 +15,34 @@ public class Tutorial : MonoBehaviour
         RandomEvents
     }
 
+    public GameObject dialogueParent;
+    private DialogueScript dialogueScript;
+
     public TutorialState currentStateType;
+
+    [Header("Lines")]
+    public string[] startLines;
+    public string[] clientLines;
+    public string[] bookMenuLines;
+    public string[] materialsLines;
+    public string[] minigameLines;
+    public string[] endOrderLines;
+    public string[] pcLines;
+    public string[] randomEventsLines;
 
     private Coroutine currentCoroutine;
     private bool isChangingState = false; //Lock to avoid loops in the same frame
 
     void Start()
     {
-        
+        dialogueParent = GameObject.Find("DialogueParent");
+
+        if (dialogueParent != null)
+        {
+            dialogueScript = dialogueParent.GetComponent<DialogueScript>();
+        }
     }
+
     void Update()
     {
         
@@ -90,49 +109,65 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator StartState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = startLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
 
     private IEnumerator ClientState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = clientLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
 
     private IEnumerator BookMenuState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = bookMenuLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
     
     private IEnumerator MaterialsState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = materialsLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
 
     private IEnumerator MinigameState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = minigameLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
 
     private IEnumerator EndOrderState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = endOrderLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
 
     private IEnumerator PCState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = pcLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
 
     private IEnumerator RandomEventsState()
     {
-        Debug.Log("Still not Finished");
+        dialogueScript.lines = randomEventsLines;
         yield return null;
+        dialogueScript.dialoguePanel.SetActive(true);
+        dialogueScript.StartDialogue();
     }
 }
