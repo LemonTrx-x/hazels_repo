@@ -12,7 +12,7 @@ public class Clock : MonoBehaviour
     public class ClockHand
     {
         public Transform hand;
-        [Tooltip("Hour: advances one hour mark (30°) per customer. Minute: one full turn (360°) per customer")]
+        [Tooltip("Hour: advances one hour mark (360° / totalCustomers) per customer. Minute: one full turn (360°) per customer")]
         public HandType type = HandType.Minute;
         [HideInInspector] public Quaternion startRotation;
     }
