@@ -597,7 +597,6 @@ MonoBehaviour:
   inDialogue: 0
   inPC: 0
   dayInGame: 0
-  gameLoop: 0
   score: 0
   scoreText: {fileID: 1908584306}
   coins: 500
@@ -7439,12 +7438,12 @@ RectTransform:
   - {fileID: 1930462343}
   - {fileID: 1473537513}
   - {fileID: 1418465596}
-  - {fileID: 2045975543}
-  - {fileID: 1540056740}
   - {fileID: 849428655}
   - {fileID: 444190372}
   - {fileID: 1906466630}
   - {fileID: 1388670311}
+  - {fileID: 2045975543}
+  - {fileID: 1540056740}
   - {fileID: 1591313404}
   - {fileID: 1099354793}
   - {fileID: 1869921083}
@@ -31637,29 +31636,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tutorial
   dialogueParent: {fileID: 1540056739}
+  instCustomer: {fileID: 973448600}
+  cupboardInv: {fileID: 264813759}
+  pcInv: {fileID: 1930462342}
   currentStateType: 0
+  gameLoop: 0
   startLines:
   - Hello, dear Hazel!
   - This is a test for the Tutotial State Machine.
   - Do not panic, sweetheart. I will explain the basic controlls for you.
-  - Move with WASD the Left Stick.
+  - Move with WASD or Left Stick.
   - And look with MOUSE or Right Stick.
-  clientLines:
+  customerLines:
   - Great!
-  - Now go to speak with the costumer.
-  - Interact with E or the South Btn.
+  - Now go to speak with the customer.
+  - Interact with Left Click or the South Btn.
   bookMenuLines:
   - Okay, now, open the recipes book by interacting with it.
-  - (Use E or South Btn.)
+  - (Use Left Click or South Btn.)
   materialsLines:
   - Right, right. So much information.
   - Look for the recipe of the potion our dear client asked for.
   - Afterwards, go to the cupboard and interact with it.
   minigameLines:
   - Mmhm... Okay.
-  - Now, select the item you want to used based on the recipe you just saw.
+  - Now, select the item you want to use based on the recipe you just saw.
   - Firstly, take it, and put it in the barrel, near the cauldron.
-  - Secondly, use the CURSOR [MAINTAIN] or Left Stick to move the spoon.
+  - Secondly, use the Cursor (Maintain) or Left Stick to move the spoon.
   endOrderLines:
   - Yippe! Potion made! *cheerfull sounds*
   - Now, take that MERAVELOUS potion and give it to the customer.

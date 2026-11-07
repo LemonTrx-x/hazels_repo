@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public bool inPC;
 
     public int dayInGame = 0;
-    public int gameLoop = 0;
 
     [Header("Player Score & Money")]
     public int score = 0;

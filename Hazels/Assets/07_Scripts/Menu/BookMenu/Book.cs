@@ -23,6 +23,11 @@ public class Book : MonoBehaviour
         ItemBook();
     }
 
+    void Start()
+    {
+        ToDoList.Instance.bookRead = true;
+    }
+
     public void PotionBook()
     {
         for (int i = 0; i < potionsDataBase.items.Count; ++i)

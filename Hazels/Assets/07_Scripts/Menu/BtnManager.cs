@@ -145,7 +145,6 @@ public class BtnManager : MonoBehaviour
             if (!(GameManager.Instance.inMinigame || GameManager.Instance.isGamePaused))
             {
                 bookPanel.SetActive(!bookPanel.activeSelf);
-                ToDoList.Instance.bookRead = true;
 
                 if (bookPanel.activeSelf)
                 {

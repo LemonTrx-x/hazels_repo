@@ -5,30 +5,46 @@ public class Tutorial : MonoBehaviour
 {
     public enum TutorialState
     {
-        Start, // gameLoop = 0
-        Client, // gameLoop = 1
-        BookMenu, // gameLoop = 2
-        Materials, // gameLoop = 3
-        Minigame, // gameLoop = 4
-        EndOrder, // gameLoop = 5
-        PC, // gameLoop = 6
-        RandomEvents // gameLoop = 7
+        Start,
+        Customer, //gameLoop = 1
+        BookMenu, //gameLoop = 2
+        Materials, //gameLoop = 3
+        Minigame, //gameLoop = 4
+        EndOrder, //gameLoop = 5
+        PC, //gameLoop = 6
+        RandomEvents
     }
 
     public GameObject dialogueParent;
     private DialogueScript dialogueScript;
 
+    public InstantiateCustomer instCustomer;
+    public GameObject cupboardInv;
+    public GameObject pcInv;
+
     public TutorialState currentStateType;
+
+    public int gameLoop;
 
     [Header("Lines")]
     public string[] startLines;
-    public string[] clientLines;
+    public string[] customerLines;
     public string[] bookMenuLines;
     public string[] materialsLines;
     public string[] minigameLines;
     public string[] endOrderLines;
     public string[] pcLines;
     public string[] randomEventsLines;
+
+    //Booleans
+    private bool dialogueWritten = false;
+    private bool moved;
+    private bool talked;
+    private bool book;
+    private bool cupboard;
+    private bool potion;
+    private bool costumers;
+    private bool pc;
 
     private Coroutine currentCoroutine;
     private bool isChangingState = false; //Lock to avoid loops in the same frame
@@ -47,60 +63,90 @@ public class Tutorial : MonoBehaviour
 
     void Update()
     {
-        
+        CheckGameLoop();
     }
 
     public void CheckGameLoop()
     {
         //Moved
-        if (GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x > 0)
+        if (GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x != 0 || 
+            GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().y != 0)
         {
-            GameManager.Instance.gameLoop++; // 1   
+            if (!moved)
+            {
+                moved = true;
+                gameLoop = 1;
+            }
         }
 
-        // Client finished
-        /*
-        if ()
+        //Customer finished talking
+        if (instCustomer.customer != null)
         {
-            GameManager.Instance.gameLoop++; // 2
+            if (instCustomer.customer.GetComponent<Customer>().customerOrder.Count > 0)
+            {
+                if (!GameManager.Instance.inDialogue)
+                {
+                    if (!talked)
+                    {
+                        talked = true;
+                        gameLoop = 2;
+                    }
+                }
+            }
         }
-        */
 
-        // Book opened
+        //Book opened
         if (ToDoList.Instance.bookRead)
         {
-            GameManager.Instance.gameLoop++; // 3
+            if (!book)
+            {
+                book = true;
+                gameLoop = 3;
+            }
         }
 
-        // Cupboard opened
-        /*
-        if ()
+        //Cupboard opened
+        if (cupboardInv.activeSelf)
         {
-            GameManager.Instance.gameLoop++; // 4
+            if (!cupboard)
+            {
+                cupboard = true;
+                gameLoop = 4;
+            }
         }
-        */
-
-        //Potion made
-        /*
-        if ()
+        
+        //Potion made NOT WORKING
+        if (Minigames.Instance.progress == Minigames.Instance.maxProgress)
         {
-            GameManager.Instance.gameLoop++; // 5
-        }
-        */
-
-        //Customer has potion (no customers left)
-        if (ToDoList.Instance.instCustomer.customersLeft <= 0)
-        {
-            GameManager.Instance.gameLoop++; // 6
+            if (!potion)
+            {
+                potion = true;
+                gameLoop = 5;
+            }
         }
 
-        //PC open
-        /*
-        if ()
+        if (ToDoList.Instance.currentStateType == ToDoList.PlayerState.EndDay)
         {
-            GameManager.Instance.gameLoop++; // 7
+            //No customers left NOT WORKING
+            if (!GameManager.Instance.inDialogue)
+            {
+                if (!costumers)
+                {
+                    costumers = true;
+                    gameLoop = 6;
+                }
+            }
+
+            //PC open NOT WORKING
+            if (pcInv.activeSelf)
+            {
+                if (!pc)
+                {
+                    pc = true;
+                    gameLoop = 7;
+                }
+            }
         }
-        */
     }
 
     public void ChangeState(TutorialState newState)
@@ -136,93 +182,76 @@ public class Tutorial : MonoBehaviour
         switch (state)
         {
             case TutorialState.Start:
-                yield return StartCoroutine(StartState());
+                yield return StartCoroutine(StartState(startLines));
                 break;
-            case TutorialState.Client:
-                yield return StartCoroutine(ClientState());
+            case TutorialState.Customer:
+                yield return StartCoroutine(NewLines(customerLines, 1, TutorialState.BookMenu));
                 break;
             case TutorialState.BookMenu:
-                yield return StartCoroutine(BookMenuState());
+                yield return StartCoroutine(NewLines(bookMenuLines, 2, TutorialState.Materials));
                 break;
             case TutorialState.Materials:
-                yield return StartCoroutine(MaterialsState());
+                yield return StartCoroutine(NewLines(materialsLines, 3, TutorialState.Minigame));
                 break;
             case TutorialState.Minigame:
-                yield return StartCoroutine(MinigameState());
+                yield return StartCoroutine(NewLines(minigameLines, 4, TutorialState.EndOrder));
                 break;
             case TutorialState.EndOrder:
-                yield return StartCoroutine(EndOrderState());
+                yield return StartCoroutine(NewLines(endOrderLines, 5, TutorialState.PC));
                 break;
             case TutorialState.PC:
-                yield return StartCoroutine(PCState());
+                yield return StartCoroutine(NewLines(pcLines, 6, TutorialState.RandomEvents));
                 break;
             case TutorialState.RandomEvents:
-                yield return StartCoroutine(RandomEventsState());
+                yield return StartCoroutine(EndState(randomEventsLines));
                 break;
         }
     }
 
-    private IEnumerator StartState()
+    private IEnumerator StartState(string[] lines)
     {
-        dialogueScript.lines = startLines;
-        yield return null;
+        dialogueScript.lines = lines;
         dialogueScript.dialoguePanel.SetActive(true);
         dialogueScript.StartDialogue();
+        yield return null;
+
+        while (true)
+        {
+            if (moved)
+            {
+                yield return new WaitForSeconds(1f);
+                ChangeState(TutorialState.Customer);
+            }
+            
+            yield return null;
+        }
     }
 
-    private IEnumerator ClientState()
+    private IEnumerator NewLines(string[] lines, int gameLoopOrder, TutorialState newState)
     {
-        dialogueScript.lines = clientLines;
-        yield return null;
-        dialogueScript.dialoguePanel.SetActive(true);
-        dialogueScript.StartDialogue();
+        if (gameLoop == gameLoopOrder && dialogueWritten == false)
+        {
+            dialogueScript.lines = lines;
+            dialogueScript.dialoguePanel.SetActive(true);
+            dialogueScript.StartDialogue();
+            dialogueWritten = true;
+            yield return null;
+        }
+
+        while (gameLoop == gameLoopOrder)
+        {
+            yield return null;
+        }
+
+        dialogueWritten = false;
+        ChangeState(newState);
     }
 
-    private IEnumerator BookMenuState()
+    private IEnumerator EndState(string[] lines)
     {
-        dialogueScript.lines = bookMenuLines;
-        yield return null;
+        dialogueScript.lines = lines;
         dialogueScript.dialoguePanel.SetActive(true);
         dialogueScript.StartDialogue();
-    }
-    
-    private IEnumerator MaterialsState()
-    {
-        dialogueScript.lines = materialsLines;
         yield return null;
-        dialogueScript.dialoguePanel.SetActive(true);
-        dialogueScript.StartDialogue();
-    }
-
-    private IEnumerator MinigameState()
-    {
-        dialogueScript.lines = minigameLines;
-        yield return null;
-        dialogueScript.dialoguePanel.SetActive(true);
-        dialogueScript.StartDialogue();
-    }
-
-    private IEnumerator EndOrderState()
-    {
-        dialogueScript.lines = endOrderLines;
-        yield return null;
-        dialogueScript.dialoguePanel.SetActive(true);
-        dialogueScript.StartDialogue();
-    }
-
-    private IEnumerator PCState()
-    {
-        dialogueScript.lines = pcLines;
-        yield return null;
-        dialogueScript.dialoguePanel.SetActive(true);
-        dialogueScript.StartDialogue();
-    }
-
-    private IEnumerator RandomEventsState()
-    {
-        dialogueScript.lines = randomEventsLines;
-        yield return null;
-        dialogueScript.dialoguePanel.SetActive(true);
-        dialogueScript.StartDialogue();
     }
 }

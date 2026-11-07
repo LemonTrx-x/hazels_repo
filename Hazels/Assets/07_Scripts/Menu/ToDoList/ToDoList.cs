@@ -60,7 +60,6 @@ public class ToDoList : MonoBehaviour
         goPC = false;
         bookRead = false;
         materialsTaken = false;
-        GameManager.Instance.gameLoop = 0;
 
         initialPosition = stepGuide.transform.position;
         stepGuide.SetActive(false);
@@ -149,7 +148,6 @@ public class ToDoList : MonoBehaviour
         inOrder = false;
         bookRead = false;
         materialsTaken = false;
-        GameManager.Instance.gameLoop = 0;
 
         yield return null;
 

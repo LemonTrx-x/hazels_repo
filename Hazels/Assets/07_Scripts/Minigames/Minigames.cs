@@ -170,6 +170,7 @@ public class Minigames : MonoBehaviour
             GameManager.Instance.inMinigame = true;
         }
 
+        ToDoList.Instance.stepGuide.SetActive(false);
         HandlePlayerUI();
         HandlePlayerInMinigame();
     }
@@ -186,6 +187,7 @@ public class Minigames : MonoBehaviour
             CookMaterials();
             GameManager.Instance.inMinigame = false;
 
+            ToDoList.Instance.stepGuide.SetActive(true);
             HandlePlayerUI();
             HandlePlayerInMinigame();
         }
