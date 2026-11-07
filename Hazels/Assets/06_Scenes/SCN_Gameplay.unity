@@ -7441,9 +7441,10 @@ RectTransform:
   - {fileID: 849428655}
   - {fileID: 444190372}
   - {fileID: 1906466630}
-  - {fileID: 1388670311}
   - {fileID: 2045975543}
   - {fileID: 1540056740}
+  - {fileID: 477695163}
+  - {fileID: 1388670311}
   - {fileID: 1591313404}
   - {fileID: 1099354793}
   - {fileID: 1869921083}
@@ -10615,6 +10616,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470815121}
   m_CullTransparentMesh: 1
+--- !u!1 &477695162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 477695163}
+  m_Layer: 5
+  m_Name: ==PausePanel==
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &477695163
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477695162}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 368583242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &482611720
 GameObject:
   m_ObjectHideFlags: 0
@@ -30636,7 +30672,7 @@ Transform:
   m_GameObject: {fileID: 1486918749}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.8855603, z: -0, w: 0.46452457}
-  m_LocalPosition: {x: -5.14, y: 1.19, z: 1.89}
+  m_LocalPosition: {x: 0.11, y: 1.19, z: 2.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31640,7 +31676,6 @@ MonoBehaviour:
   cupboardInv: {fileID: 264813759}
   pcInv: {fileID: 1930462342}
   currentStateType: 0
-  gameLoop: 0
   startLines:
   - Hello, dear Hazel!
   - This is a test for the Tutotial State Machine.
@@ -39321,8 +39356,9 @@ MonoBehaviour:
   progressSliderObj: {fileID: 444190371}
   progressSlider: {fileID: 444190373}
   progress: 0
-  maxProgress: 0
+  maxProgress: 10
   currentMinigame: 0
+  potionMade: 0
 --- !u!1 &1951041916
 GameObject:
   m_ObjectHideFlags: 0

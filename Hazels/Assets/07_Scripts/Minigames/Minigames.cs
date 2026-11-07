@@ -41,6 +41,7 @@ public class Minigames : MonoBehaviour
     public int progress = 0;
     public int maxProgress;
     public int currentMinigame = 0;
+    public bool potionMade = false;
 
     void Awake()
     {
@@ -160,6 +161,7 @@ public class Minigames : MonoBehaviour
     public void StartMiniGame()
     {
         oldCameraParent.transform.rotation = cameraPlayer.transform.rotation;
+        potionMade = false;
 
         isMovingToNew = true;
         isMovingToOld = false;
@@ -201,6 +203,7 @@ public class Minigames : MonoBehaviour
 
             if (progress >= maxProgress)
             {
+                potionMade = true;
                 EndMinigame();
                 progress = 0;
             }
