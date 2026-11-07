@@ -15,6 +15,15 @@ public class InstantiateCustomer : MonoBehaviour
     public GameObject midPos;
     public GameObject endPos;
 
+    public int TotalCustomers { get; private set; }   //Customers for the day
+    public int CustomersServed { get; private set; }  //Attended customers
+    bool customerActive = false; 
+
+    void Awake()
+    {
+        TotalCustomers = customersLeft;
+    }
+
     void Update()
     {
         if (customer == null && customersLeft > 0)
