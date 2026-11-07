@@ -127,6 +127,12 @@ public class Minigame1 : MonoBehaviour
                 float y = GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().y;
 
                 Vector3 dir = new Vector3(x, 0f, y); //Convert the stick direction (x, y) to a new direction XZ
+
+                if (dir.sqrMagnitude < 0.04f) //Dead zone of ~0.2
+                {
+                    return;
+                }
+
                 Quaternion targetRotation = Quaternion.LookRotation(dir, Vector3.up);
 
                 float currentAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
