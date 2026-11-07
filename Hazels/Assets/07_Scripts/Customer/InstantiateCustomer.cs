@@ -17,7 +17,6 @@ public class InstantiateCustomer : MonoBehaviour
 
     public int TotalCustomers { get; private set; }   //Customers for the day
     public int CustomersServed { get; private set; }  //Attended customers
-    bool customerActive = false; 
 
     void Awake()
     {

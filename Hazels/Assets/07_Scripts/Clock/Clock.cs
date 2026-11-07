@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
-    public enum HandType { Hour, Minute }
+    public enum HandType
+    {
+        Hour,
+        Minute
+    }
 
     [System.Serializable]
     public class ClockHand
@@ -14,6 +18,7 @@ public class Clock : MonoBehaviour
     }
 
     public InstantiateCustomer instCustomer;
+    float totalCustomers = 0f;
     public ClockHand[] hands;
 
     [Tooltip("Animation speed of the minute hand in degrees per second")]
@@ -28,6 +33,8 @@ public class Clock : MonoBehaviour
 
     void Start()
     {
+        totalCustomers = instCustomer.customersLeft;
+        
         foreach (var h in hands)
         {
             if (h.hand != null)
@@ -48,12 +55,13 @@ public class Clock : MonoBehaviour
         currentProgress = Mathf.MoveTowards(currentProgress, customersServed, rotationSpeed / 360f * Time.deltaTime);
 
         float dir = clockwise ? 1f : -1f;
+
         foreach (var h in hands)
         {
             if (h.hand == null) continue;
 
             //Each customer = 1 hour
-            float degreesPerCustomer = h.type == HandType.Hour ? 30f : 360f;
+            float degreesPerCustomer = h.type == HandType.Hour ? 360f / totalCustomers : 360f;
             float angle = dir * degreesPerCustomer * currentProgress;
 
             h.hand.localRotation = h.startRotation * Quaternion.AngleAxis(angle, rotationAxis);
