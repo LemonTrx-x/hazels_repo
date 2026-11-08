@@ -10,7 +10,7 @@ public class DialogueScript : MonoBehaviour
     public string[] lines;
     public float textSpeed = 0.25f;
 
-    int index;
+    public int index;
 
     void Update()
     {

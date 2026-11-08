@@ -18,6 +18,7 @@ public class ToDoList : MonoBehaviour
     [Header("Config")]
     public TextMeshProUGUI toDoListText;
     public InstantiateCustomer instCustomer;
+    public DialogueScript dialogueScript;
     public Customer customer;
     public PlayerState currentStateType;
 
@@ -180,10 +181,12 @@ public class ToDoList : MonoBehaviour
 
     private IEnumerator InOrderState()
     {
+        while (dialogueScript.index == 0)
+        {
+            yield return null;
+        }
+        
         toDoListText.text = "Make " + customer.potionsNames;
-
-        yield return null;
-
         inOrder = true;
 
         //Wait until current costumer finishes order

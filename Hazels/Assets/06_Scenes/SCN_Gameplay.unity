@@ -29486,6 +29486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToDoList
   toDoListText: {fileID: 143352898}
   instCustomer: {fileID: 973448600}
+  dialogueScript: {fileID: 1540056741}
   customer: {fileID: 0}
   currentStateType: 0
   stepGuide: {fileID: 1627664304}
@@ -31843,6 +31844,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1022604294}
   lines: []
   textSpeed: 0.0125
+  index: 0
 --- !u!1 &1543516291
 GameObject:
   m_ObjectHideFlags: 0
@@ -31859,7 +31861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1543516293
 Transform:
   m_ObjectHideFlags: 0
