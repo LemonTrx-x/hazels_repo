@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Magma Sphere
   icon: {fileID: 21300000, guid: ce61c973a64762f4abc93413c9a847ab, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 0
-  nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  nextStage: {fileID: 11400000, guid: 161e37c55fb180e4087f0739cea11e25, type: 2}
+  minigame: 3
+  info: Hot lava flows through its interior.
   frase: It divides in smaller ones
   recipe: {fileID: 0}
-  price: 5
+  price: 100

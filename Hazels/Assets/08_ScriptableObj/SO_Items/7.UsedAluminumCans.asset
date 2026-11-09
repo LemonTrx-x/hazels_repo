@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Used Aluminum Cans
   icon: {fileID: 21300000, guid: 94e0f76ea49a609458c2b1a4a897918a, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 0
-  nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  nextStage: {fileID: 11400000, guid: 6f9e428384c71154393ff31b49f5ccd0, type: 2}
+  minigame: 3
+  info: Scrap metal found in rubbish tips.
   frase: Recycled
   recipe: {fileID: 0}
-  price: 5
+  price: 40

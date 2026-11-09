@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Unicorn Horn
   icon: {fileID: 21300000, guid: f6a0fccabf167dc499b760d531543bb4, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 0
   nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  minigame: 4
+  info: It shines majestically.
   frase: Horses with horns
   recipe: {fileID: 0}
-  price: 5
+  price: 50

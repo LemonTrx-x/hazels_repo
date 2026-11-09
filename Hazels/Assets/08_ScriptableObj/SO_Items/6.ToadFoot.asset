@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Toad Foot
   icon: {fileID: 21300000, guid: 7fbe556ebaaf0cf44adf453a8fda6444, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 0
-  nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  nextStage: {fileID: 11400000, guid: 2d8fcbc9c0866e34ab9cdc5da2dc75f8, type: 2}
+  minigame: 2
+  info: With slippery, sticky skin.
   frase: Boing
   recipe: {fileID: 0}
-  price: 5
+  price: 30

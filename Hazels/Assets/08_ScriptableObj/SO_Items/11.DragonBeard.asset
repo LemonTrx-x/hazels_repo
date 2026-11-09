@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Dragon Beard
   icon: {fileID: 21300000, guid: c89bd1f5fceecfa45bc6e4bdbd3ad4c3, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 0
-  nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  nextStage: {fileID: 11400000, guid: 3b07f25884bd9324183187d514d0f0e7, type: 2}
+  minigame: 2
+  info: A glossy coat, belonging to a rare species.
   frase: The End?
   recipe: {fileID: 0}
-  price: 5
+  price: 100

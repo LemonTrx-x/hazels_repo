@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Green Owl Feather
   icon: {fileID: 21300000, guid: 4c972c3c3263dd04cba29e4722399193, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
-  isFinished: 0
+  isFinished: 1
   nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  minigame: 1
+  info: This species of bird is very chatty, to the point of being a nuisance.
   frase: ...Duo...?
   recipe: {fileID: 0}
-  price: 5
+  price: 30

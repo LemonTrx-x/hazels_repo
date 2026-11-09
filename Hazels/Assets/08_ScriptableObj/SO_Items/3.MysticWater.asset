@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Mystic Water
   icon: {fileID: 21300000, guid: ba46150c4c4e23a42a6586b8f2ae7dbe, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 1
   nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  minigame: 1
+  info: Drawn from the wells of the Young Spring.
   frase: Mega salty
   recipe: {fileID: 0}
-  price: 5
+  price: 15

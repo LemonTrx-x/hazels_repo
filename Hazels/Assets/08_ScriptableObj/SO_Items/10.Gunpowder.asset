@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Gunpowder
   icon: {fileID: 21300000, guid: 2a43cdd6e648c494dba1d9bb5149079a, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 0
-  nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  nextStage: {fileID: 11400000, guid: 51f47f6a74e49a94eac18616d433b681, type: 2}
+  minigame: 4
+  info: Highly explosive and dangerous material.
   frase: KABOOM
   recipe: {fileID: 0}
-  price: 5
+  price: 100

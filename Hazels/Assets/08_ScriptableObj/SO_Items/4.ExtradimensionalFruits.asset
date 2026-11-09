@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Extradimensional Fruits
   icon: {fileID: 21300000, guid: 3fa7b18f08ae70041b3c2b4d905c933f, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
   isFinished: 0
-  nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  nextStage: {fileID: 11400000, guid: 502713fb4a4427f40bd56d5b2686a587, type: 2}
+  minigame: 2
+  info: Their shape and origin are strange.
   frase: Devilish-ish Fruits
   recipe: {fileID: 0}
-  price: 5
+  price: 20

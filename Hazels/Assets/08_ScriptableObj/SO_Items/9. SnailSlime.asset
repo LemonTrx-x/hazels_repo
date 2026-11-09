@@ -16,12 +16,12 @@ MonoBehaviour:
   itemName: Snail Slime
   icon: {fileID: 21300000, guid: 120db3378a46cec498c82d32ce7f1ded, type: 3}
   prefab: {fileID: 0}
-  maxStock: 1
+  maxStock: 10
   shopStock: 5
-  isFinished: 0
+  isFinished: 1
   nextStage: {fileID: 0}
-  minigame: 0
-  info: 
+  minigame: 1
+  info: Not very abundant, due to the need for it to be pure.
   frase: Immortal and unstoppable being
   recipe: {fileID: 0}
-  price: 5
+  price: 50
