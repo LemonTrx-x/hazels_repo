@@ -19,7 +19,7 @@ MonoBehaviour:
   maxStock: 10
   shopStock: 5
   isFinished: 0
-  nextStage: {fileID: 0}
+  nextStage: {fileID: 11400000, guid: 95239539993de1748892963791426fec, type: 2}
   minigame: 4
   info: It shines majestically.
   frase: Horses with horns
