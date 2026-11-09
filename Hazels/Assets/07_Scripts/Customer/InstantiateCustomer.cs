@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class InstantiateCustomer : MonoBehaviour
@@ -10,17 +11,15 @@ public class InstantiateCustomer : MonoBehaviour
     float chance;
 
     public int customersLeft = 1;
+    public TextMeshProUGUI customersLeftText;
 
     public GameObject hotBarPlayer;
     public GameObject midPos;
     public GameObject endPos;
 
-    public int TotalCustomers { get; private set; }   //Customers for the day
-    public int CustomersServed { get; private set; }  //Attended customers
-
-    void Awake()
+    void Start()
     {
-        TotalCustomers = customersLeft;
+        customersLeftText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -55,5 +54,8 @@ public class InstantiateCustomer : MonoBehaviour
 
         customer = newCustomer;
         customersLeft--;
+
+        customersLeftText.text = "Customers left: " + customersLeft.ToString();
+        customersLeftText.gameObject.SetActive(true);
     }
 }
