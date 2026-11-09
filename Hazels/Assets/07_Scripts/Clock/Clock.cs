@@ -5,7 +5,8 @@ public class Clock : MonoBehaviour
     public enum HandType
     {
         Hour,
-        Minute
+        Minute,
+        Sun
     }
 
     [System.Serializable]
@@ -61,7 +62,8 @@ public class Clock : MonoBehaviour
             if (h.hand == null) continue;
 
             //Each customer = 1 hour
-            float degreesPerCustomer = h.type == HandType.Hour ? 360f / totalCustomers : 360f;
+            float totalDegrees = h.type == HandType.Sun ? 180f : 360f;
+            float degreesPerCustomer = h.type == HandType.Hour || h.type == HandType.Sun ? totalDegrees / totalCustomers : totalDegrees;
             float angle = dir * degreesPerCustomer * currentProgress;
 
             h.hand.localRotation = h.startRotation * Quaternion.AngleAxis(angle, rotationAxis);
