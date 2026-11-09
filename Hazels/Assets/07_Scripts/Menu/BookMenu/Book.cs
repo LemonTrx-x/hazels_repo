@@ -23,9 +23,12 @@ public class Book : MonoBehaviour
         ItemBook();
     }
 
-    void Start()
+    void Update()
     {
-        ToDoList.Instance.bookRead = true;
+        if (ToDoList.Instance.bookRead == false)
+        {
+            ToDoList.Instance.bookRead = true;
+        }
     }
 
     public void PotionBook()
