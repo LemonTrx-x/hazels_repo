@@ -17,6 +17,7 @@ public class Minigames : MonoBehaviour
     public GameObject toDoListObj1;
     public GameObject toDoListObj2;
     public GameObject dayText;
+    public GameObject customersLeftText;
 
     [Header("Camera")]
     public GameObject cameraPlayer;
@@ -68,6 +69,8 @@ public class Minigames : MonoBehaviour
     {
         MoveCamera();
         CheckProgress();
+        HandlePlayerUI();
+        HandlePlayerInMinigame();
     }
 
     public void MoveCamera()
@@ -103,7 +106,11 @@ public class Minigames : MonoBehaviour
     }
     public void HandlePlayerUI()
     {
-        if (GameManager.Instance.inMinigame || GameManager.Instance.inPC)
+        //Tried with activeSlef
+        //Will be like this until we can find a better way to do it
+        if (GameManager.Instance.inMinigame || 
+            GameManager.Instance.inPC || 
+            GameManager.Instance.inMenu)
         {
             pointer.SetActive(false);
             hotBar.SetActive(false);
@@ -112,6 +119,7 @@ public class Minigames : MonoBehaviour
             toDoListObj1.SetActive(false);
             toDoListObj2.SetActive(false);
             dayText.SetActive(false);
+            customersLeftText.SetActive(false);
         }
         
         else
@@ -123,6 +131,7 @@ public class Minigames : MonoBehaviour
             toDoListObj1.SetActive(true);
             toDoListObj2.SetActive(true);
             dayText.SetActive(true);
+            customersLeftText.SetActive(true);
         }
     }
 
@@ -173,8 +182,6 @@ public class Minigames : MonoBehaviour
         }
 
         ToDoList.Instance.stepGuide.SetActive(false);
-        HandlePlayerUI();
-        HandlePlayerInMinigame();
     }
 
     public void EndMinigame()
@@ -190,8 +197,6 @@ public class Minigames : MonoBehaviour
             GameManager.Instance.inMinigame = false;
 
             ToDoList.Instance.stepGuide.SetActive(true);
-            HandlePlayerUI();
-            HandlePlayerInMinigame();
         }
     }
 

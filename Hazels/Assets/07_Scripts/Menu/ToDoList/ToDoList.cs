@@ -24,6 +24,7 @@ public class ToDoList : MonoBehaviour
 
     [Header("Step Guide")]
     public GameObject stepGuide;
+    public GameObject stepGuideSprite;
     public GameObject pos1;
     public GameObject pos2;
     public GameObject pos3;
@@ -228,7 +229,7 @@ public class ToDoList : MonoBehaviour
     void LevitateObj()
     {
         float newY = initialPosition.y + Mathf.Sin(Time.time * speed) * amplitude;
-        stepGuide.transform.position = new Vector3(stepGuide.transform.position.x, newY, stepGuide.transform.position.z);
+        stepGuideSprite.transform.position = new Vector3(stepGuide.transform.position.x, newY, stepGuide.transform.position.z);
     }
 
     void MoveStepGuide()

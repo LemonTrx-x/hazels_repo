@@ -4572,7 +4572,7 @@ Transform:
   m_GameObject: {fileID: 233668162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9117621, z: -0, w: -0.4107189}
-  m_LocalPosition: {x: 1.056, y: 0.82, z: -1.014}
+  m_LocalPosition: {x: 1.151, y: 0.82, z: -1.081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -24713,6 +24713,7 @@ MonoBehaviour:
   customer: {fileID: 0}
   currentStateType: 0
   stepGuide: {fileID: 1627664304}
+  stepGuideSprite: {fileID: 176546734}
   pos1: {fileID: 332408248}
   pos2: {fileID: 1570468946}
   pos3: {fileID: 128048116}
@@ -31779,15 +31780,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f9f63d5d929a124786fdacde539ffe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.049
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f9f63d5d929a124786fdacde539ffe7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: -0.345
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f9f63d5d929a124786fdacde539ffe7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.077
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f9f63d5d929a124786fdacde539ffe7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34296,6 +34297,7 @@ MonoBehaviour:
   toDoListObj1: {fileID: 999543371}
   toDoListObj2: {fileID: 1245632637}
   dayText: {fileID: 411397968}
+  customersLeftText: {fileID: 1085441824}
   cameraPlayer: {fileID: 330585543}
   newCameraParent: {fileID: 0}
   oldCameraParent: {fileID: 876918856}
