@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   id: 2
   itemName: Mossy Rock
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: a3be795daabf7e147b2183b043d2c3ac, type: 3}
   prefab: {fileID: 5910760457172415526, guid: 34d90833f48644b4aaf6ba3e93c2d2d1, type: 3}
   maxStock: 25
   shopStock: 5

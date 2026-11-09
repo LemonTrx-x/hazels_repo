@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   id: 1
   itemName: Woodland Grass
-  icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: d111df1295d07c2439c40e429baaa78f, type: 3}
   prefab: {fileID: 8227894604409955964, guid: 0db7cfb68fa6e0b42b1a3b625ac6ef53, type: 3}
   maxStock: 25
   shopStock: 5
