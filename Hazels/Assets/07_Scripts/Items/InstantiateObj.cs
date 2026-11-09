@@ -1,23 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class InstantiateObj : MonoBehaviour
 {
     public Transform spawn;
     public ItemData item;
-    public TextMeshProUGUI nameText;
+    public Image nameText;
     public TextMeshProUGUI shopStockText;
 
     public int itemForce = 250;
 
     void Start()
     {
-        if (item != null) { nameText.text = item.itemName; }
+        if (item != null) nameText.sprite = item.icon;
     }
 
     void Update()
     {
-        if (item != null) { shopStockText.text = item.shopStock.ToString(); }
+        if (item != null) shopStockText.text = item.shopStock.ToString();
     }
 
     public void OnInstantiateObj()
