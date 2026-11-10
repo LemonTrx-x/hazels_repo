@@ -220,6 +220,8 @@ public class Minigames : MonoBehaviour
                     newStage = Instantiate(chestSlots[i].itemData.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
                     newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
 
+                    AudioManager.Instance.PlaySFX(7); //PUFF
+
                     chestSlots[i].ClearItem();
                 }
             }
@@ -274,6 +276,8 @@ public class Minigames : MonoBehaviour
                     //Create potion
                     GameObject newPotion = Instantiate(allRecipes[i].potion.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
                     newPotion.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+
+                    AudioManager.Instance.PlaySFX(7); //PUFF
 
                     recipeFound = true;
                     break; //End search because we found the correct recipe

@@ -51,6 +51,8 @@ public class DialogueScript : MonoBehaviour
         {
             dialogueText.text += letter;
 
+            AudioManager.Instance.PlaySFX(10); //Customer
+
             yield return new WaitForSeconds(textSpeed);
         }
     }

@@ -81,6 +81,11 @@ public class ToDoList : MonoBehaviour
             customer = null;
         }
 
+        if (customer.finished)
+        {
+            Minigames.Instance.potionMade = false;
+        }
+
         MoveStepGuide();
         LevitateObj();
     }
@@ -271,6 +276,7 @@ public class ToDoList : MonoBehaviour
                 {
                     stepGuide.transform.position = pos1.transform.position;
                 }
+                
             }
 
             if (goPC == true)

@@ -2781,6 +2781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenUI
   newInventoryUI: {fileID: 1906466629}
+  sxfToPlay: 2
 --- !u!4 &129180333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 015c7b20c8b4afb4489238ff04d82672, type: 3}
@@ -16730,7 +16731,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 298403783937346371, guid: 2b4fea763922b474baffe5ac16dc464b, type: 3}
       propertyPath: m_Name
-      value: PF_AudioManager
+      value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 3812805153094302771, guid: 2b4fea763922b474baffe5ac16dc464b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26200,6 +26201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenUI
   newInventoryUI: {fileID: 1930462342}
+  sxfToPlay: 13
 --- !u!1001 &1466183073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27412,6 +27414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MaterialsCupboard
   newInventoryUI: {fileID: 264813759}
+  sxfToPlay: 3
 --- !u!54 &1513349386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27875,7 +27878,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1022604294}
   skipText: {fileID: 2111013903}
   lines: []
-  textSpeed: 0.0125
+  textSpeed: 0.05
   index: 0
 --- !u!1 &1543516291
 GameObject:
@@ -34361,7 +34364,7 @@ MonoBehaviour:
   orderParent: {fileID: 1130587026}
   orderTemplate: {fileID: 1680633629}
   coinsText: {fileID: 716529227}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1567375517}
   returnList: []
 --- !u!1 &1933922707
 GameObject:
@@ -35448,6 +35451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenUI
   newInventoryUI: {fileID: 1473537512}
+  sxfToPlay: 6
 --- !u!54 &1980936378
 Rigidbody:
   m_ObjectHideFlags: 0

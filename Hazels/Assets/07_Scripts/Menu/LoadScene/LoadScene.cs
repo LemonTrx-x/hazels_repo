@@ -20,6 +20,8 @@ public class LoadScene : MonoBehaviour
     
     public void OnLoadScene(int newScene)
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         if (loadingPanel != null && bar != null)
         {
             loadingPanel.SetActive(true);

@@ -25,7 +25,7 @@ public class InstantiateObj : MonoBehaviour
     {
         if (item != null && item.shopStock > 0)
         {
-            AudioManager.Instance.PlaySFX(1); //BtnClicked
+            AudioManager.Instance.PlaySFX(4); //Material
 
             GameObject newItem;
 

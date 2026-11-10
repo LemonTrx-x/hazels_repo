@@ -231,7 +231,7 @@ public class BtnManager : MonoBehaviour
     //For the prototype
     public void EndDay()
     {
-        AudioManager.Instance.PlaySFX(1); //BtnClicked
+        AudioManager.Instance.PlaySFX(14); //BuyPC
 
         SceneManager.LoadScene(2);
     }

@@ -102,6 +102,8 @@ public class Customer : MonoBehaviour
             goodFinish = true;
             GameManager.Instance.score += orderScore;
             GameManager.Instance.coins += orderCoins;
+
+            AudioManager.Instance.PlaySFX(9); //Coins
         }
 
         else
@@ -110,6 +112,8 @@ public class Customer : MonoBehaviour
             badFinish = true;
             GameManager.Instance.score += orderScore/4;
             GameManager.Instance.coins += orderCoins/4;
+
+            AudioManager.Instance.PlaySFX(9); //Coins
         }
     }
 
