@@ -35,6 +35,8 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             return;
         }
 
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         stockText.text = "";
         icon.enabled = false;
         UIManager.Instance.ghostIcon.enabled = true;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MusicToPlay : MonoBehaviour
 {
-    [SerializeField] int musicToPlay;
+    public int musicToPlay;
     
     void Start()
     {

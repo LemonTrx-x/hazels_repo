@@ -16,6 +16,8 @@ public class ToDoList : MonoBehaviour
         EndDay
     }
 
+    public MusicToPlay musicToPlayScript;
+    
     [Header("Config")]
     public TextMeshProUGUI toDoListText;
     public InstantiateCustomer instCustomer;
@@ -222,6 +224,8 @@ public class ToDoList : MonoBehaviour
 
         inOrder = false;
         goPC = true;
+
+        musicToPlayScript.musicToPlay = 2; //MUS_Night
 
         yield return null;
     }
