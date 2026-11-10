@@ -10,14 +10,8 @@ public class Minigames : MonoBehaviour
     public GameObject player;
     
     [Header("Player UI")]
-    public GameObject pointer;
+    public GameObject playerPanel;
     public GameObject hotBar;
-    public GameObject scoreText;
-    public GameObject coinsText;
-    public GameObject toDoListObj1;
-    public GameObject toDoListObj2;
-    public GameObject dayText;
-    public GameObject customersLeftText;
 
     [Header("Camera")]
     public GameObject cameraPlayer;
@@ -106,35 +100,17 @@ public class Minigames : MonoBehaviour
     }
     public void HandlePlayerUI()
     {
-        //Tried with activeSlef
-        //Will be like this until we can find a better way to do it
-        if (GameManager.Instance.inMenu)
+        if (GameManager.Instance.inMinigame || GameManager.Instance.inPC || GameManager.Instance.inMenu)
         {
-            pointer.SetActive(false);
-            scoreText.SetActive(false);
-            coinsText.SetActive(false);
-            toDoListObj1.SetActive(false);
-            toDoListObj2.SetActive(false);
-            dayText.SetActive(false);
-            customersLeftText.SetActive(false);
+            playerPanel.SetActive(false);
 
-            if (GameManager.Instance.inMinigame || 
-                GameManager.Instance.inPC)
-            {
-                hotBar.SetActive(false);
-            }
+            if (!GameManager.Instance.inMenu) hotBar.SetActive(false);
         }
         
         else
         {
-            pointer.SetActive(true);
+            playerPanel.SetActive(true);
             hotBar.SetActive(true);
-            scoreText.SetActive(true);
-            coinsText.SetActive(true);
-            toDoListObj1.SetActive(true);
-            toDoListObj2.SetActive(true);
-            dayText.SetActive(true);
-            customersLeftText.SetActive(true);
         }
     }
 
