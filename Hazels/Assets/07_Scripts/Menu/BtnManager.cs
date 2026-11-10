@@ -54,6 +54,8 @@ public class BtnManager : MonoBehaviour
     {
         if (optionsPanel != null)
         {
+            AudioManager.Instance.PlaySFX(1); //BtnClicked
+
             optionsPanel.SetActive(!optionsPanel.activeSelf);
         }
     }
@@ -62,6 +64,8 @@ public class BtnManager : MonoBehaviour
     {
         if (settignsScroll != null)
         {
+            AudioManager.Instance.PlaySFX(1); //BtnClicked
+
             settignsScroll.SetActive(!settignsScroll.activeSelf);
             optionsPanel.SetActive(!optionsPanel.activeSelf);
         }
@@ -69,6 +73,8 @@ public class BtnManager : MonoBehaviour
 
     public void OnFullScreen(bool fullScreen)
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         Screen.fullScreen = fullScreen;
         PlayerPrefs.SetInt("FullScreen", fullScreen ? 1 : 0);
         PlayerPrefs.Save();
@@ -128,6 +134,8 @@ public class BtnManager : MonoBehaviour
 
     public void ChangeRes(int resIndex)
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         PlayerPrefs.SetInt("numResolution", resDropdown.value);
         PlayerPrefs.Save();
 
@@ -144,6 +152,8 @@ public class BtnManager : MonoBehaviour
         {
             if (!(GameManager.Instance.inMinigame || GameManager.Instance.isGamePaused))
             {
+                AudioManager.Instance.PlaySFX(1); //BtnClicked
+
                 bookPanel.SetActive(!bookPanel.activeSelf);
 
                 if (bookPanel.activeSelf)
@@ -165,6 +175,8 @@ public class BtnManager : MonoBehaviour
         {
             if (!(GameManager.Instance.inMinigame || GameManager.Instance.isGamePaused))
             {
+                AudioManager.Instance.PlaySFX(1); //BtnClicked
+
                 bookInfo.SetActive(!bookInfo.activeSelf);
 
                 if (bookInfo.activeSelf)
@@ -198,6 +210,8 @@ public class BtnManager : MonoBehaviour
 
     public void PotionsBookBtn()
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         potionsScroll.SetActive(true);
         bookInfo.SetActive(false);
         materialsPanel.SetActive(true);
@@ -206,6 +220,8 @@ public class BtnManager : MonoBehaviour
 
     public void ItemsBookBtn()
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         potionsScroll.SetActive(false);
         bookInfo.SetActive(false);
         materialsPanel.SetActive(false);
@@ -215,11 +231,15 @@ public class BtnManager : MonoBehaviour
     //For the prototype
     public void EndDay()
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         SceneManager.LoadScene(2);
     }
     
     public void Exit()
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         Debug.Log("You closed the game");
 
 #if UNITY_EDITOR

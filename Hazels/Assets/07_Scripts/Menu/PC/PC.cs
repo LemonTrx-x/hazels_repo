@@ -45,6 +45,8 @@ public class PC : MonoBehaviour
 
     public void OrderEntry(Button clickedBtn)
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         PCNewItem newItemScript = clickedBtn.GetComponent<PCNewItem>();
 
         if (returnList.Count == 0)

@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         HandlePauseUI();
         Time.timeScale = 1;
         isGamePaused = false;

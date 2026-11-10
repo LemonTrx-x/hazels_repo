@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class HandleScrollView : MonoBehaviour
 {
     public float gamePadScrollSens = 0.05f;
     public float mouseScrollSens = 10f;
+
+    public PlayerInput input;
     
 
     void Update()
@@ -15,7 +17,7 @@ public class HandleScrollView : MonoBehaviour
 
     public void OnHandleScrollForce()
     {
-        if (GameManager.Instance.input.currentControlScheme == "Gamepad")
+        if (input.currentControlScheme == "Gamepad")
         {
             gameObject.GetComponentInChildren<ScrollRect>().scrollSensitivity = gamePadScrollSens;
         }

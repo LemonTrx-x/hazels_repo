@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ToDoList : MonoBehaviour
@@ -187,8 +188,10 @@ public class ToDoList : MonoBehaviour
         toDoListText.text = "Make " + customer.potionsNames;
         inOrder = true;
 
+        yield return null;
+
         //Wait until current costumer finishes order
-        while (customer != null && !customer.finished)
+        while (customer != null && customer.finished == false)
         {
             yield return null;
         }

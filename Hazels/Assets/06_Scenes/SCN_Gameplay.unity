@@ -3332,6 +3332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
   gamePadScrollSens: 0.05
   mouseScrollSens: 10
+  input: {fileID: 1486918754}
 --- !u!1 &157627758
 GameObject:
   m_ObjectHideFlags: 0
@@ -6613,6 +6614,7 @@ RectTransform:
   - {fileID: 566279480}
   - {fileID: 400639171}
   - {fileID: 1657332765}
+  - {fileID: 1426858389}
   - {fileID: 1915247550}
   - {fileID: 1027525300}
   - {fileID: 264813760}
@@ -7542,13 +7544,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3242147, y: -0.43562108, z: 0.14474304, w: 0.8271449}
+  m_LocalRotation: {x: 0.33963838, y: -0.423706, z: 0.17433195, w: 0.8214179}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 283031247}
-  m_LocalEulerAnglesHint: {x: 41.487, y: -56.795, z: -3.292}
+  m_LocalEulerAnglesHint: {x: 44.886, y: -54.619, z: -0.114}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8823,6 +8825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
   gamePadScrollSens: 0.05
   mouseScrollSens: 10
+  input: {fileID: 1486918754}
 --- !u!1 &467059229
 GameObject:
   m_ObjectHideFlags: 0
@@ -16829,7 +16832,7 @@ MonoBehaviour:
   customerPrefab: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
   merchantPrefab: {fileID: 1597416547028590447, guid: dd1dcc031b632f445b6fc5dd3c60ce31, type: 3}
   specialChance: 0
-  customersLeft: 2
+  customersLeft: 1
   customersLeftText: {fileID: 1085441826}
   hotBarPlayer: {fileID: 1915247549}
   midPos: {fileID: 465450519}
@@ -17203,6 +17206,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984669998}
   m_CullTransparentMesh: 1
+--- !u!1001 &987928113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2073581104420343614, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_Name
+      value: MusicToPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579702838503151607, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: musicToPlay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 991.922
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 522.36273
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.14553
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032163164034513476, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
 --- !u!1 &988385523
 GameObject:
   m_ObjectHideFlags: 0
@@ -20845,6 +20909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
   gamePadScrollSens: 0.05
   mouseScrollSens: 10
+  input: {fileID: 1486918754}
 --- !u!1 &1127018441
 GameObject:
   m_ObjectHideFlags: 0
@@ -24982,7 +25047,7 @@ RectTransform:
   - {fileID: 999543372}
   - {fileID: 1085441825}
   - {fileID: 1245632638}
-  m_Father: {fileID: 1657332765}
+  m_Father: {fileID: 368583242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -29465,7 +29530,6 @@ RectTransform:
   - {fileID: 1908584305}
   - {fileID: 232640966}
   - {fileID: 411397969}
-  - {fileID: 1426858389}
   m_Father: {fileID: 368583242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -30348,6 +30412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
   gamePadScrollSens: 0.05
   mouseScrollSens: 10
+  input: {fileID: 1486918754}
 --- !u!1 &1720993230
 GameObject:
   m_ObjectHideFlags: 0
@@ -40721,6 +40786,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1008906820}
   - {fileID: 396881230}
+  - {fileID: 987928113}
   - {fileID: 21063105}
   - {fileID: 1950000145}
   - {fileID: 1543516293}

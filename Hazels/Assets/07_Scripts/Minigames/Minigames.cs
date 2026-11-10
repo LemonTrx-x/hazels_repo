@@ -12,6 +12,9 @@ public class Minigames : MonoBehaviour
     [Header("Player UI")]
     public GameObject playerPanel;
     public GameObject hotBar;
+    public GameObject toDoList0;
+    public GameObject toDoList1;
+    public GameObject toDoList2;
 
     [Header("Camera")]
     public GameObject cameraPlayer;
@@ -103,6 +106,9 @@ public class Minigames : MonoBehaviour
         if (GameManager.Instance.inMinigame || GameManager.Instance.inPC || GameManager.Instance.inMenu)
         {
             playerPanel.SetActive(false);
+            toDoList0.SetActive(false);
+            toDoList1.SetActive(false);
+            toDoList2.SetActive(false);
 
             if (!GameManager.Instance.inMenu) hotBar.SetActive(false);
         }
@@ -111,6 +117,9 @@ public class Minigames : MonoBehaviour
         {
             playerPanel.SetActive(true);
             hotBar.SetActive(true);
+            toDoList0.SetActive(true);
+            toDoList1.SetActive(true);
+            toDoList2.SetActive(true);
         }
     }
 

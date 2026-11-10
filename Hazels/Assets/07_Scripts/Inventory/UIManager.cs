@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
 
     public void CloseUI()
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         InventoryManager.Instance.HandleInventoryUI();
     }
 }

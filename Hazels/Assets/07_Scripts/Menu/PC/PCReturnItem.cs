@@ -20,6 +20,8 @@ public class PCReturnItem : MonoBehaviour
 
     public void ReturnEntry()
     {
+        AudioManager.Instance.PlaySFX(1); //BtnClicked
+
         GameManager.Instance.coins += itemData.price * newItemScript.amount;
         newItemScript.amount = 0;
         pc.returnList.Remove(gameObject.GetComponent<PCReturnItem>());

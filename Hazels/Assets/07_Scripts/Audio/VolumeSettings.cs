@@ -10,7 +10,9 @@ public class VolumeSettings : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("masterVolume") || PlayerPrefs.HasKey("musicVolume") || PlayerPrefs.HasKey("sfxVolume"))
+        if (PlayerPrefs.HasKey("masterVolume") || 
+            PlayerPrefs.HasKey("musicVolume") || 
+            PlayerPrefs.HasKey("sfxVolume"))
         {
             LoadVolume();
         }
@@ -48,8 +50,7 @@ public class VolumeSettings : MonoBehaviour
     {
         if (masterSlider == null || 
             musicSlider == null || 
-            sfxSlider == null) 
-            return;
+            sfxSlider == null) return;
         
         masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");

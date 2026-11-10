@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 76523850299205650}
   - component: {fileID: 5183968440635086904}
   m_Layer: 0
-  m_Name: PF_StrenghtP
+  m_Name: PF_StrengthP
   m_TagString: Obj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -25,6 +25,8 @@ public class InstantiateObj : MonoBehaviour
     {
         if (item != null && item.shopStock > 0)
         {
+            AudioManager.Instance.PlaySFX(1); //BtnClicked
+
             GameObject newItem;
 
             newItem = Instantiate(item.prefab, spawn.position, spawn.rotation);
