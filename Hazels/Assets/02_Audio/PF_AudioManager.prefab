@@ -48,8 +48,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 8991512188851542633}
   sfxSource: {fileID: 1214045530188998641}
-  musicList: []
-  sfxList: []
+  musicList:
+  - {fileID: 8300000, guid: beb29034808aa0440b4cc6e438d63f81, type: 3}
+  - {fileID: 8300000, guid: 366535132f42ff6468e26327738e42a9, type: 3}
+  - {fileID: 8300000, guid: 08aeafff64f1b1d48905f44f110c576c, type: 3}
+  sfxList:
+  - {fileID: 8300000, guid: 0d627084177b2064691044d5874b8eb5, type: 3}
+  - {fileID: 8300000, guid: 2508a605a41806048ac56fc6f378d079, type: 3}
+  - {fileID: 8300000, guid: 496030b1459f4a848b4dceaa07a098a5, type: 3}
+  - {fileID: 8300000, guid: bf9ff83350a32334288d977d99d6d24f, type: 3}
+  - {fileID: 8300000, guid: 01437a0e199592a4791a31329f4edf21, type: 3}
+  - {fileID: 8300000, guid: 02a06c7f3c85b554b99e6a70db4cd4cc, type: 3}
+  - {fileID: 8300000, guid: 3e944fd5a514c87408d3ff6b4862f938, type: 3}
+  - {fileID: 8300000, guid: 6485d5c8e36469e4baca30e98b8d43d4, type: 3}
+  - {fileID: 8300000, guid: 626a1f6097b31ae4bbcceb7afb9f8d84, type: 3}
+  - {fileID: 8300000, guid: 5eb09da7d0b8efb41b9145809f136a4d, type: 3}
+  - {fileID: 8300000, guid: d9cae6c339ebab347b7fa56320315c87, type: 3}
+  - {fileID: 8300000, guid: 0acedd4c164256a4daabb019e49c6447, type: 3}
+  - {fileID: 8300000, guid: 557e113e6ec83b74eb9fe5dd44184ccc, type: 3}
+  - {fileID: 8300000, guid: 345828edf587f2540804e9e4896ad90e, type: 3}
+  - {fileID: 8300000, guid: b2758e4b2bab52f429d68a4481603346, type: 3}
 --- !u!1 &2267518516795848874
 GameObject:
   m_ObjectHideFlags: 0
