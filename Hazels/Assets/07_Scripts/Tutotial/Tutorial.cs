@@ -49,7 +49,7 @@ public class Tutorial : MonoBehaviour
 
         if (dialogueScript == null)
         {
-            Debug.LogError("Tutorial: no se encontró DialogueScript.");
+            Debug.LogError("Tutorial: no se encontrï¿½ DialogueScript.");
             return;
         }
 
@@ -117,20 +117,16 @@ public class Tutorial : MonoBehaviour
         if (instCustomer.customer == null) return false;
 
         Customer c = instCustomer.customer.GetComponent<Customer>();
-        return c != null && 
-            c.customerOrder.Count > 0 && 
-            !GameManager.Instance.inDialogue;
+        return c != null && c.customerOrder.Count > 0 && !GameManager.Instance.inDialogue;
     }
 
     private bool PotionMade()
     {
-        return Minigames.Instance != null && 
-            Minigames.Instance.potionMade == true;
+        return Minigames.Instance != null && Minigames.Instance.potionMade == true;
     }
 
     private bool NoCustomersLeft()
     {
-        return ToDoList.Instance.currentStateType == ToDoList.PlayerState.EndDay &&
-            !GameManager.Instance.inDialogue;
+        return ToDoList.Instance.currentStateType == ToDoList.PlayerState.EndDay && !GameManager.Instance.inDialogue;
     }
 }

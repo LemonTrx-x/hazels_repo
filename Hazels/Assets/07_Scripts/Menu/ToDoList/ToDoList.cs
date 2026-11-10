@@ -40,8 +40,6 @@ public class ToDoList : MonoBehaviour
     [Header("Step Guide Levitate")]
     public float amplitude = 0.1f;
     public float speed = 1f;
-    private Vector3 initialPosition;
-
     private Coroutine currentCoroutine;
     private bool isChangingState = false; //Lock to avoid loops in the same frame
 
@@ -63,7 +61,6 @@ public class ToDoList : MonoBehaviour
         bookRead = false;
         materialsTaken = false;
 
-        initialPosition = stepGuide.transform.position;
         stepGuide.SetActive(false);
 
         ChangeState(PlayerState.StartDay);
@@ -228,8 +225,8 @@ public class ToDoList : MonoBehaviour
 
     void LevitateObj()
     {
-        float newY = initialPosition.y + Mathf.Sin(Time.time * speed) * amplitude;
-        stepGuideSprite.transform.position = new Vector3(stepGuide.transform.position.x, newY, stepGuide.transform.position.z);
+        float newY = stepGuide.transform.position.y + Mathf.Sin(Time.time * speed) * amplitude;
+        stepGuide.transform.position = new Vector3(stepGuide.transform.position.x, newY, stepGuide.transform.position.z);
     }
 
     void MoveStepGuide()
@@ -240,7 +237,6 @@ public class ToDoList : MonoBehaviour
             if (pos1 != null)
             {
                 stepGuide.transform.position = pos1.transform.position;
-                stepGuide.transform.rotation = pos1.transform.rotation;
             }
 
             if (inOrder == true)
@@ -249,21 +245,24 @@ public class ToDoList : MonoBehaviour
                 if (pos2 != null)
                 {
                     stepGuide.transform.position = pos2.transform.position;
-                    stepGuide.transform.rotation = pos2.transform.rotation;
                 }
 
                 //Take materials
                 if (bookRead == true && pos3 != null)
                 {
                     stepGuide.transform.position = pos3.transform.position;
-                    stepGuide.transform.rotation = pos3.transform.rotation;
                 }
 
                 //Make potions
                 if (materialsTaken == true && pos4 != null)
                 {
                     stepGuide.transform.position = pos4.transform.position;
-                    stepGuide.transform.rotation = pos4.transform.rotation;
+                }
+
+                //Give potion to customer
+                if (Minigames.Instance.potionMade == true && pos1 != null)
+                {
+                    stepGuide.transform.position = pos1.transform.position;
                 }
             }
 
@@ -272,7 +271,6 @@ public class ToDoList : MonoBehaviour
                 if (pos5 != null)
                 {
                     stepGuide.transform.position = pos5.transform.position;
-                    stepGuide.transform.rotation = pos5.transform.rotation;
                 }
             }
         }

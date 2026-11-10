@@ -3220,6 +3220,7 @@ GameObject:
   - component: {fileID: 155518994}
   - component: {fileID: 155518993}
   - component: {fileID: 155518992}
+  - component: {fileID: 155518995}
   m_Layer: 5
   m_Name: ItemsScrollView
   m_TagString: Untagged
@@ -3317,6 +3318,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155518990}
   m_CullTransparentMesh: 1
+--- !u!114 &155518995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155518990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2adf4530e2247545aaef09cb2be4c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
+  gamePadScrollSens: 0.05
+  mouseScrollSens: 10
 --- !u!1 &157627758
 GameObject:
   m_ObjectHideFlags: 0
@@ -8609,6 +8624,7 @@ GameObject:
   - component: {fileID: 465974574}
   - component: {fileID: 465974573}
   - component: {fileID: 465974572}
+  - component: {fileID: 465974575}
   m_Layer: 5
   m_Name: PotionsScrollView
   m_TagString: Untagged
@@ -8706,6 +8722,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465974570}
   m_CullTransparentMesh: 1
+--- !u!114 &465974575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465974570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2adf4530e2247545aaef09cb2be4c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
+  gamePadScrollSens: 0.05
+  mouseScrollSens: 10
 --- !u!1 &467059229
 GameObject:
   m_ObjectHideFlags: 0
@@ -20453,6 +20483,7 @@ GameObject:
   - component: {fileID: 1123515626}
   - component: {fileID: 1123515625}
   - component: {fileID: 1123515624}
+  - component: {fileID: 1123515627}
   m_Layer: 5
   m_Name: SettingsScrollView
   m_TagString: Untagged
@@ -20551,6 +20582,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123515622}
   m_CullTransparentMesh: 1
+--- !u!114 &1123515627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123515622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2adf4530e2247545aaef09cb2be4c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
+  gamePadScrollSens: 0.05
+  mouseScrollSens: 10
 --- !u!1 &1127018441
 GameObject:
   m_ObjectHideFlags: 0
@@ -21617,8 +21662,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.17394955, y: 0.1410313, z: 0.27815244}
-  m_Center: {x: -0.000000040011653, y: 0.039575163, z: -0.06925941}
+  m_Size: {x: 0.009588118, y: 0.0077736587, z: 0.015331788}
+  m_Center: {x: -0.0000000060703442, y: 0.0021813798, z: -0.003817586}
 --- !u!1001 &1205816059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24715,7 +24760,7 @@ MonoBehaviour:
   stepGuide: {fileID: 1627664304}
   stepGuideSprite: {fileID: 176546734}
   pos1: {fileID: 332408248}
-  pos2: {fileID: 1570468946}
+  pos2: {fileID: 1483133730}
   pos3: {fileID: 128048116}
   pos4: {fileID: 1236525671}
   pos5: {fileID: 22625856}
@@ -26172,6 +26217,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482448240}
   m_CullTransparentMesh: 1
+--- !u!1 &1483133730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483133731}
+  m_Layer: 0
+  m_Name: StepGuidePos2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1483133731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483133730}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.806, y: 1.892, z: -1.273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1486918749
 GameObject:
   m_ObjectHideFlags: 0
@@ -27530,37 +27606,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567375515}
   m_CullTransparentMesh: 1
---- !u!1 &1570468946
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1570468947}
-  m_Layer: 0
-  m_Name: StepGuidePos2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1570468947
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570468946}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.806, y: 1.404, z: -1.273}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576442177
 GameObject:
   m_ObjectHideFlags: 0
@@ -29861,6 +29906,7 @@ GameObject:
   - component: {fileID: 1720573404}
   - component: {fileID: 1720573403}
   - component: {fileID: 1720573402}
+  - component: {fileID: 1720573405}
   m_Layer: 5
   m_Name: OrderScrollView
   m_TagString: Untagged
@@ -29958,6 +30004,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720573400}
   m_CullTransparentMesh: 1
+--- !u!114 &1720573405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720573400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2adf4530e2247545aaef09cb2be4c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandleScrollView
+  gamePadScrollSens: 0.05
+  mouseScrollSens: 10
 --- !u!1 &1720993230
 GameObject:
   m_ObjectHideFlags: 0
@@ -40214,7 +40274,7 @@ SceneRoots:
   - {fileID: 975939414}
   - {fileID: 1627664305}
   - {fileID: 332408249}
-  - {fileID: 1570468947}
+  - {fileID: 1483133731}
   - {fileID: 128048117}
   - {fileID: 1236525672}
   - {fileID: 22625857}

@@ -108,18 +108,21 @@ public class Minigames : MonoBehaviour
     {
         //Tried with activeSlef
         //Will be like this until we can find a better way to do it
-        if (GameManager.Instance.inMinigame || 
-            GameManager.Instance.inPC || 
-            GameManager.Instance.inMenu)
+        if (GameManager.Instance.inMenu)
         {
             pointer.SetActive(false);
-            hotBar.SetActive(false);
             scoreText.SetActive(false);
             coinsText.SetActive(false);
             toDoListObj1.SetActive(false);
             toDoListObj2.SetActive(false);
             dayText.SetActive(false);
             customersLeftText.SetActive(false);
+
+            if (GameManager.Instance.inMinigame || 
+                GameManager.Instance.inPC)
+            {
+                hotBar.SetActive(false);
+            }
         }
         
         else
@@ -156,12 +159,12 @@ public class Minigames : MonoBehaviour
             {
                 if (GameManager.Instance.inMinigame)
                 {
-                    handList[i].handObj.GetComponent<MeshRenderer>().enabled = false;
+                    handList[i].handObj.GetComponentInChildren<MeshRenderer>().enabled = false;
                 }
 
                 else
                 {
-                    handList[i].handObj.GetComponent<MeshRenderer>().enabled = true;
+                    handList[i].handObj.GetComponentInChildren<MeshRenderer>().enabled = true;
                 }
             }
         }
