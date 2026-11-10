@@ -7,6 +7,7 @@ public class DialogueScript : MonoBehaviour
 {
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI skipText;
     public string[] lines;
     public float textSpeed = 0.25f;
 
@@ -14,7 +15,7 @@ public class DialogueScript : MonoBehaviour
 
     void Update()
     {
-        
+        ChangeSkipText();
     }
 
     public void NextDialogue(InputAction.CallbackContext callbackContext)
@@ -67,6 +68,19 @@ public class DialogueScript : MonoBehaviour
         {
             dialoguePanel.SetActive(false);
             GameManager.Instance.inDialogue = false;
+        }
+    }
+
+    public void ChangeSkipText()
+    {
+        if (GameManager.Instance.input.currentControlScheme == "Gamepad")
+        {
+            skipText.text = "A";
+        }
+
+        else
+        {
+            skipText.text = "Space";
         }
     }
 }
