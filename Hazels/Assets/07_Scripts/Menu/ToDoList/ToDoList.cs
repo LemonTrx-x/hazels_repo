@@ -81,7 +81,7 @@ public class ToDoList : MonoBehaviour
             customer = null;
         }
 
-        if (customer.finished)
+        if (customer != null && customer.finished)
         {
             Minigames.Instance.potionMade = false;
         }
@@ -230,7 +230,7 @@ public class ToDoList : MonoBehaviour
         inOrder = false;
         goPC = true;
 
-        musicToPlayScript.musicToPlay = 2; //MUS_Night
+        AudioManager.Instance.PlayMusic(2); //MUS_Night
 
         yield return null;
     }

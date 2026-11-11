@@ -77,7 +77,7 @@ public class DialogueScript : MonoBehaviour
     {
         if (GameManager.Instance.input.currentControlScheme == "Gamepad")
         {
-            skipText.text = "A";
+            skipText.text = "B";
         }
 
         else
