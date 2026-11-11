@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LookPlayer : MonoBehaviour
+public class LookAt : MonoBehaviour
 {
     public Transform obj;
 
