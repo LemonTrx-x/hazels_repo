@@ -16,8 +16,6 @@ public class ToDoList : MonoBehaviour
         EndDay
     }
 
-    public MusicToPlay musicToPlayScript;
-    
     [Header("Config")]
     public TextMeshProUGUI toDoListText;
     public InstantiateCustomer instCustomer;

@@ -49,7 +49,7 @@ public class PC : MonoBehaviour
 
         PCNewItem newItemScript = clickedBtn.GetComponent<PCNewItem>();
 
-        if (returnList.Count == 0)
+        if (returnList.Count == 0 && GameManager.Instance.coins <= 0)
         {
             CreateEntry(newItemScript);
             return;
