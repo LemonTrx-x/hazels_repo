@@ -9,7 +9,10 @@ public class OpenUI : InteractiveObj
     {
         AudioManager.Instance.PlaySFX(sxfToPlay);
 
-        InventoryManager.Instance.inventoryUI = newInventoryUI;
-        InventoryManager.Instance.HandleInventoryUI();
+        if (!GameManager.Instance.inMinigame)
+        {
+            InventoryManager.Instance.inventoryUI = newInventoryUI;
+            InventoryManager.Instance.HandleInventoryUI();
+        }
     }
 }
