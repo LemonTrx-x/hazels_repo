@@ -1281,7 +1281,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &60529024
 Transform:
@@ -2518,7 +2518,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8e59f41f7c59649489b6c67838dc9b2f, type: 2}
     - target: {fileID: 919132149155446097, guid: d7e8102e4055ce6498790079ba16cbdf, type: 3}
       propertyPath: m_Name
-      value: FBX_Mortar
+      value: SM_FBX_Mortar
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d7e8102e4055ce6498790079ba16cbdf, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10291,11 +10291,11 @@ GameObject:
   m_Component:
   - component: {fileID: 696393199}
   m_Layer: 0
-  m_Name: PC
+  m_Name: SM_PC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &696393199
 Transform:
@@ -10919,7 +10919,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &739463163
 Transform:
@@ -16613,7 +16613,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ca0b180b707fa73418c94fffcaefff70, type: 2}
     - target: {fileID: 919132149155446097, guid: f515abf631c31f944ab52395abd6ee3f, type: 3}
       propertyPath: m_Name
-      value: FBX_Shelves_New
+      value: SM_FBX_Shelves_New
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f515abf631c31f944ab52395abd6ee3f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18418,7 +18418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1248793971}
   m_Layer: 0
-  m_Name: TerrainParent
+  m_Name: SM_TerrainParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18452,7 +18452,7 @@ GameObject:
   - component: {fileID: 1275281188}
   - component: {fileID: 1275281189}
   m_Layer: 0
-  m_Name: ClockParent
+  m_Name: SM_ClockParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20291,7 +20291,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 775601108dda5094296d6a436ac863a2, type: 2}
     - target: {fileID: 919132149155446097, guid: 2f0997b48bc902d45b4f774df86e8bb6, type: 3}
       propertyPath: m_Name
-      value: FBX_Work table
+      value: SM_FBX_Work table
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f0997b48bc902d45b4f774df86e8bb6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20452,7 +20452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5e5620171c1c147ba8a4ffad944bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToDoList
-  musicToPlayScript: {fileID: 1755240415}
   toDoListText: {fileID: 143352898}
   instCustomer: {fileID: 973448600}
   dialogueScript: {fileID: 1540056741}
@@ -21088,7 +21087,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1465659651
 Transform:
@@ -22156,11 +22155,11 @@ GameObject:
   - component: {fileID: 1513349385}
   - component: {fileID: 1513349387}
   m_Layer: 0
-  m_Name: MaterialsCupboard
+  m_Name: SM_MaterialsCupboard
   m_TagString: Obj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1513349380
 BoxCollider:
@@ -22601,7 +22600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1535942875}
   m_Layer: 0
-  m_Name: FrontTable
+  m_Name: SM_FrontTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24774,7 +24773,7 @@ GameObject:
   m_TagString: Obj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1696904195
 Transform:
@@ -25110,6 +25109,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fd91e74f08e50944a9bbf09fe600dc24, type: 3}
       propertyPath: m_Name
       value: FBX_Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd91e74f08e50944a9bbf09fe600dc24, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800250516343163423, guid: fd91e74f08e50944a9bbf09fe600dc24, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849762623622064168, guid: fd91e74f08e50944a9bbf09fe600dc24, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25629,17 +25640,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755158155}
   m_CullTransparentMesh: 1
---- !u!114 &1755240415 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3579702838503151607, guid: 97d7997c025dc5e458b36d9a2a6cd1ff, type: 3}
-  m_PrefabInstance: {fileID: 987928113}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca3a1d8037bc9a42a0fc0a2113863b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicToPlay
 --- !u!1 &1757315243
 GameObject:
   m_ObjectHideFlags: 0
@@ -26983,7 +26983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1853446956}
   m_Layer: 0
-  m_Name: Interior
+  m_Name: SM_Interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27288,7 +27288,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8e59f41f7c59649489b6c67838dc9b2f, type: 2}
     - target: {fileID: 919132149155446097, guid: dba69557c60f30748ab209b0376c90cb, type: 3}
       propertyPath: m_Name
-      value: Chopping board
+      value: SM_Chopping board
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dba69557c60f30748ab209b0376c90cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28934,11 +28934,11 @@ GameObject:
   - component: {fileID: 1980936378}
   - component: {fileID: 1980936377}
   m_Layer: 0
-  m_Name: Barrel
+  m_Name: SM_Barrel
   m_TagString: Obj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1980936373
 BoxCollider:
@@ -30675,7 +30675,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8ec9f2154b90f13489846e077e6f2903, type: 2}
     - target: {fileID: 919132149155446097, guid: 9eaab0849d0cc4644b0bd44a55a509f3, type: 3}
       propertyPath: m_Name
-      value: Cauldron
+      value: SM_Cauldron
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9eaab0849d0cc4644b0bd44a55a509f3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30848,7 +30848,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 491bbca572753474188f9f825b0e636a, type: 2}
     - target: {fileID: 919132149155446097, guid: 3b385165211677e49b61643b9307fba1, type: 3}
       propertyPath: m_Name
-      value: FBX_Shelf2
+      value: SM_FBX_Shelf2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3b385165211677e49b61643b9307fba1, type: 3}
       propertyPath: m_StaticEditorFlags
