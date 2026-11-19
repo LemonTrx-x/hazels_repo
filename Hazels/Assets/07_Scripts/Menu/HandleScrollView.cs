@@ -8,7 +8,6 @@ public class HandleScrollView : MonoBehaviour
     public float mouseScrollSens = 10f;
 
     public PlayerInput input;
-    
 
     void Update()
     {
