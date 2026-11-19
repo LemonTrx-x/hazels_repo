@@ -22592,7 +22592,7 @@ MonoBehaviour:
   bookMenuLines:
   - Okey dokey!
   - You can view the recipes inside the book at your left.
-  - Remeber, use LEFT CLICK or A to interact.
+  - Remember, use LEFT CLICK or A to interact.
   materialsLines:
   - Mhm... Right...
   - Search for the potions the customer asked for.
@@ -22614,7 +22614,7 @@ MonoBehaviour:
   - Right, right.
   - Here you will use the coins our customers give you to buy the materials for tomorrow.
   - Make sure to cook very good potions, or else you'll end up without cash to spend!
-  - Also, there are some things I need to warn you about. Some " special events".
+  - Also, there are some things I need to warn you about. Some "special events".
   - 'First, the merchant: they will offer you some goods for an amount of coins,
     but you won''t know what goods they are giving you. Be careful.'
   - 'Second, the variating prices: we all know how the economy is going, so take
