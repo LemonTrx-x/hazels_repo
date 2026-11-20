@@ -14,22 +14,6 @@ public class HandleCursors : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (input.currentControlScheme == "Gamepad")
-        {
-            virtualMouseUI.SetActive(true);
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
-        }
-
-        else
-        {
-            virtualMouseUI.SetActive(false);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        */
-
         OnHandleCursors();
     }
 
@@ -51,15 +35,21 @@ public class HandleCursors : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-
         }
 
         else if (GameManager.Instance.inMinigame)
         {
-            virtualMouseUI.SetActive(false);
-            ResetVirtualMouse();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (input.currentControlScheme == "Gamepad")
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = false;
+            }
+
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
 
         else
