@@ -125,16 +125,6 @@ public class Minigames : MonoBehaviour
 
     public void HandlePlayerInMinigame()
     {
-        if (GameManager.Instance.inMinigame)
-        {
-            player.GetComponentInChildren<SpriteRenderer>().enabled = false;
-        }
-
-        else
-        {
-            player.GetComponentInChildren<SpriteRenderer>().enabled = true;
-        }
-
         List<ShowHandObj> handList = new List<ShowHandObj>();
         handList.AddRange(hotBar.GetComponentsInChildren<ShowHandObj>());
 
@@ -155,7 +145,7 @@ public class Minigames : MonoBehaviour
         }
     }
 
-    public void StartMiniGame()
+    public void StartMinigame()
     {
         oldCameraParent.transform.rotation = cameraPlayer.transform.rotation;
         potionMade = false;
@@ -174,11 +164,11 @@ public class Minigames : MonoBehaviour
 
     public void EndMinigame()
     {
-        if (GameManager.Instance.inMinigame)
-        {
-            isMovingToNew = false;
-            isMovingToOld = true;
+        isMovingToNew = false;
+        isMovingToOld = true;
 
+        if (!GameManager.Instance.inPC)
+        {
             progressSliderObj.SetActive(false);
 
             CookMaterials();

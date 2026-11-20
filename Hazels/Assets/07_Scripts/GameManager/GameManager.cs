@@ -63,8 +63,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        HandleCursors();
-        
         scoreText.text = "SCORE: " + score.ToString();
         coinsText.text = "COINS: " + coins.ToString();
         dayText.text = "DAY: " + dayInGame.ToString();
@@ -105,47 +103,5 @@ public class GameManager : MonoBehaviour
     public void HandlePauseUI()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
-    }
-
-    public void HandleCursors()
-    {
-        if (isGamePaused || inMenu)
-        {
-            if (input.currentControlScheme == "Gamepad")
-            {
-                virtualMouseUI.SetActive(true);
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = false;
-            }
-
-            else
-            {
-                virtualMouseUI.SetActive(false);
-                ResetVirtualMouse();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-
-        }
-
-        else if (inMinigame)
-        {
-            virtualMouseUI.SetActive(false);
-            ResetVirtualMouse();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-
-        else
-        {
-            virtualMouseUI.SetActive(false);
-            ResetVirtualMouse();
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
-
-    public void ResetVirtualMouse()
-    {
-        virtualMouseUI.GetComponent<VirtualMouseInput>().cursorTransform.position = new Vector2(Screen.width / 2, Screen.height / 2);
     }
 }

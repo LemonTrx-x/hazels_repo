@@ -97,4 +97,10 @@ public class PC : MonoBehaviour
 
         returnList.Add(returnItemScript);
     }
+
+    public void ExitPC()
+    {
+        GameManager.Instance.inPC = false;
+        Minigames.Instance.EndMinigame();
+    }
 }

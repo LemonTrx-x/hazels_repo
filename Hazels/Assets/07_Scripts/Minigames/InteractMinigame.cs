@@ -34,7 +34,7 @@ public class InteractMinigame : InteractiveObj
 
                     else
                     {
-                        Minigames.Instance.StartMiniGame();
+                        Minigames.Instance.StartMinigame();
                     }
                 }
             }

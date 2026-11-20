@@ -109,7 +109,11 @@ public class Tutorial : MonoBehaviour
 
     private bool PlayerMoved()
     {
-        return GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().sqrMagnitude > 0.01f;
+        if (GameManager.Instance.inDialogue ||
+            GameManager.Instance.inMenu ||
+            GameManager.Instance.isGamePaused) return false;
+
+        else return GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().sqrMagnitude > 0.01f;
     }
 
     private bool CustomerFinishedTalking()
