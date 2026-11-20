@@ -6,6 +6,7 @@ public class HandleCursors : MonoBehaviour
 {
     public PlayerInput input;
     public GameObject virtualMouseUI;
+    public GameManager gameManager;
     
     void Start()
     {
@@ -19,7 +20,50 @@ public class HandleCursors : MonoBehaviour
 
     public void OnHandleCursors()
     {
-        if (GameManager.Instance.isGamePaused || GameManager.Instance.inMenu)
+        if (gameManager != null)
+        {
+            if (gameManager.isGamePaused || gameManager.inMenu)
+            {
+                if (input.currentControlScheme == "Gamepad")
+                {
+                    virtualMouseUI.SetActive(true);
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Cursor.visible = false;
+                }
+
+                else
+                {
+                    virtualMouseUI.SetActive(false);
+                    ResetVirtualMouse();
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+            }
+
+            else if (gameManager != null && gameManager.inMinigame)
+            {
+                if (input.currentControlScheme == "Gamepad")
+                {
+                    Cursor.lockState = CursorLockMode.Confined;
+                    Cursor.visible = false;
+                }
+
+                else
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+            }
+
+            else
+            {
+                virtualMouseUI.SetActive(false);
+                ResetVirtualMouse();
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+
+        else
         {
             if (input.currentControlScheme == "Gamepad")
             {
@@ -35,28 +79,6 @@ public class HandleCursors : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-        }
-
-        else if (GameManager.Instance.inMinigame)
-        {
-            if (input.currentControlScheme == "Gamepad")
-            {
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = false;
-            }
-
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }
-
-        else
-        {
-            virtualMouseUI.SetActive(false);
-            ResetVirtualMouse();
-            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

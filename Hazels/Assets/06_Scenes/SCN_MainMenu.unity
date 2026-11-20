@@ -1524,6 +1524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandleCursors
   input: {fileID: 1762658078}
   virtualMouseUI: {fileID: 650875973}
+  gameManager: {fileID: 0}
 --- !u!1 &541021005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,7 +2263,7 @@ GameObject:
   - component: {fileID: 650875974}
   - component: {fileID: 650875977}
   - component: {fileID: 650875975}
-  - component: {fileID: 650875976}
+  - component: {fileID: 650875978}
   m_Layer: 5
   m_Name: VirtualMouseUI
   m_TagString: Untagged
@@ -2358,7 +2359,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 2086005613742135297, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
+    m_Reference: {fileID: 0}
   m_RightButtonAction:
     m_UseReference: 1
     m_Action:
@@ -2370,7 +2371,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -5331964391706081107, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
+    m_Reference: {fileID: 0}
   m_ForwardButtonAction:
     m_UseReference: 1
     m_Action:
@@ -2382,7 +2383,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -4213113849681856617, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
+    m_Reference: {fileID: 0}
   m_BackButtonAction:
     m_UseReference: 1
     m_Action:
@@ -2394,7 +2395,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -4213113849681856617, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
+    m_Reference: {fileID: 0}
   m_ScrollWheelAction:
     m_UseReference: 0
     m_Action:
@@ -2415,19 +2416,6 @@ MonoBehaviour:
         m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: -7095072636597713544, guid: 16a01b3fe763522489836ce1c6de7bf7, type: 3}
---- !u!114 &650875976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650875973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a229de6b4491149b79823dcf942db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VirtualMouseScale
-  canvasRectTransform: {fileID: 505196068}
 --- !u!223 &650875977
 Canvas:
   m_ObjectHideFlags: 0
@@ -2451,6 +2439,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 30000
   m_TargetDisplay: 0
+--- !u!114 &650875978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650875973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a229de6b4491149b79823dcf942db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VirtualMouseScale
+  canvasRectTransform: {fileID: 505196068}
 --- !u!1 &654204718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3027,65 +3028,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &836063868
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 836063869}
-  - component: {fileID: 836063870}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &836063869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836063868}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &836063870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836063868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b88e18573daef94eb76a865cca99a56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  itemDataBase: {fileID: 0}
-  inMenu: 0
-  inMinigame: 0
-  inDialogue: 0
-  inPC: 0
-  dayInGame: 0
-  score: 0
-  scoreText: {fileID: 0}
-  coins: 500
-  coinsText: {fileID: 0}
-  dayText: {fileID: 0}
-  input: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  virtualMouseUI: {fileID: 0}
-  isGamePaused: 0
 --- !u!1 &849634104
 GameObject:
   m_ObjectHideFlags: 0
@@ -7696,7 +7638,6 @@ SceneRoots:
   - {fileID: 849634107}
   - {fileID: 2113959342}
   - {fileID: 850901656}
-  - {fileID: 836063869}
   - {fileID: 1234265740}
   - {fileID: 1099654934}
   - {fileID: 505196068}

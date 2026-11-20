@@ -5575,6 +5575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HandleCursors
   input: {fileID: 1486918754}
   virtualMouseUI: {fileID: 1099354792}
+  gameManager: {fileID: 21063106}
 --- !u!1 &390623418
 GameObject:
   m_ObjectHideFlags: 0

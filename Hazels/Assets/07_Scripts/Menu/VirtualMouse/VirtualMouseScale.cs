@@ -6,6 +6,6 @@ public class VirtualMouseScale : MonoBehaviour
     
     void Update()
     {
-        transform.localScale = new Vector2(Screen.width / 2, Screen.height / 2);
+        transform.localScale = Vector3.one * 1f / canvasRectTransform.localScale.x;
     }
 }

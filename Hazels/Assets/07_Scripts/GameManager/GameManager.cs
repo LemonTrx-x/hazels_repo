@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Initialize the DataBase
-        itemDataBase.InitializeDataBase();
+        if (itemDataBase != null) itemDataBase.InitializeDataBase();
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -52,9 +52,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < itemDataBase.items.Count; i++)
+        if (itemDataBase != null)
         {
-            itemDataBase.items[i].shopStock = 5;
+            for (int i = 0; i < itemDataBase.items.Count; i++)
+            {
+                itemDataBase.items[i].shopStock = 5;
+            }
         }
 
         score = 0;
@@ -63,9 +66,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "SCORE: " + score.ToString();
-        coinsText.text = "COINS: " + coins.ToString();
-        dayText.text = "DAY: " + dayInGame.ToString();
+        if (scoreText != null) scoreText.text = "SCORE: " + score.ToString();
+        if (coinsText != null) coinsText.text = "COINS: " + coins.ToString();
+        if (dayText != null) dayText.text = "DAY: " + dayInGame.ToString();
     }
 
     public void OnPause(InputAction.CallbackContext callbackContext)
