@@ -19510,9 +19510,8 @@ MonoBehaviour:
   minigameLines:
   - Okay, now, here you can see the different materials with their stock.
   - Make sure not to waste any!
-  - After you're done, go to the cauldron and interact with the barrel.
-  - Then, interact with the cauldron to complete the minigame and cook a potion!
-  - Don't ask how the materials end up inside the cauldron. Do as I say!
+  - After you're done, go to the cauldron and interact with it.
+  - Then, put the materials by draging them into the slots and start the minigame!
   endOrderLines:
   - Maravelous! A potions was born!
   - Take it and give it to our dear customer.
