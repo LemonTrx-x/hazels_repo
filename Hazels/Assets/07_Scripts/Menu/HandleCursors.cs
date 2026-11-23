@@ -7,11 +7,6 @@ public class HandleCursors : MonoBehaviour
     public PlayerInput input;
     public GameObject virtualMouseUI;
     public GameManager gameManager;
-    
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -27,6 +22,7 @@ public class HandleCursors : MonoBehaviour
                 if (input.currentControlScheme == "Gamepad")
                 {
                     virtualMouseUI.SetActive(true);
+
                     Cursor.lockState = CursorLockMode.Confined;
                     Cursor.visible = false;
                 }
@@ -35,13 +31,17 @@ public class HandleCursors : MonoBehaviour
                 {
                     virtualMouseUI.SetActive(false);
                     ResetVirtualMouse();
+
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                 }
             }
 
-            else if (gameManager != null && gameManager.inMinigame)
+            else if (gameManager.inMinigame)
             {
+                virtualMouseUI.SetActive(false);
+                ResetVirtualMouse();
+                
                 if (input.currentControlScheme == "Gamepad")
                 {
                     Cursor.lockState = CursorLockMode.Confined;
@@ -59,15 +59,18 @@ public class HandleCursors : MonoBehaviour
             {
                 virtualMouseUI.SetActive(false);
                 ResetVirtualMouse();
+
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
+        //For the MainMenu
         else
         {
             if (input.currentControlScheme == "Gamepad")
             {
                 virtualMouseUI.SetActive(true);
+
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = false;
             }
@@ -76,6 +79,7 @@ public class HandleCursors : MonoBehaviour
             {
                 virtualMouseUI.SetActive(false);
                 ResetVirtualMouse();
+
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
