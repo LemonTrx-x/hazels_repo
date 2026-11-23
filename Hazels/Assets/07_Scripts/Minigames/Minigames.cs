@@ -195,6 +195,45 @@ public class Minigames : MonoBehaviour
 
     public void CookMaterials()
     {
+        bool hasFinishedItems = false;
+
+        for (int i = 0; i < chestSlots.Count; i++)
+        {
+            ItemData item = chestSlots[i].itemData;
+
+            if (item == null) continue;
+            
+            if (item.minigame != currentMinigame) continue;
+
+            if (!item.isFinished)
+            {
+                if (item.nextStage != null)
+                {
+                    GameObject newStage = Instantiate(item.nextStage.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+                    newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+
+                    AudioManager.Instance.PlaySFX(7); //PUFF
+
+                    chestSlots[i].ClearItem();
+                }
+            }
+
+            else
+            {
+                hasFinishedItems = true;
+            }
+            
+        }
+
+        if (hasFinishedItems)
+        {
+            CookPotions();
+        }
+    }
+    
+    /*
+    public void CookMaterials()
+    {
         for (int i = 0; i < chestSlots.Count; i++)
         {
             if (chestSlots[i].itemData == null) return;
@@ -222,6 +261,7 @@ public class Minigames : MonoBehaviour
             }
         }
     }
+    */
 
     //Method for checking whether a given list matches this pattern (regardless of the order)
     public void CookPotions()
