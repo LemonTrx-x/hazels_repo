@@ -1551,8 +1551,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2705336, y: 1.1214478, z: 1}
-  m_Center: {x: 0, y: 0.49980557, z: 0}
+  m_Size: {x: 2.2705336, y: 0.8416277, z: 1}
+  m_Center: {x: 0, y: 0.35989553, z: 0}
 --- !u!4 &105227591
 Transform:
   m_ObjectHideFlags: 0
@@ -11917,7 +11917,7 @@ MonoBehaviour:
   customerPrefab: {fileID: 1597416547028590447, guid: ee093bd604111254dbb3580d76d2d5bb, type: 3}
   merchantPrefab: {fileID: 1597416547028590447, guid: dd1dcc031b632f445b6fc5dd3c60ce31, type: 3}
   specialChance: 0
-  customersLeft: 1
+  customersLeft: 5
   customersLeftText: {fileID: 1085441826}
   hotBarPlayer: {fileID: 1915247549}
   midPos: {fileID: 465450519}
@@ -19440,99 +19440,6 @@ MonoBehaviour:
   lines: []
   textSpeed: 0.01
   index: 0
---- !u!1 &1543516291
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1543516293}
-  - component: {fileID: 1543516294}
-  m_Layer: 0
-  m_Name: TutorialManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1543516293
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543516291}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1543516294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543516291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8b9b8972307094fb6fc82a1338dde1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
-  dialogueParent: {fileID: 1540056739}
-  instCustomer: {fileID: 973448600}
-  cupboardInv: {fileID: 264813759}
-  pcInv: {fileID: 1930462342}
-  currentStateType: 0
-  startLines:
-  - Hello, dear Hazel!
-  - MasterWizard here. Ready to start?
-  - Do not panic, sweetheart. I will explain everything you need.
-  - First, move with WASD or LEFT STICK.
-  - And look around with MOUSE or RIGHT STICK.
-  customerLines:
-  - Great job!
-  - Now go talk to the customer.
-  - You can interact with everything using LEFT CLICK or A.
-  bookMenuLines:
-  - Okey dokey!
-  - You can view the recipes inside the book at your left.
-  - Remember, use LEFT CLICK or A to interact.
-  materialsLines:
-  - Mhm... Right...
-  - Search for the potions the customer asked for.
-  - And look at the materials it needs.
-  minigameLines:
-  - Okay, now, here you can see the different materials with their stock.
-  - Make sure not to waste any!
-  - After you're done, go to the cauldron and interact with it.
-  - Then, put the materials by draging them into the slots and start the minigame!
-  endOrderLines:
-  - Maravelous! A potions was born!
-  - Take it and give it to our dear customer.
-  pcLines:
-  - Oh god, is so late now.
-  - I need to prepare myself, so go to the PC as quick as possible, please.
-  - I'll explain the remaining concepts there.
-  randomEventsLines:
-  - Right, right.
-  - Here you will use the coins our customers give you to buy the materials for tomorrow.
-  - Make sure to cook very good potions, or else you'll end up without cash to spend!
-  - Also, there are some things I need to warn you about. Some "special events".
-  - 'First, the merchant: they will offer you some goods for an amount of coins,
-    but you won''t know what goods they are giving you. Be careful.'
-  - 'Second, the variating prices: we all know how the economy is going, so take
-    care for inflation when buying materials. Although there are some disscounts
-    that may be applied.'
-  - Okay. Finished. I need to go now so, good luck! I'm pretty sure you won't even
-    need it.
-  - Not like the last one, I hope.
-  - Byeeeee!
 --- !u!1 &1567375515
 GameObject:
   m_ObjectHideFlags: 0
@@ -30037,7 +29944,6 @@ SceneRoots:
   - {fileID: 987928113}
   - {fileID: 21063105}
   - {fileID: 1950000145}
-  - {fileID: 1543516293}
   - {fileID: 2109686357}
   - {fileID: 368583242}
   - {fileID: 1937456710}
