@@ -6,6 +6,6 @@ public class Outline : MonoBehaviour
 
     void Awake()
     {
-        outline.SetActive(false);
+        if (outline != null) outline.SetActive(false);
     }
 }

@@ -18,7 +18,7 @@ public class Pointer : MonoBehaviour
         {
             if (other.GetComponent<Outline>() != null)
             {
-                objOutline = other.GetComponent<Outline>().outline;
+                if (other.GetComponent<Outline>().outline != null) objOutline = other.GetComponent<Outline>().outline;
             }
 
             if (GameManager.Instance.input.currentControlScheme == "Gamepad")
