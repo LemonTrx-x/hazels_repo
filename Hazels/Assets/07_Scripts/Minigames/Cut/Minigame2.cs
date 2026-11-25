@@ -83,8 +83,8 @@ public class Minigame2 : MonoBehaviour
         {
             if (Mouse.current == null) return;
 
-            origin = knife.transform.position;
-            axis = knife.transform.right;
+            origin = knifeNewPos.transform.position;
+            axis = knifeNewPos.transform.right;
 
             //Plane that contains the X axis and faces the camera as much as possible
             Vector3 planeNormal = Vector3.ProjectOnPlane(cam.transform.forward, axis);
@@ -111,8 +111,8 @@ public class Minigame2 : MonoBehaviour
     //Draws the range in the Scene view when the object is selected
     void OnDrawGizmosSelected()
     {
-        Vector3 o = Application.isPlaying ? origin : knife.transform.position;
-        Vector3 a = Application.isPlaying ? axis : knife.transform.right;
+        Vector3 o = Application.isPlaying ? origin : knifeNewPos.transform.position;
+        Vector3 a = Application.isPlaying ? axis : knifeNewPos.transform.right;
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(o + a * minOffset, o + a * maxOffset);
