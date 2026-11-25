@@ -52,10 +52,10 @@ public class Minigame2 : MonoBehaviour
         if (Minigames.Instance.isMovingToNew)
         {
             knifeInitialPos = knife.transform.position;
-            knife.transform.position = Vector3.Lerp(knife.transform.position, knifeNewPos.transform.position, moveTime);
+            knife.transform.position = Vector3.Lerp(knife.transform.position, knifeNewPos.transform.position, moveTime * Time.deltaTime);
 
             knifeFBXInitialRot = knifeFBX.transform.rotation;
-            knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXNewRot, moveTime);
+            knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXNewRot, moveTime * Time.deltaTime);
 
             if (Vector3.Distance(knife.transform.position, knifeNewPos.transform.position) < 0.001f)
             {
@@ -66,8 +66,8 @@ public class Minigame2 : MonoBehaviour
 
         if (Minigames.Instance.isMovingToOld)
         {
-            knife.transform.position = Vector3.Lerp(knife.transform.position, knifeInitialPos, moveTime);
-            knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXInitialRot, moveTime);
+            knife.transform.position = Vector3.Lerp(knife.transform.position, knifeInitialPos, moveTime * Time.deltaTime);
+            knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXInitialRot, moveTime * Time.deltaTime);
 
             if (Vector3.Distance(knife.transform.position, knifeInitialPos) < 0.001f)
             {
@@ -81,8 +81,6 @@ public class Minigame2 : MonoBehaviour
     {
         if (Minigames.Instance.isMovingToNew == false && Minigames.Instance.isMovingToOld == false)
         {
-            if (Mouse.current == null) return;
-
             origin = knifeNewPos.transform.position;
             axis = knifeNewPos.transform.right;
 

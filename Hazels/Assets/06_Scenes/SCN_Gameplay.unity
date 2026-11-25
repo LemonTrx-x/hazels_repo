@@ -35595,7 +35595,7 @@ MonoBehaviour:
   knife: {fileID: 298671748}
   knifeFBX: {fileID: 1541550421}
   knifeNewPos: {fileID: 1584285212}
-  moveTime: 0.5
+  moveTime: 5
   cam: {fileID: 330585545}
   minOffset: -0.3
   maxOffset: 0.3
