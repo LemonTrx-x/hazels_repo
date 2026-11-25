@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 41
   itemName: Cut Extradimensional Fruits
   icon: {fileID: 21300000, guid: 3fa7b18f08ae70041b3c2b4d905c933f, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8227894604409955964, guid: 9df2e29ce57f738439f9056d1ab8df81, type: 3}
   maxStock: 10
   shopStock: 5
   isFinished: 1

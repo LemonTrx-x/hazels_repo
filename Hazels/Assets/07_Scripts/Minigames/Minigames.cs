@@ -22,8 +22,8 @@ public class Minigames : MonoBehaviour
     public GameObject oldCameraParent;
     public float camSpeed = 5f;
 
-    private bool isMovingToNew = false;
-    private bool isMovingToOld = false;
+    public bool isMovingToNew = false;
+    public bool isMovingToOld = false;
 
     [Header("Chest")]
     public GameObject objSpawn;
@@ -101,6 +101,7 @@ public class Minigames : MonoBehaviour
             }
         }
     }
+
     public void HandlePlayerUI()
     {
         if (GameManager.Instance.inMinigame || GameManager.Instance.inPC || GameManager.Instance.inMenu)

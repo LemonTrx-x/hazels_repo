@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 3
   itemName: Mystic Water
   icon: {fileID: 21300000, guid: ba46150c4c4e23a42a6586b8f2ae7dbe, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8227894604409955964, guid: f60f22be40f229c4ea9032cbe8f3e453, type: 3}
   maxStock: 10
   shopStock: 5
   isFinished: 1

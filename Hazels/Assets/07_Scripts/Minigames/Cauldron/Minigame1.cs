@@ -32,7 +32,9 @@ public class Minigame1 : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (GameManager.Instance.inMinigame && stickParent != null)
+        if (GameManager.Instance.inMinigame && 
+            stickParent != null && 
+            Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
         {
             dragActive = true;
 
@@ -55,7 +57,10 @@ public class Minigame1 : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (GameManager.Instance.inMinigame && dragActive && stickParent != null)
+        if (GameManager.Instance.inMinigame && 
+            dragActive && 
+            stickParent != null && 
+            Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
         {
             if (GetMouseWorldPositionOnPlane(out Vector3 mouseWorldPos))
             {
@@ -98,7 +103,8 @@ public class Minigame1 : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (GameManager.Instance.inMinigame)
+        if (GameManager.Instance.inMinigame &&
+            Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
         {
             dragActive = false;
         }
@@ -119,7 +125,9 @@ public class Minigame1 : MonoBehaviour
 
     public void ControllerMove()
     {
-        if (GameManager.Instance.inMinigame && stickParent != null)
+        if (GameManager.Instance.inMinigame && 
+            stickParent != null &&
+            Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
         {
             if (GameManager.Instance.input.currentControlScheme == "Gamepad")
             {
@@ -155,10 +163,12 @@ public class Minigame1 : MonoBehaviour
                 stickParent.rotation = Quaternion.Slerp(stickParent.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
 
+            /*
             else
             {
                 Debug.Log("Not Gamepad");
             }
+            */
         }
     }
 }
