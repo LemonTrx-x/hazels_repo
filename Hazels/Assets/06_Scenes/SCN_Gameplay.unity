@@ -24259,7 +24259,19 @@ MonoBehaviour:
     m_ActionId: 7eca290b-2272-4d74-b791-591483db0caa
     m_ActionName: 'Player/Dialogue[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2078715919}
+        m_TargetAssemblyTypeName: Minigame2, Assembly-CSharp
+        m_MethodName: CutMaterials
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5c5f60b2-3bb5-483f-8dc4-f66aae6ea7ea
     m_ActionName: Player/CutMinigame
   m_NeverAutoSwitchControlSchemes: 0
@@ -27301,13 +27313,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667474754}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0000000018626449, y: -0.000000014901159, z: 0.25271207, w: 0.9675415}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2019969891}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.276}
 --- !u!114 &1667474756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32533,13 +32545,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930198181}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.037709698, y: 0.000000007450581, z: -0.25570452, w: 0.9660192}
   m_LocalPosition: {x: 0, y: 0.372, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 222367243}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.178, y: -1.108, z: -29.693}
 --- !u!1 &1930462342
 GameObject:
   m_ObjectHideFlags: 0

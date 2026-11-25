@@ -127,7 +127,8 @@ public class Minigame2 : MonoBehaviour
     {
         if (callbackContext.performed && GameManager.Instance.inMinigame)
         {
-            Debug.Log("Lets cut this thingy!");
+            Debug.Log("Cut cut cut!");
+            Minigames.Instance.progress += interactMinigame.newProgressAmount;
         }
     }
 }
