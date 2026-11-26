@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 /// <summary>
+/// 
+/// MADE WITH CLAUDE (may not be able to explain correctly how it works)
+/// 
 /// Cuts a mesh in two with a plane, fills the hole on both halves and
 /// creates a new GameObject for the smaller half.
 /// The original GameObject keeps the bigger half.

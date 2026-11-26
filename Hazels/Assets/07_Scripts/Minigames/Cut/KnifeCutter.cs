@@ -1,6 +1,9 @@
 using UnityEngine;
 
 /// <summary>
+/// 
+/// Made with Claude
+/// 
 /// Casts a ray along the knife (transform.up). If it hits an object with the cut tag,
 /// the object's mesh is sliced at that point, the hole is filled and the cut piece
 /// gets a Rigidbody and a MeshCollider.
@@ -41,8 +44,7 @@ public class KnifeCutter : MonoBehaviour
 
     public bool TryCut()
     {
-        if (!Physics.Raycast(transform.position, transform.up, out RaycastHit hit, rayDistance, cuttableLayers, QueryTriggerInteraction.Ignore))
-            return false;
+        if (!Physics.Raycast(transform.position, transform.up, out RaycastHit hit, rayDistance, cuttableLayers, QueryTriggerInteraction.Ignore)) return false;
 
         GameObject target = hit.collider.gameObject;
         if (!target.CompareTag(cutTag)) return false;
