@@ -62,7 +62,14 @@ public class Minigame2 : MonoBehaviour
                 MouseMove();
                 ControllerMove();
                 ApplyMove();
+
+                GetComponentInParent<Collider>().enabled = false;
             }
+        }
+
+        if (!GameManager.Instance.inMinigame)
+        {
+            GetComponentInParent<Collider>().enabled = true;
         }
     }
     
