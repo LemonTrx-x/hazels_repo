@@ -6,6 +6,8 @@ public class Minigames : MonoBehaviour
 {
     public static Minigames Instance { get; private set; }
 
+    public Minigame2 min2;
+
     [Header("Player")]
     public GameObject player;
     
@@ -47,6 +49,7 @@ public class Minigames : MonoBehaviour
         {
             Instance = this;
         }
+        
         else
         {
             Destroy(gameObject);
@@ -154,6 +157,10 @@ public class Minigames : MonoBehaviour
         isMovingToNew = true;
         isMovingToOld = false;
 
+        //For Minigame2
+        min2.goToNew = true;
+        min2.goToOld = false;
+
         if (!GameManager.Instance.inPC)
         {
             progressSliderObj.SetActive(true);
@@ -167,6 +174,10 @@ public class Minigames : MonoBehaviour
     {
         isMovingToNew = false;
         isMovingToOld = true;
+
+        //For Minigame2
+        min2.goToNew = false;
+        min2.goToOld = true;
 
         if (!GameManager.Instance.inPC)
         {

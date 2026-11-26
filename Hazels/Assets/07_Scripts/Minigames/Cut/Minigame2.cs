@@ -10,9 +10,12 @@ public class Minigame2 : MonoBehaviour
     public GameObject knifeFBX;
     public GameObject knifeNewPos;
 
-    private Vector3 knifeInitialPos;
+    public Transform knifeInitialPos;
     private Quaternion knifeFBXInitialRot;
     private Quaternion knifeFBXNewRot = Quaternion.Euler(0, 90, -90);
+
+    public bool goToNew = false;
+    public bool goToOld = false;
 
     public float moveTime = 1f;
 
@@ -33,57 +36,61 @@ public class Minigame2 : MonoBehaviour
     void Start()
     {
         if (cam == null) cam = Camera.main;
+
+        knifeInitialPos.position = knife.transform.position;
+        knifeFBXInitialRot = knifeFBX.transform.rotation;
+
+        origin = knifeNewPos.transform.position;
+        axis = knifeNewPos.transform.right;
     }
 
     void Update()
     {
-        if (GameManager.Instance.inMinigame && 
-            knife != null && 
-            Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
+        if (Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame && knife != null)
         {
             ChangeKnifePos();
-            MouseMove();
-            ControllerMove();
+            
+            if (GameManager.Instance.inMinigame)
+            {
+                MouseMove();
+                ControllerMove();
+            }
         }
     }
     
     public void ChangeKnifePos()
     {
-        if (Minigames.Instance.isMovingToNew)
+        if (goToNew)
         {
-            knifeInitialPos = knife.transform.position;
             knife.transform.position = Vector3.Lerp(knife.transform.position, knifeNewPos.transform.position, moveTime * Time.deltaTime);
-
-            knifeFBXInitialRot = knifeFBX.transform.rotation;
             knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXNewRot, moveTime * Time.deltaTime);
 
             if (Vector3.Distance(knife.transform.position, knifeNewPos.transform.position) < 0.001f)
             {
                 knife.transform.position = knifeNewPos.transform.position;
                 knifeFBX.transform.rotation = knifeFBXNewRot;
+                goToNew = false;
             }
         }
 
-        if (Minigames.Instance.isMovingToOld)
+        if (goToOld)
         {
-            knife.transform.position = Vector3.Lerp(knife.transform.position, knifeInitialPos, moveTime * Time.deltaTime);
+            knife.transform.position = Vector3.Lerp(knife.transform.position, knifeInitialPos.position, moveTime * Time.deltaTime);
             knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXInitialRot, moveTime * Time.deltaTime);
 
-            if (Vector3.Distance(knife.transform.position, knifeInitialPos) < 0.001f)
+            if (Vector3.Distance(knife.transform.position, knifeInitialPos.position) < 0.001f)
             {
-                knife.transform.position = knifeInitialPos;
+                knife.transform.position = knifeInitialPos.position;
                 knifeFBX.transform.rotation = knifeFBXInitialRot;
+                goToOld = false;
             }
         }
     }
 
     public void MouseMove()
     {
-        if (Minigames.Instance.isMovingToNew == false && Minigames.Instance.isMovingToOld == false)
+        if (goToNew == false && goToOld == false)
         {
-            origin = knifeNewPos.transform.position;
-            axis = knifeNewPos.transform.right;
-
             //Plane that contains the X axis and faces the camera as much as possible
             Vector3 planeNormal = Vector3.ProjectOnPlane(cam.transform.forward, axis);
             if (planeNormal.sqrMagnitude < 0.0001f) return; //Camera looking straight down the axis
@@ -127,7 +134,6 @@ public class Minigame2 : MonoBehaviour
     {
         if (callbackContext.performed && GameManager.Instance.inMinigame)
         {
-            Debug.Log("Cut cut cut!");
             Minigames.Instance.progress += interactMinigame.newProgressAmount;
         }
     }

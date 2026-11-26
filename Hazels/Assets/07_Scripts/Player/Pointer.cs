@@ -18,7 +18,9 @@ public class Pointer : MonoBehaviour
         {
             if (other.GetComponent<Outline>() != null)
             {
-                if (other.GetComponent<Outline>().outline != null) objOutline = other.GetComponent<Outline>().outline;
+                if (other.GetComponent<Outline>().outline == null) return;
+                
+                objOutline = other.GetComponent<Outline>().outline;
             }
 
             if (GameManager.Instance.input.currentControlScheme == "Gamepad")
@@ -31,10 +33,7 @@ public class Pointer : MonoBehaviour
                 pointer.GetComponent<Image>().sprite = keyboardSpr;
             }
 
-            if (objOutline != null)
-            {
-                objOutline.SetActive(true);
-            }
+            if (objOutline != null) objOutline.SetActive(true);
         }
     }
 
@@ -63,6 +62,7 @@ public class Pointer : MonoBehaviour
             if (objOutline != null)
             {
                 objOutline.SetActive(false);
+                objOutline = null;
             }
         }
     }
