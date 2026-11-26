@@ -3266,6 +3266,8 @@ Transform:
   - {fileID: 1116169176}
   - {fileID: 2078715917}
   - {fileID: 1930198182}
+  - {fileID: 726599835}
+  - {fileID: 1763466452}
   m_Father: {fileID: 105227591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &222367244
@@ -11743,6 +11745,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5811517544658636179, guid: 193e91c5308e8464ba5f88df0585bc79, type: 3}
   m_PrefabInstance: {fileID: 723462295}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &726599834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726599835}
+  m_Layer: 0
+  m_Name: ObjNewPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &726599835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726599834}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.03339666, y: -0.025099933, z: -0.0021616183}
+  m_LocalScale: {x: 0.67744726, y: 0.060117334, z: 0.43227285}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 222367243}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &726854209
 GameObject:
   m_ObjectHideFlags: 0
@@ -28535,12 +28568,12 @@ GameObject:
   - component: {fileID: 1763466450}
   - component: {fileID: 1763466449}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: TestCube
   m_TagString: CanCut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1763466449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28627,12 +28660,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763466448}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9973214, z: -0, w: -0.07314378}
-  m_LocalPosition: {x: 0.0437, y: 1.1279, z: 5.5728}
-  m_LocalScale: {x: 0.67744726, y: 0.060117334, z: 0.43227294}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03339663, y: -0.025099933, z: -0.0021616109}
+  m_LocalScale: {x: 0.67744726, y: 0.060117334, z: 0.43227288}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 222367243}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1779327601
 GameObject:
@@ -30349,6 +30382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6972e5087c4e37e458887c50a3e29bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnifeCutter
+  min2: {fileID: 2078715919}
   cuttableLayers:
     serializedVersion: 2
     m_Bits: 65591
@@ -30357,7 +30391,7 @@ MonoBehaviour:
   localCutNormal: {x: 0, y: 0, z: 1}
   capMaterial: {fileID: 0}
   pieceMass: 0.2
-  separationForce: 0.1
+  separationForce: 0.25
   cut: 0
 --- !u!1 &1853446955
 GameObject:
@@ -35170,6 +35204,9 @@ MonoBehaviour:
   goToOld: 0
   moveTime: 10
   cam: {fileID: 330585545}
+  objSpawn: {fileID: 726599835}
+  objToSpawn: {fileID: 0}
+  slicesList: []
   minOffset: -0.3
   maxOffset: 0.3
   smoothSpeed: 10
@@ -38430,7 +38467,6 @@ SceneRoots:
   - {fileID: 22625857}
   - {fileID: 1061175338}
   - {fileID: 1878961947}
-  - {fileID: 1763466452}
   - {fileID: 105227591}
   - {fileID: 696393199}
   - {fileID: 1225271027}

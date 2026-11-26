@@ -10,6 +10,8 @@ using UnityEngine;
 /// </summary>
 public class KnifeCutter : MonoBehaviour
 {
+    public Minigame2 min2;
+    
     [Header("Detection")]
     [Tooltip("Layers that can be cut. The knife itself must NOT be on these layers.")]
     public LayerMask cuttableLayers = ~0;
@@ -52,6 +54,7 @@ public class KnifeCutter : MonoBehaviour
         Vector3 planeNormal = transform.TransformDirection(localCutNormal).normalized;
 
         GameObject piece = MeshSlicer.Slice(target, hit.point, planeNormal, capMaterial);
+        min2.slicesList.Add(piece);
         if (piece == null) return false;
 
         Rigidbody rb = piece.AddComponent<Rigidbody>();

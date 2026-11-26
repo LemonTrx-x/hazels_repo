@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,9 @@ public class Minigame2 : MonoBehaviour
 
     [Header("References")]
     public Camera cam;
+    public Transform objSpawn;
+    public GameObject objToSpawn;
+    public List<GameObject> slicesList = new List<GameObject>();
 
     [Header("Range (relative to the starting position)")]
     public float minOffset = -0.3f;
@@ -60,17 +64,47 @@ public class Minigame2 : MonoBehaviour
             
             if (GameManager.Instance.inMinigame)
             {
+                GetComponentInParent<Collider>().enabled = false;
+                
                 MouseMove();
                 ControllerMove();
                 ApplyMove();
+                SpawnObj();
+            }
 
-                GetComponentInParent<Collider>().enabled = false;
+            else
+            {
+                //Clear table
+                if (objToSpawn != null) Destroy(objToSpawn.gameObject);
+                if (slicesList.Count > 0)
+                {
+                    foreach (GameObject slice in slicesList) Destroy(slice);
+                    slicesList.Clear();
+                }
+
+                GetComponentInParent<Collider>().enabled = true;
             }
         }
+    }
 
-        if (!GameManager.Instance.inMinigame)
+    public void SpawnObj()
+    {
+        if (objToSpawn != null) return;
+
+        List<Slot> slots = Minigames.Instance.chestSlots;
+
+        for (int i = 0; i < slots.Count; i++)
         {
-            GetComponentInParent<Collider>().enabled = true;
+            if (slots[i].itemData != null)
+            {
+                GameObject newObj = Instantiate(slots[i].itemData.prefab, objSpawn.position, objSpawn.rotation);
+                objToSpawn = newObj;
+
+                //Might need to change the GetComponent to GetComponentInChildren because of how we will implemenet the art in-engine
+                newObj.GetComponent<TakeItem>().enabled = false;
+                newObj.GetComponent<Outline>().enabled = false;
+                newObj.tag = "CanCut";
+            }
         }
     }
     
