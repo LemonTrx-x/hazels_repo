@@ -35617,6 +35617,7 @@ MonoBehaviour:
   minOffset: -0.3
   maxOffset: 0.3
   smoothSpeed: 10
+  controllerSpeed: 1.5
 --- !u!1001 &2094762197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37215,7 +37216,7 @@ Transform:
   m_GameObject: {fileID: 2131170463}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.013, y: 1.193, z: 0.059}
+  m_LocalPosition: {x: 0.164, y: 1.077, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

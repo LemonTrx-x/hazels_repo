@@ -26,12 +26,19 @@ public class Minigame2 : MonoBehaviour
     public float minOffset = -0.3f;
     public float maxOffset = 0.3f;
 
-    [Header("Movement")]
+    private float targetOffset = 0f; //Current position inside the range (shared by mouse and controller)
+
+    [Header("Smooth Movement")]
     [Tooltip("0 = moves instantly. Higher values = smoother movement.")]
     public float smoothSpeed = 0f;
 
-    private Vector3 origin; // Starting position (centre of the range)
-    private Vector3 axis;   // Local X axis of the object in world space
+    [Tooltip("For the movement when using the mouse")]
+    private Vector3 origin; //Starting position (centre of the range)
+    private Vector3 axis;   //Local X axis of the object in world space
+
+    [Header("Controller")]
+    [Tooltip("Units per second the knife moves with the stick.")]
+    public float controllerSpeed = 0.5f;
 
     void Start()
     {
@@ -54,6 +61,7 @@ public class Minigame2 : MonoBehaviour
             {
                 MouseMove();
                 ControllerMove();
+                ApplyMove();
             }
         }
     }
@@ -89,28 +97,48 @@ public class Minigame2 : MonoBehaviour
 
     public void MouseMove()
     {
-        if (goToNew == false && goToOld == false)
-        {
-            //Plane that contains the X axis and faces the camera as much as possible
-            Vector3 planeNormal = Vector3.ProjectOnPlane(cam.transform.forward, axis);
-            if (planeNormal.sqrMagnitude < 0.0001f) return; //Camera looking straight down the axis
+        if (goToNew || goToOld) return;
+        if (Mouse.current == null) return;
 
-            Plane plane = new Plane(planeNormal, origin);
-            Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+        //Only take control if the mouse actually moved this frame
+        if (Mouse.current.delta.ReadValue().sqrMagnitude < 0.01f) return;
 
-            if (!plane.Raycast(ray, out float distance)) return;
+        //Plane that contains the X axis and faces the camera as much as possible
+        Vector3 planeNormal = Vector3.ProjectOnPlane(cam.transform.forward, axis);
+        if (planeNormal.sqrMagnitude < 0.0001f) return; //Camera looking straight down the axis
 
-            Vector3 hitPoint = ray.GetPoint(distance);
+        Plane plane = new Plane(planeNormal, origin);
+        Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            //How far along the local X axis the mouse is, clamped to the range
-            float offset = Vector3.Dot(hitPoint - origin, axis);
-            offset = Mathf.Clamp(offset, minOffset, maxOffset);
+        if (!plane.Raycast(ray, out float distance)) return;
 
-            Vector3 targetPos = origin + axis * offset;
+        Vector3 hitPoint = ray.GetPoint(distance);
 
-            if (smoothSpeed > 0f) knife.transform.position = Vector3.Lerp(knife.transform.position, targetPos, smoothSpeed * Time.deltaTime);
-            else knife.transform.position = targetPos;
-        }
+        //How far along the local X axis the mouse is, clamped to the range
+        targetOffset = Mathf.Clamp(Vector3.Dot(hitPoint - origin, axis), minOffset, maxOffset);
+    }
+
+    public void ControllerMove()
+    {
+        if (goToNew || goToOld) return;
+
+        float x = GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x;
+
+        //If the object's X axis points left on screen, invert so stick-right = screen-right
+        float screenSign = Vector3.Dot(axis, cam.transform.right) >= 0f ? 1f : -1f;
+
+        targetOffset += x * screenSign * controllerSpeed * Time.deltaTime;
+        targetOffset = Mathf.Clamp(targetOffset, minOffset, maxOffset);
+    }
+
+    private void ApplyMove()
+    {
+        if (goToNew || goToOld) return;
+
+        Vector3 targetPos = origin + axis * targetOffset;
+
+        if (smoothSpeed > 0f) knife.transform.position = Vector3.Lerp(knife.transform.position, targetPos, smoothSpeed * Time.deltaTime);
+        else knife.transform.position = targetPos;
     }
 
     //Draws the range in the Scene view when the object is selected
@@ -123,11 +151,6 @@ public class Minigame2 : MonoBehaviour
         Gizmos.DrawLine(o + a * minOffset, o + a * maxOffset);
         Gizmos.DrawWireSphere(o + a * minOffset, 0.05f);
         Gizmos.DrawWireSphere(o + a * maxOffset, 0.05f);
-    }
-
-    public void ControllerMove()
-    {
-        float x = GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x;
     }
 
     public void CutMaterials(InputAction.CallbackContext callbackContext)
