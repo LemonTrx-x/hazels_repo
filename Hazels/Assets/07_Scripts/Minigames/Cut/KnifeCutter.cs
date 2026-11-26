@@ -1,9 +1,6 @@
 using UnityEngine;
 
 /// <summary>
-/// 
-/// Made with Claude
-/// 
 /// Casts a ray along the knife (transform.up). If it hits an object with the cut tag,
 /// the object's mesh is sliced at that point, the hole is filled and the cut piece
 /// gets a Rigidbody and a MeshCollider.
