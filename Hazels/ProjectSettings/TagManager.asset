@@ -8,6 +8,7 @@ TagManager:
   - Obj
   - Slot
   - EndPosition
+  - CanCut
   layers:
   - Default
   - TransparentFX

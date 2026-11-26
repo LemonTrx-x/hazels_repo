@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class Minigame2 : MonoBehaviour
 {
     public InteractMinigame interactMinigame;
+    public KnifeCutter knifeCutterScript;
     
     [Header("Knife")]
     public GameObject knife;
@@ -164,6 +165,7 @@ public class Minigame2 : MonoBehaviour
     {
         if (callbackContext.performed && GameManager.Instance.inMinigame)
         {
+            knifeCutterScript.cut = true;
             Minigames.Instance.progress += interactMinigame.newProgressAmount;
         }
     }
