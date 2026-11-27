@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -203,7 +202,9 @@ public class Minigame2 : MonoBehaviour
 
     public void CutMaterials(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed && GameManager.Instance.inMinigame)
+        if (callbackContext.performed && 
+            GameManager.Instance.inMinigame && 
+            Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
         {
             knifeCutterScript.cut = true;
             Minigames.Instance.progress += interactMinigame.newProgressAmount;

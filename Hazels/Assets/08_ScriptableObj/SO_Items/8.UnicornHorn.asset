@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 8
   itemName: Unicorn Horn
   icon: {fileID: 21300000, guid: f6a0fccabf167dc499b760d531543bb4, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8227894604409955964, guid: 51227a257faf104468268ce882ca8335, type: 3}
   maxStock: 10
   shopStock: 5
   isFinished: 0

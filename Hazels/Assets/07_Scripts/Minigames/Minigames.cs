@@ -7,6 +7,7 @@ public class Minigames : MonoBehaviour
     public static Minigames Instance { get; private set; }
 
     public Minigame2 min2;
+    public Minigame4 min4;
 
     [Header("Player")]
     public GameObject player;
@@ -38,8 +39,12 @@ public class Minigames : MonoBehaviour
     [Header("Minigames")]
     public GameObject progressSliderObj;
     [HideInInspector] public Slider progressSlider;
-    public int progress = 0;
-    public int maxProgress;
+
+    public GameObject timerSliderObj;
+    [HideInInspector] public Slider timerSlider;
+
+    public float progress = 0;
+    public float maxProgress;
     public int currentMinigame = 0;
     public bool potionMade = false;
 
@@ -60,15 +65,24 @@ public class Minigames : MonoBehaviour
     {
         progressSliderObj.SetActive(false);
         progressSlider = progressSliderObj.GetComponent<Slider>();
+
+        timerSliderObj.SetActive(false);
+        timerSlider = timerSliderObj.GetComponent<Slider>();
         
         progressSlider.value = 0;
         progressSlider.maxValue = 10;
+
+        timerSlider.value = 100;
+        timerSlider.maxValue = 100;
     }
 
     void Update()
     {
         MoveCamera();
+
         CheckProgress();
+        CheckTimer();
+
         HandlePlayerUI();
         HandlePlayerInMinigame();
     }
@@ -157,13 +171,17 @@ public class Minigames : MonoBehaviour
         isMovingToNew = true;
         isMovingToOld = false;
 
-        //For Minigame2
+        //For Minigame2 & Minigame4
         min2.goToNew = true;
         min2.goToOld = false;
+
+        min4.goToNew = true;
+        min4.goToOld = false;
 
         if (!GameManager.Instance.inPC)
         {
             progressSliderObj.SetActive(true);
+            timerSliderObj.SetActive(true);
             GameManager.Instance.inMinigame = true;
         }
 
@@ -172,16 +190,23 @@ public class Minigames : MonoBehaviour
 
     public void EndMinigame()
     {
+        progress = 0;
+        timerSlider.value = timerSlider.maxValue;
+
         isMovingToNew = false;
         isMovingToOld = true;
 
-        //For Minigame2
+        //For Minigame2 & Minigame4
         min2.goToNew = false;
         min2.goToOld = true;
+
+        min4.goToNew= false;
+        min4.goToOld= true;
 
         if (!GameManager.Instance.inPC)
         {
             progressSliderObj.SetActive(false);
+            timerSliderObj.SetActive(false);
 
             CookMaterials();
             GameManager.Instance.inMinigame = false;
@@ -200,7 +225,22 @@ public class Minigames : MonoBehaviour
             {
                 potionMade = true;
                 EndMinigame();
-                progress = 0;
+            }
+        }
+    }
+
+    public void CheckTimer()
+    {
+        if (GameManager.Instance.inMinigame)
+        {
+            if (timerSlider.value > 0)
+            {
+                timerSlider.value -= 0.1f;
+            }
+
+            else
+            {
+                Application.Quit();
             }
         }
     }

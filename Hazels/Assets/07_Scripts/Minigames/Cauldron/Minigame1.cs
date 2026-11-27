@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Minigame1 : MonoBehaviour
 {
-    private int progressAmount;
+    private float progressAmount;
     public InteractMinigame interactMinigame;
     
     [Header("Stick")]

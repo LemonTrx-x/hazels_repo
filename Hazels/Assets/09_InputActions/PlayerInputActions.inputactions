@@ -77,6 +77,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SmashMinigame",
+                    "type": "Button",
+                    "id": "1b6475c7-41b7-4d9a-9efd-540cf799f239",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -286,6 +295,28 @@
                     "processors": "",
                     "groups": ";Mouse&Keyboard",
                     "action": "CutMinigame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe0bc5ce-6dd1-4d1d-9bc0-9e5b2f7f9bb9",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "SmashMinigame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac5e7b40-f276-45e4-b289-15f844e1f4ad",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mouse&Keyboard",
+                    "action": "SmashMinigame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

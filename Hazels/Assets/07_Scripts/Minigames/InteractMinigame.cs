@@ -6,8 +6,8 @@ public class InteractMinigame : InteractiveObj
     public GameObject chestUI;
     public GameObject newCookedObjSpawn;
     public int newCurrentMinigame;
-    public int newProgressAmount;
-    public int newMaxProgress;
+    public float newProgressAmount;
+    public float newMaxProgress;
 
     public override void Interact()
     {
