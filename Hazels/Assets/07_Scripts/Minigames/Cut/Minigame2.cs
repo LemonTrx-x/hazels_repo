@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,15 +7,16 @@ public class Minigame2 : MonoBehaviour
 {
     public InteractMinigame interactMinigame;
     public KnifeCutter knifeCutterScript;
+    public KnifeLine knifeLineScript;
     
     [Header("Knife")]
     public GameObject knife;
     public GameObject knifeFBX;
-    public GameObject knifeNewPos;
 
+    public GameObject knifeNewPos;
     public Transform knifeInitialPos;
     private Quaternion knifeFBXInitialRot;
-    private Quaternion knifeFBXNewRot = Quaternion.Euler(0, 90, -90);
+    private Quaternion knifeFBXNewRot = Quaternion.Euler(0, -90, 270);
 
     public bool goToNew = false;
     public bool goToOld = false;
@@ -50,7 +52,7 @@ public class Minigame2 : MonoBehaviour
         if (cam == null) cam = Camera.main;
 
         knifeInitialPos.position = knife.transform.position;
-        knifeFBXInitialRot = knifeFBX.transform.rotation;
+        knifeFBXInitialRot = knifeFBX.transform.localRotation;
 
         origin = knifeNewPos.transform.position;
         axis = knifeNewPos.transform.right;
@@ -83,6 +85,7 @@ public class Minigame2 : MonoBehaviour
                 }
 
                 GetComponentInParent<Collider>().enabled = true;
+                knifeLineScript.knifeLine.SetActive(false);
             }
         }
     }
@@ -113,12 +116,12 @@ public class Minigame2 : MonoBehaviour
         if (goToNew)
         {
             knife.transform.position = Vector3.Lerp(knife.transform.position, knifeNewPos.transform.position, moveTime * Time.deltaTime);
-            knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXNewRot, moveTime * Time.deltaTime);
+            knifeFBX.transform.localRotation = Quaternion.Lerp(knifeFBX.transform.localRotation, knifeFBXNewRot, moveTime * Time.deltaTime);
 
             if (Vector3.Distance(knife.transform.position, knifeNewPos.transform.position) < 0.001f)
             {
                 knife.transform.position = knifeNewPos.transform.position;
-                knifeFBX.transform.rotation = knifeFBXNewRot;
+                knifeFBX.transform.localRotation = knifeFBXNewRot;
                 goToNew = false;
             }
         }
@@ -126,12 +129,12 @@ public class Minigame2 : MonoBehaviour
         if (goToOld)
         {
             knife.transform.position = Vector3.Lerp(knife.transform.position, knifeInitialPos.position, moveTime * Time.deltaTime);
-            knifeFBX.transform.rotation = Quaternion.Lerp(knifeFBX.transform.rotation, knifeFBXInitialRot, moveTime * Time.deltaTime);
+            knifeFBX.transform.localRotation = Quaternion.Lerp(knifeFBX.transform.localRotation, knifeFBXInitialRot, moveTime * Time.deltaTime);
 
             if (Vector3.Distance(knife.transform.position, knifeInitialPos.position) < 0.001f)
             {
                 knife.transform.position = knifeInitialPos.position;
-                knifeFBX.transform.rotation = knifeFBXInitialRot;
+                knifeFBX.transform.localRotation = knifeFBXInitialRot;
                 goToOld = false;
             }
         }
@@ -164,12 +167,12 @@ public class Minigame2 : MonoBehaviour
     {
         if (goToNew || goToOld) return;
 
-        float x = GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x;
+        float inputX = GameManager.Instance.input.actions["Move"].ReadValue<Vector2>().x;
 
         //If the object's X axis points left on screen, invert so stick-right = screen-right
         float screenSign = Vector3.Dot(axis, cam.transform.right) >= 0f ? 1f : -1f;
 
-        targetOffset += x * screenSign * controllerSpeed * Time.deltaTime;
+        targetOffset += inputX * screenSign * controllerSpeed * Time.deltaTime;
         targetOffset = Mathf.Clamp(targetOffset, minOffset, maxOffset);
     }
 
@@ -181,6 +184,9 @@ public class Minigame2 : MonoBehaviour
 
         if (smoothSpeed > 0f) knife.transform.position = Vector3.Lerp(knife.transform.position, targetPos, smoothSpeed * Time.deltaTime);
         else knife.transform.position = targetPos;
+
+        knifeLineScript.knifeLine.SetActive(true);
+        knifeLineScript.MoveKnifeLine();
     }
 
     //Draws the range in the Scene view when the object is selected

@@ -86,7 +86,6 @@ public class Minigame1 : MonoBehaviour
                 {
                     Minigames.Instance.progress += progressAmount;
                     accumulatedAngle -= degreesNeeded;
-                    Debug.Log("Total progress: " + Minigames.Instance.progress);
                 }
 
                 //Work out how much the mouse has rotated since we clicked
