@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Minigames : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class Minigames : MonoBehaviour
     public float maxProgress;
     public int currentMinigame = 0;
     public bool potionMade = false;
+
+    public ItemData burnedItem;
 
     void Awake()
     {
@@ -208,7 +211,16 @@ public class Minigames : MonoBehaviour
             progressSliderObj.SetActive(false);
             timerSliderObj.SetActive(false);
 
-            CookMaterials();
+            if (potionMade)
+            {
+                CookMaterials();
+            }
+
+            else
+            {
+                GiveBurnedItem();
+            }
+
             GameManager.Instance.inMinigame = false;
 
             ToDoList.Instance.stepGuide.SetActive(true);
@@ -240,9 +252,22 @@ public class Minigames : MonoBehaviour
 
             else
             {
-                Application.Quit();
+                EndMinigame();
             }
         }
+    }
+
+    public void GiveBurnedItem()
+    {
+        for (int i = 0; i < chestSlots.Count; i++)
+        {
+            chestSlots[i].ClearItem();
+        }
+
+        GameObject newStage = Instantiate(burnedItem.prefab, objSpawn.transform.position, objSpawn.transform.rotation);
+        newStage.GetComponent<Rigidbody>().AddForce(objSpawn.transform.up * spawnForce);
+
+        AudioManager.Instance.PlaySFX(7); //PUFF
     }
 
     public void CookMaterials()

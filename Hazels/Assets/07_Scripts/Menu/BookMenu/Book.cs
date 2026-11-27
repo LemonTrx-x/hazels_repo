@@ -42,9 +42,9 @@ public class Book : MonoBehaviour
 
             EntryTemplate entryScript = newPotionEntry.GetComponent<EntryTemplate>();
 
-            entryScript.objId.text = potionsDataBase.items[i].id.ToString();
-            entryScript.objName.text = potionsDataBase.items[i].itemName;
-            entryScript.objSprite.sprite = potionsDataBase.items[i].icon;
+            if (entryScript.objId != null) entryScript.objId.text = potionsDataBase.items[i].id.ToString();
+            if (entryScript.objName != null) entryScript.objName.text = potionsDataBase.items[i].itemName;
+            if (entryScript.objSprite != null) entryScript.objSprite.sprite = potionsDataBase.items[i].icon;
             entryScript.itemData = potionsDataBase.items[i];
         }
     }
@@ -53,6 +53,8 @@ public class Book : MonoBehaviour
     {
         for (int i = 0; i < itemsDataBase.items.Count; ++i)
         {
+            if (itemsDataBase.items[i].price == 0) continue;
+            
             GameObject newItemEntry;
 
             newItemEntry = Instantiate(itemsEntryTemplate, itemsEntryParent);
@@ -60,9 +62,9 @@ public class Book : MonoBehaviour
 
             EntryTemplate entryScript = newItemEntry.GetComponent<EntryTemplate>();
 
-            entryScript.objId.text = itemsDataBase.items[i].id.ToString();
-            entryScript.objName.text = itemsDataBase.items[i].itemName;
-            entryScript.objSprite.sprite = itemsDataBase.items[i].icon;
+            if (entryScript.objId != null) entryScript.objId.text = itemsDataBase.items[i].id.ToString();
+            if (entryScript.objName != null) entryScript.objName.text = itemsDataBase.items[i].itemName;
+            if (entryScript.objSprite != null) entryScript.objSprite.sprite = itemsDataBase.items[i].icon;
             entryScript.itemData = itemsDataBase.items[i];
         }
     }
