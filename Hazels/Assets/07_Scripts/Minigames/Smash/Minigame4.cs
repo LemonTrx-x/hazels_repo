@@ -82,7 +82,8 @@ public class Minigame4 : MonoBehaviour
     public void SmashMaterials(InputAction.CallbackContext callbackContext)
     {
         if (goToNew || goToOld) return;
-        
+        if (GameManager.Instance.isGamePaused) return;
+
         if (callbackContext.performed &&
             GameManager.Instance.inMinigame &&
             Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
@@ -96,6 +97,8 @@ public class Minigame4 : MonoBehaviour
     {
         if (Minigames.Instance.progress > 0)
         {
+            if (GameManager.Instance.isGamePaused) return;
+            
             if (Minigames.Instance.progress >= Minigames.Instance.maxProgress / 2)
             {
                 Minigames.Instance.progress -= interactMinigame.newProgressAmount / difficultDivideAmount;

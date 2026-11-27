@@ -29414,7 +29414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Minigame4
   interactMinigame: {fileID: 1667474756}
   divideAmount: 50
-  difficultDivideAmount: 20
+  difficultDivideAmount: 25
   hand: {fileID: 398843487}
   handFBX: {fileID: 398843487}
   handInitialPos: {fileID: 1804318830}

@@ -243,7 +243,7 @@ public class Minigames : MonoBehaviour
 
     public void CheckTimer()
     {
-        if (GameManager.Instance.inMinigame)
+        if (GameManager.Instance.inMinigame && !GameManager.Instance.isGamePaused)
         {
             if (timerSlider.value > 0)
             {

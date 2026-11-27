@@ -206,6 +206,8 @@ public class Minigame2 : MonoBehaviour
             GameManager.Instance.inMinigame && 
             Minigames.Instance.currentMinigame == interactMinigame.newCurrentMinigame)
         {
+            if (GameManager.Instance.isGamePaused) return;
+
             knifeCutterScript.cut = true;
             Minigames.Instance.progress += interactMinigame.newProgressAmount;
         }
